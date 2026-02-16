@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# Temporarily block all indexing.
+# Remove once public launch begins.
