@@ -6,122 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="BAPU provides privacy-first, sovereign identity hosting and decentralized social infrastructure based on AT Protocol.">
   <meta name="robots" content="index, follow">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
-      background: radial-gradient(1200px 800px at 20% 10%, #121a33, #07090f 60%);
-      color: #e6eaf2;
-      line-height: 1.6;
-    }
-    header {
-      padding: 20px 28px;
-      border-bottom: 1px solid #1f2a44;
-      background: rgba(10,14,26,0.85);
-      backdrop-filter: blur(6px);
-      position: sticky;
-      top: 0;
-    }
-    header nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand {
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      font-size: 1.05rem;
-    }
-    header a {
-      color: #9fb4ff;
-      text-decoration: none;
-      margin-left: 18px;
-      font-weight: 500;
-    }
-    header a:hover {
-      text-decoration: underline;
-    }
-    main {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 80px 24px 100px;
-    }
-    h1 {
-      font-size: 3.2rem;
-      margin-bottom: 18px;
-      letter-spacing: -0.03em;
-    }
-    h2 {
-      margin-top: 60px;
-      border-bottom: 1px solid #1f2a44;
-      padding-bottom: 8px;
-    }
-    .lead {
-      font-size: 1.2rem;
-      color: #cdd6f4;
-      max-width: 720px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-      gap: 22px;
-      margin-top: 30px;
-    }
-    .card {
-      background: rgba(18,25,48,0.9);
-      border: 1px solid #1f2a44;
-      border-radius: 12px;
-      padding: 20px;
-    }
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-    .card a {
-      color: #9fb4ff;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .card a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      border-top: 1px solid #1f2a44;
-      padding: 24px;
-      text-align: center;
-      color: #8892b0;
-      background: rgba(10,14,26,0.85);
-    }
-    footer a {
-      color: #9fb4ff;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    .mono {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.9rem;
-      background: #0b1020;
-      border: 1px solid #1f2a44;
-      padding: 12px;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
-  </style>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
 <header>
   <nav>
-    <div class="brand">BAPU</div>
+    <a href="/" class="brand">BAPU</a>
     <div>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <a href="mailto:contact@bapu.app">Contact</a>
+      <a href="/" class="nav-link">Home</a>
+      <a href="/handles.html" class="nav-link">Handles</a>
     </div>
   </nav>
 </header>
@@ -206,12 +102,17 @@
 </main>
 
 <footer>
-  <p>
-    © 2026 BAPU — Decentralized Infrastructure<br>
-    <a href="/privacy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
-    <a href="mailto:contact@bapu.app">contact@bapu.app</a>
-  </p>
+  <div class="footer-content">
+    <p>© 2026 Aureus Z, Inc.</p>
+    <p>
+      <a href="/">Home</a>
+      <a href="/handles.html">Handles</a>
+      <a href="/signup.html">Signup</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:contact@bapu.app">Contact</a>
+    </p>
+  </div>
 </footer>
 
 </body>
