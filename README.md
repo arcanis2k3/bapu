@@ -21,6 +21,9 @@ A Node.js Express server that interacts with Cloudflare and AT Protocol.
 ### 2. Mobile App (`/mobile_app`)
 A Flutter-based Android application for users.
 
+**CI/CD:**
+This project uses GitHub Actions to automatically build the APK. You can download the latest build from the "Actions" tab of the repository under "Artifacts".
+
 **Setup:**
 1. `cd mobile_app`
 2. Ensure Flutter is installed.

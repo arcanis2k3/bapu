@@ -3,6 +3,9 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+// Use 10.0.2.2 for Android Emulator, or your server's public IP
+const String baseUrl = 'http://10.0.2.2:3000/api';
+
 void main() {
   runApp(const BapuHandleApp());
 }
@@ -51,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     try {
       final response = await http.post(
-        Uri.parse('http://10.0.2.2:3000/api/login'), // Use 10.0.2.2 for Android Emulator
+        Uri.parse('$baseUrl/login'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({'handle': handle, 'password': password}),
       );
@@ -117,8 +120,6 @@ class _HandleManagerScreenState extends State<HandleManagerScreen> {
   String? _availabilityReason;
   bool _isOperationInProgress = false;
   List<Map<String, dynamic>> _myPreviousHandles = [];
-  // Use 10.0.2.2 for Android Emulator, or your server's public IP
-  final String _baseUrl = 'http://10.0.2.2:3000/api';
 
   @override
   void initState() {
@@ -141,7 +142,7 @@ class _HandleManagerScreenState extends State<HandleManagerScreen> {
       final did = await _storage.read(key: 'did');
       if (did == null) return;
       try {
-          final res = await http.get(Uri.parse('$_baseUrl/my-handles?did=$did'));
+          final res = await http.get(Uri.parse('$baseUrl/my-handles?did=$did'));
           if (res.statusCode == 200) {
               final data = json.decode(res.body);
               setState(() { _myPreviousHandles = List<Map<String, dynamic>>.from(data['handles']); });
@@ -151,7 +152,7 @@ class _HandleManagerScreenState extends State<HandleManagerScreen> {
 
   Future<void> _fetchDomains() async {
     try {
-      final response = await http.get(Uri.parse('$_baseUrl/domains'));
+      final response = await http.get(Uri.parse('$baseUrl/domains'));
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         setState(() {
@@ -166,7 +167,7 @@ class _HandleManagerScreenState extends State<HandleManagerScreen> {
     if (_newHandleController.text.isEmpty || _selectedDomain == null) return;
     setState(() { _isChecking = true; _isAvailable = null; });
     try {
-      final response = await http.get(Uri.parse('$_baseUrl/check-handle?handle=${_newHandleController.text.trim()}&domain=$_selectedDomain'));
+      final response = await http.get(Uri.parse('$baseUrl/check-handle?handle=${_newHandleController.text.trim()}&domain=$_selectedDomain'));
       final data = json.decode(response.body);
       setState(() { _isAvailable = data['available'] == true; _availabilityReason = data['reason']; });
     } catch (e) { ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: $e')));
@@ -178,7 +179,7 @@ class _HandleManagerScreenState extends State<HandleManagerScreen> {
     setState(() => _isOperationInProgress = true);
     try {
       final response = await http.post(
-        Uri.parse('$_baseUrl/automate-all'),
+        Uri.parse('$baseUrl/automate-all'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({
           'currentHandle': _myHandle,
@@ -197,7 +198,7 @@ class _HandleManagerScreenState extends State<HandleManagerScreen> {
   Future<void> _revertToHandle(String handle) async {
     setState(() => _isOperationInProgress = true);
     try {
-      final updateRes = await http.post(Uri.parse('$_baseUrl/update-handle'),
+      final updateRes = await http.post(Uri.parse('$baseUrl/update-handle'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({ 'currentHandle': _myHandle, 'appPassword': _myPassword, 'newHandle': handle }),
       );

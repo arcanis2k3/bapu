@@ -17,6 +17,8 @@ All notable changes to this project will be documented in this file.
   - Real-time handle availability checking.
   - One-click "Claim & Update" automation.
   - History of reserved handles allowing easy switching.
+- **CI/CD**:
+  - GitHub Actions workflow to automatically build and upload the Flutter APK as an artifact.
 - **Configuration**:
   - `.env.example` for backend configuration.
   - `.gitignore` updated to include Node.js and Flutter artifacts.
