@@ -1,156 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bapu — Sovereign Communication Platform</title>
-
-  <meta name="description" content="Bapu is a sovereign communication platform focused on privacy, client-side encryption, and resilient infrastructure. Currently invite-only." />
-  <meta name="robots" content="index, follow" />
-
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="apple-touch-icon" href="/favicon.png" />
-
-  <style>
-    :root {
-      --bg: #0b0d10;
-      --fg: #f3f4f6;
-      --muted: #9ca3af;
-      --accent: #60a5fa;
-      --card: #111318;
-      --border: #1f2937;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--fg);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.5;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-
-    .container {
-      max-width: 640px;
-      width: 100%;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 3rem 2.5rem;
-      box-shadow: 0 20px 50px rgba(0,0,0,.4);
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      margin-bottom: 2rem;
-      font-size: 1.05rem;
-    }
-
-    .section {
-      margin-bottom: 1.6rem;
-    }
-
-    .label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      margin-bottom: 0.4rem;
-    }
-
-    p {
-      font-size: 1rem;
-      color: #e5e7eb;
-    }
-
-    .highlight {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .contact {
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .contact a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      margin-top: 2.5rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-align: center;
-    }
-  </style>
+  <meta charset="utf-8">
+  <title>BAPU — Signup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Request access to BAPU, a sovereign communication platform focused on privacy and resilient infrastructure.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-  <main class="container">
-    <h1>Bapu</h1>
-    <div class="subtitle">
-      A sovereign communication platform for privacy, security, and autonomy.
-    </div>
 
-    <div class="section">
-      <div class="label">Status</div>
-      <p>
-        Bapu is currently operating in <span class="highlight">private beta (invite-only)</span>.
-      </p>
+<header>
+  <nav>
+    <a href="/" class="brand">BAPU</a>
+    <div>
+      <a href="/" class="nav-link">Home</a>
+      <a href="/handles.html" class="nav-link">Handles</a>
     </div>
+  </nav>
+</header>
 
-    <div class="section">
-      <div class="label">Mission</div>
-      <p>
-        We are building a next-generation social and communication platform with a
-        strong focus on client-side encryption, data sovereignty, and resilient
-        infrastructure.
-      </p>
-    </div>
+<main>
+  <h1>Signup</h1>
+  <p class="lead">
+    A sovereign communication platform for privacy, security, and autonomy.
+  </p>
 
-    <div class="section">
-      <div class="label">Access</div>
-      <p>
-        To request access, please contact us and briefly describe who you are and
-        how you intend to use the platform.
-      </p>
-    </div>
+  <div class="card highlight">
+    <h3>Status: Private Beta</h3>
+    <p>
+      BAPU is currently operating in <strong>private beta (invite-only)</strong>.
+    </p>
+  </div>
 
-    <div class="contact">
-      Email: <a href="mailto:contact@bapu.com">contact@bapu.com</a><br />
-      Bluesky: <span class="highlight">@bapu.app</span>
-    </div>
+  <h2>Our Mission</h2>
+  <div class="card">
+    <p>
+      We are building a next-generation social and communication platform with a
+      strong focus on client-side encryption, data sovereignty, and resilient
+      infrastructure.
+    </p>
+  </div>
 
-    <footer>
-      © 2026 Bapu — Privacy by design.
-    </footer>
-  </main>
+  <h2>How to Join</h2>
+  <div class="card">
+    <p>
+      To request access, please contact us and briefly describe who you are and
+      how you intend to use the platform.
+    </p>
+    <p>
+      Email: <a href="mailto:contact@bapu.app">contact@bapu.app</a><br>
+      Bluesky: <a href="https://bsky.app/profile/bapu.app" target="_blank">@bapu.app</a>
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p>© 2026 Aureus Z, Inc.</p>
+    <p>
+      <a href="/">Home</a>
+      <a href="/handles.html">Handles</a>
+      <a href="/signup.html">Signup</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:contact@bapu.app">Contact</a>
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>

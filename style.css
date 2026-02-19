@@ -1,0 +1,170 @@
+:root {
+  --bg-gradient: radial-gradient(1200px 800px at 20% 10%, #121a33, #07090f 60%);
+  --bg-color: #07090f;
+  --text-color: #e6eaf2;
+  --muted-text: #8892b0;
+  --lead-text: #cdd6f4;
+  --link-color: #9fb4ff;
+  --header-bg: rgba(10, 14, 26, 0.85);
+  --border-color: #1f2a44;
+  --card-bg: rgba(18, 25, 48, 0.9);
+  --max-width: 980px;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+header {
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--header-bg);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  font-size: 1.05rem;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+header a.nav-link {
+  color: var(--link-color);
+  text-decoration: none;
+  margin-left: 18px;
+  font-weight: 500;
+}
+
+header a.nav-link:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 80px 24px 100px;
+}
+
+h1 {
+  font-size: 3.2rem;
+  margin-bottom: 18px;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  margin-top: 60px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: var(--lead-text);
+  max-width: 720px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.card a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  border-top: 1px solid var(--border-color);
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--muted-text);
+  background: var(--header-bg);
+}
+
+footer .footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+footer a {
+  color: var(--link-color);
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9rem;
+  background: #0b1020;
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+/* Specific to handles.html highlights */
+.highlight {
+  background: linear-gradient(90deg, #1b3cff22, #00d4ff22);
+  border: 1px solid #1b3cff55;
+}
+
+/* Specific to legal pages (privacy/terms) */
+.meta, .updated {
+  color: var(--muted-text);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+  header {
+    padding: 15px 20px;
+  }
+  main {
+    padding: 40px 20px 60px;
+  }
+}
