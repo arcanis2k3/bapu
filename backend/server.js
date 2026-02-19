@@ -12,7 +12,13 @@ app.use(cors());
 app.use(express.json());
 
 // Database setup
-const db = new Database('handles.db');
+const path = require('path');
+const fs = require('fs');
+const dataDir = process.env.DATA_DIR || '.';
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
+const db = new Database(path.join(dataDir, 'handles.db'));
 db.prepare(`
   CREATE TABLE IF NOT EXISTS reservations (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -24,8 +30,9 @@ db.prepare(`
   )
 `).run();
 
-// Cloudflare Configuration
+// Configuration
 const CF_API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
+const BSKY_SERVICE = process.env.BSKY_SERVICE || 'https://bsky.social';
 
 const cfApi = axios.create({
   baseURL: 'https://api.cloudflare.com/client/v4',
@@ -55,7 +62,7 @@ app.post('/api/login', async (req, res) => {
   if (!handle || !password) return res.status(400).json({ error: 'Missing credentials' });
 
   try {
-    const agent = new BskyAgent({ service: 'https://bsky.social' });
+    const agent = new BskyAgent({ service: BSKY_SERVICE });
     const loginRes = await agent.login({ identifier: handle, password: password });
     res.json({ success: true, did: loginRes.data.did, handle: loginRes.data.handle });
   } catch (error) {
@@ -122,7 +129,7 @@ app.post('/api/automate-all', async (req, res) => {
   }
 
   try {
-    const agent = new BskyAgent({ service: 'https://bsky.social' });
+    const agent = new BskyAgent({ service: BSKY_SERVICE });
     const loginRes = await agent.login({ identifier: currentHandle, password: appPassword });
     const did = loginRes.data.did;
 
@@ -175,7 +182,7 @@ app.post('/api/update-handle', async (req, res) => {
   }
 
   try {
-    const agent = new BskyAgent({ service: 'https://bsky.social' });
+    const agent = new BskyAgent({ service: BSKY_SERVICE });
     await agent.login({ identifier: currentHandle, password: appPassword });
     await agent.updateHandle({ handle: newHandle });
     res.json({ success: true });

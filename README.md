@@ -39,5 +39,24 @@ This project uses GitHub Actions to automatically build the APK. You can downloa
 
 ## Technical Infrastructure Requirements
 - **Cloudflare Account**: To manage the domains.
-- **Node.js Hosting**: To run the backend (e.g., VPS, Heroku, Render).
-- **SQLite**: Used for persistence (stored in `backend/handles.db`).
+- **Node.js Hosting**: To run the backend (or Docker).
+- **SQLite**: Used for persistence (stored in `backend_data/handles.db` when using Docker).
+
+## Deployment with Docker & Caddy
+
+### Docker Compose
+You can run the backend using Docker Compose. Create a `.env` file in the root directory with your `CLOUDFLARE_API_TOKEN` and then run:
+```bash
+docker-compose up -d
+```
+
+### Caddy Integration
+If you are running a PDS with Caddy, you can add the following to your `Caddyfile` to reverse proxy to the handle backend:
+
+```caddy
+handles.bapu.app {
+    reverse_proxy localhost:3000
+}
+```
+
+This setup works smoothly alongside a PDS. Ensure that the `BSKY_SERVICE` environment variable in `docker-compose.yml` points to your PDS URL if you are not using `https://bsky.social`.

@@ -1,0 +1,38 @@
+services:
+  bapu-handle-backend:
+    build:
+      context: ./backend
+    container_name: bapu-handle-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+      - BSKY_SERVICE=${BSKY_SERVICE:-https://bsky.social}
+      - PORT=3000
+      - DATA_DIR=/app/data
+    volumes:
+      - ./backend_data:/app/data
+      # Map the database file specifically if needed,
+      # but easier to use a subfolder for all persistent data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Example of how you might integrate with Caddy
+  # caddy:
+  #   image: caddy:latest
+  #   restart: unless-stopped
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./Caddyfile:/etc/caddy/Caddyfile
+  #     - caddy_data:/data
+  #     - caddy_config:/config
+
+# volumes:
+#   caddy_data:
+#   caddy_config:
