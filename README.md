@@ -27,7 +27,7 @@ This project uses GitHub Actions to automatically build the APK. You can downloa
 **Setup:**
 1. `cd mobile_app`
 2. Ensure Flutter is installed.
-3. Update `_baseUrl` in `lib/main.dart` to point to your deployed backend.
+3. Update `baseUrl` in `lib/main.dart` to point to your deployed backend (e.g., `https://handles.bapu.app/api`). **Note:** `10.0.2.2` only works for the Android Emulator.
 4. `flutter pub get`
 5. `flutter run` (or `flutter build apk`)
 
@@ -51,12 +51,20 @@ docker-compose up -d
 ```
 
 ### Caddy Integration
-If you are running a PDS with Caddy, you can add the following to your `Caddyfile` to reverse proxy to the handle backend:
+If you are running a PDS with Caddy using a wildcard like `*.bapu.app`, you can add a specific block for the handle backend. Caddy will prioritize the more specific match:
 
 ```caddy
 handles.bapu.app {
+    reverse_proxy localhost:3001
+}
+
+# Your existing PDS block
+*.bapu.app, bapu.app {
+    tls {
+        on_demand
+    }
     reverse_proxy localhost:3000
 }
 ```
 
-This setup works smoothly alongside a PDS. Ensure that the `BSKY_SERVICE` environment variable in `docker-compose.yml` points to your PDS URL if you are not using `https://bsky.social`.
+This setup works smoothly alongside a PDS on port 3000. Ensure that the `BSKY_SERVICE` environment variable in `docker-compose.yml` points to your PDS URL (e.g., `http://localhost:3000`) if you want to use it for local account verification, though the default `https://bsky.social` is usually preferred for broader compatibility.

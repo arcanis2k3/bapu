@@ -3,8 +3,9 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-// Use 10.0.2.2 for Android Emulator, or your server's public IP
-const String baseUrl = 'http://10.0.2.2:3000/api';
+// Use 10.0.2.2 for Android Emulator.
+// For physical devices, use your server's public IP or domain (e.g. 'https://handles.bapu.app/api')
+const String baseUrl = 'http://10.0.2.2:3001/api';
 
 void main() {
   runApp(const BapuHandleApp());
