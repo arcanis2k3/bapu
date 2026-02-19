@@ -79,6 +79,12 @@ app.get('/api/check-handle', async (req, res) => {
     return res.status(400).json({ error: 'Handle and domain are required' });
   }
 
+  // Handle validation: alphanumeric and hyphens only
+  const handleRegex = /^[a-zA-Z0-9-]+$/;
+  if (!handleRegex.test(handle)) {
+    return res.status(400).json({ error: 'Invalid handle format. Use alphanumeric and hyphens only.' });
+  }
+
   const reservation = db.prepare('SELECT * FROM reservations WHERE handle = ? AND domain = ?').get(handle, domain);
   if (reservation) {
     return res.json({ available: false, reason: 'Reserved', did: reservation.did });
@@ -107,6 +113,12 @@ app.post('/api/automate-all', async (req, res) => {
   const { currentHandle, appPassword, desiredHandle, domain } = req.body;
   if (!currentHandle || !appPassword || !desiredHandle || !domain) {
     return res.status(400).json({ error: 'Missing required fields' });
+  }
+
+  // Handle validation: alphanumeric and hyphens only
+  const handleRegex = /^[a-zA-Z0-9-]+$/;
+  if (!handleRegex.test(desiredHandle)) {
+    return res.status(400).json({ error: 'Invalid handle format. Use alphanumeric and hyphens only.' });
   }
 
   try {

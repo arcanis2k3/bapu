@@ -60,7 +60,12 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
       if (response.statusCode != 200) {
-        throw Exception(json.decode(response.body)['error']);
+        String errorMsg = 'Login failed';
+        try {
+          final data = json.decode(response.body);
+          errorMsg = data['error'] ?? errorMsg;
+        } catch (_) {}
+        throw Exception(errorMsg);
       }
 
       final data = json.decode(response.body);
@@ -188,7 +193,14 @@ class _HandleManagerScreenState extends State<HandleManagerScreen> {
           'domain': _selectedDomain,
         }),
       );
-      if (response.statusCode != 200) throw Exception(json.decode(response.body)['error']);
+      if (response.statusCode != 200) {
+        String errorMsg = 'Operation failed';
+        try {
+          final data = json.decode(response.body);
+          errorMsg = data['error'] ?? errorMsg;
+        } catch (_) {}
+        throw Exception(errorMsg);
+      }
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Success! Your handle has been updated.')));
       _fetchMyHandles();
     } catch (e) { ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: $e')));
@@ -202,7 +214,14 @@ class _HandleManagerScreenState extends State<HandleManagerScreen> {
         headers: {'Content-Type': 'application/json'},
         body: json.encode({ 'currentHandle': _myHandle, 'appPassword': _myPassword, 'newHandle': handle }),
       );
-      if (updateRes.statusCode != 200) throw Exception(json.decode(updateRes.body)['error']);
+      if (updateRes.statusCode != 200) {
+        String errorMsg = 'Switch failed';
+        try {
+          final data = json.decode(updateRes.body);
+          errorMsg = data['error'] ?? errorMsg;
+        } catch (_) {}
+        throw Exception(errorMsg);
+      }
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Handle switched to $handle')));
       setState(() { _myHandle = handle; });
       await _storage.write(key: 'handle', value: handle);
