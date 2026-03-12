@@ -15,3 +15,6 @@ This document logs the link and email replacements performed during the rebrandi
 | `Bluesky` | `ZChat` |
 | `Bluesky App` | `ZChat` |
 | `Bluesky Community Guidelines` | `Bapu Community Guidelines` |
+| `Bluesky App Services` | `ZChat App Services` |
+| `dpo@ametrosgroup.com` | `[DPO_EMAIL]` |
+| `gdpr@ametrosgroup.com` | `[EU_DPR_EMAIL]` / `[UK_DPR_EMAIL]` |
