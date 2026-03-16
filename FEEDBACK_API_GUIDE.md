@@ -4,7 +4,7 @@ This guide describes how to implement the backend API for the ZChat feedback for
 
 ## Endpoint Overview
 
-- **URL:** `/api/feedback`
+- **URL:** `https://api.bapu.app/feedback`
 - **Method:** `POST`
 - **Content-Type:** `application/json`
 
@@ -23,10 +23,13 @@ The API should expect a JSON object with the following fields:
 
 ```javascript
 const express = require('express');
+const cors = require('cors'); // Ensure CORS is handled
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 
-app.post('/api/feedback', (req, res) => {
+app.post('/feedback', (req, res) => {
   const { name, email, category, message } = req.body;
 
   // 1. Basic Validation
