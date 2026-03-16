@@ -176,6 +176,57 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.feedback-container input[type="text"],
+.feedback-container input[type="email"],
+.feedback-container select,
+.feedback-container textarea {
+  width: 100%;
+  padding: 12px;
+  background: #0b1020;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.feedback-container input:focus,
+.feedback-container select:focus,
+.feedback-container textarea:focus {
+  outline: none;
+  border-color: var(--link-color);
+  box-shadow: 0 0 0 2px rgba(159, 180, 255, 0.2);
+}
+
+.feedback-container button {
+  background: var(--link-color);
+  color: #07090f;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.feedback-container button:hover {
+  opacity: 0.9;
+}
+
+.feedback-container button:disabled {
+  background: var(--muted-text);
+  cursor: not-allowed;
+}
+
+.feedback-container label {
+  font-weight: 500;
+  color: var(--lead-text);
+  margin-bottom: 5px;
+  display: block;
+}
+
 @media (max-width: 600px) {
   h1 {
     font-size: 2.4rem;
