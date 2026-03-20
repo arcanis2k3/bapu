@@ -65,35 +65,32 @@ npm run release
 
 ## Running on Google Colab / Notebooks
 
-You can run this pipeline on a Google Colab notebook by following these steps:
+You can run this pipeline on a Google Colab notebook by following these steps. Note that you must separate Python code from Shell/Bash commands.
 
-1.  **Clone the Repository**:
-    ```python
+1.  **Clone and Install (Shell)**:
+    ```bash
     !git clone <repository-url>
     %cd <repository-name>
-    ```
-2.  **Install Node.js (if not available)**:
-    ```python
-    !apt-get install -y nodejs npm
-    ```
-3.  **Install Dependencies**:
-    ```python
     !npm install
     ```
-4.  **Set Environment Variables**:
+2.  **Set Environment Variables (Python)**:
     ```python
     import os
-    os.environ['ANTHROPIC_API_KEY'] = 'your-api-key'
-    # or
-    os.environ['GOOGLE_GENAI_API_KEY'] = 'your-api-key'
+    # Set your API keys here
+    os.environ['ANTHROPIC_API_KEY'] = 'your-anthropic-key'
+    os.environ['GOOGLE_GENAI_API_KEY'] = 'your-gemini-key'
     ```
-5.  **Run Pipeline Commands**:
-    ```python
+3.  **Run the Pipeline (Shell)**:
+    ```bash
+    # Extract strings
     !npm run extract
-    !npm run translate  # or npm run translate:gemini
+    # Translate (choose one)
+    !npm run translate
+    # !npm run translate:gemini
+    # Build localized site
     !npm run release
     ```
-6.  **Download Build Artifacts**:
+4.  **Download the Build (Python)**:
     ```python
     !zip -r dist.zip dist/
     from google.colab import files
