@@ -9,6 +9,8 @@ const EN_DIR = path.join(LOCALES_DIR, 'en');
 const TRANSLATION_FILE = path.join(EN_DIR, 'translation.json');
 
 const BRANDS = ['Bapu', 'ZChat'];
+// Regex to match brands or existing placeholders
+const placeholderRegex = /\{\{t\('.*?'\)\}\}/g;
 const brandRegex = new RegExp(`(\\b(?:${BRANDS.join('|')})\\b)`, 'gi');
 
 function getSection(el) {
@@ -32,11 +34,12 @@ function getSection(el) {
     return 'general';
 }
 
-const translations = {};
+let translations = {};
 
 function registerString(pagePrefix, section, text, type) {
     const trimmedText = text.trim();
-    if (!trimmedText || trimmedText.match(/^[.:,;!?()]+$/)) return null;
+    // Don't extract placeholders or single punctuation
+    if (!trimmedText || trimmedText.match(placeholderRegex) || trimmedText.match(/^[.:,;!?()]+$/)) return null;
 
     for (const k in translations) {
         if (translations[k] === trimmedText && k.startsWith(`${pagePrefix}_${section}`)) {
@@ -67,18 +70,23 @@ function registerString(pagePrefix, section, text, type) {
 
 function processContent(pagePrefix, el, text, type) {
     if (!text || !text.trim()) return text;
-    if (text.trim().startsWith('{{t(') && text.trim().endsWith(')}}')) return text;
 
     const section = getSection(el);
-    const parts = text.split(brandRegex);
+
+    // Split by placeholders AND brands to preserve them
+    const combinedRegex = new RegExp(`(${placeholderRegex.source}|${brandRegex.source})`, 'gi');
+    const parts = text.split(combinedRegex);
+
     let result = '';
     let modified = false;
 
-    const nonBrandText = text.replace(brandRegex, '').trim();
-    if (!nonBrandText) return text;
-
     for (const part of parts) {
-        if (BRANDS.some(b => part.toLowerCase() === b.toLowerCase())) {
+        if (!part) continue;
+
+        const isBrand = BRANDS.some(b => part.toLowerCase() === b.toLowerCase());
+        const isPlaceholder = !!part.match(placeholderRegex);
+
+        if (isBrand || isPlaceholder) {
             result += part;
         } else if (part.trim()) {
             const key = registerString(pagePrefix, section, part, type);
@@ -98,6 +106,19 @@ function processContent(pagePrefix, el, text, type) {
 }
 
 async function run() {
+    // Try to load existing translations first to maintain consistency
+    if (await fs.pathExists(TRANSLATION_FILE)) {
+        try {
+            const existing = await fs.readJson(TRANSLATION_FILE);
+            // Filter out any accidentally extracted placeholders from previous runs
+            for (const key in existing) {
+                if (!existing[key].match(placeholderRegex)) {
+                    translations[key] = existing[key];
+                }
+            }
+        } catch (e) {}
+    }
+
     const files = globSync('**/*.html', { cwd: TEMPLATES_DIR });
 
     for (const file of files) {
@@ -165,6 +186,21 @@ async function run() {
         });
 
         let serialized = dom.serialize();
+
+        // CRITICAL FIX: Flatten any accidentally nested placeholders like {{t('...{{t('key')}}...')}}
+        // This regex finds {{t('some_key_with_nested_t_inside')}} and tries to restore the inner key's value if possible,
+        // but it's simpler to just prevent it.
+        // The most common case is {{t('key_prefix_{{t('inner_key')}}')}}
+        // We will do a recursive replacement to flatten
+        let previous;
+        do {
+            previous = serialized;
+            serialized = serialized.replace(/{{t\('[^']*?{{t\('([^']*?)'\)}}[^']*?'\)}}/g, (match, innerKey) => {
+                // Return the inner placeholder - this effectively "unwraps" the outer one
+                return `{{t('${innerKey}')}}`;
+            });
+        } while (serialized !== previous);
+
         serialized = serialized.replace(/{{t\(&apos;(.*?)&apos;\)}}/g, "{{t('$1')}}");
         serialized = serialized.replace(/{{t\(&quot;(.*?)&quot;\)}}/g, "{{t('$1')}}");
 
