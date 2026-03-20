@@ -44,6 +44,8 @@ const LANGUAGES = [
     { name: 'Vietnamese', code: 'vi' }
 ];
 
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 async function translate() {
     if (!process.env.GOOGLE_GENAI_API_KEY) {
         console.error('Error: GOOGLE_GENAI_API_KEY environment variable is missing.');
@@ -51,17 +53,25 @@ async function translate() {
     }
 
     const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GENAI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    // Using gemini-2.5-flash as per latest available models and rate limits
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
     const enTranslation = await fs.readJson(EN_TRANSLATION_PATH);
 
-    for (const lang of LANGUAGES) {
+    for (let i = 0; i < LANGUAGES.length; i++) {
+        const lang = LANGUAGES[i];
         const langDir = path.join(LOCALES_DIR, lang.code);
         const langFilePath = path.join(langDir, 'translation.json');
 
         if (await fs.pathExists(langFilePath)) {
             console.log(`Skipping ${lang.name} (${lang.code}), file already exists.`);
             continue;
+        }
+
+        // Handle 5 RPM limit for free tier: Wait 12 seconds before each request after the first one
+        if (i > 0) {
+            console.log(`Waiting 12 seconds to respect rate limits...`);
+            await sleep(12000);
         }
 
         console.log(`Translating to ${lang.name} (${lang.code}) using Gemini...`);
