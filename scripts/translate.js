@@ -60,12 +60,25 @@ async function translate() {
         const langDir = path.join(LOCALES_DIR, lang.code);
         const langFilePath = path.join(langDir, 'translation.json');
 
+        let existingTranslation = {};
         if (await fs.pathExists(langFilePath)) {
-            console.log(`Skipping ${lang.name} (${lang.code}), file already exists.`);
+            existingTranslation = await fs.readJson(langFilePath);
+        }
+
+        const missingKeys = {};
+        for (const key of Object.keys(enTranslation)) {
+            if (!existingTranslation[key]) {
+                missingKeys[key] = enTranslation[key];
+            }
+        }
+
+        const missingKeysCount = Object.keys(missingKeys).length;
+        if (missingKeysCount === 0) {
+            console.log(`Skipping ${lang.name} (${lang.code}), already fully translated.`);
             continue;
         }
 
-        console.log(`Translating to ${lang.name} (${lang.code})...`);
+        console.log(`Translating ${missingKeysCount} missing keys to ${lang.name} (${lang.code}) using Claude...`);
 
         try {
             const response = await anthropic.messages.create({
@@ -73,14 +86,16 @@ async function translate() {
                 max_tokens: 8192,
                 system: `You are a professional UI translator. Translate the following JSON string values into ${lang.name}. Keep keys unchanged. Translate values naturally and concisely as they appear in a website UI. Return only valid JSON with no extra text, no markdown, no backticks.`,
                 messages: [
-                    { role: 'user', content: JSON.stringify(enTranslation) }
+                    { role: 'user', content: JSON.stringify(missingKeys) }
                 ],
             });
 
-            const translatedJson = JSON.parse(response.content[0].text);
+            const translatedPart = JSON.parse(response.content[0].text);
+            const finalTranslation = { ...existingTranslation, ...translatedPart };
+
             await fs.ensureDir(langDir);
-            await fs.writeJson(langFilePath, translatedJson, { spaces: 2 });
-            console.log(`Successfully translated to ${lang.name} (${lang.code}).`);
+            await fs.writeJson(langFilePath, finalTranslation, { spaces: 2 });
+            console.log(`Successfully updated ${lang.name} (${lang.code}).`);
         } catch (error) {
             console.error(`Error translating to ${lang.name}:`, error);
         }

@@ -53,7 +53,6 @@ async function translate() {
     }
 
     const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GENAI_API_KEY);
-    // Using gemini-2.5-flash as per latest available models and rate limits
     const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
     const enTranslation = await fs.readJson(EN_TRANSLATION_PATH);
@@ -63,34 +62,47 @@ async function translate() {
         const langDir = path.join(LOCALES_DIR, lang.code);
         const langFilePath = path.join(langDir, 'translation.json');
 
+        let existingTranslation = {};
         if (await fs.pathExists(langFilePath)) {
-            console.log(`Skipping ${lang.name} (${lang.code}), file already exists.`);
+            existingTranslation = await fs.readJson(langFilePath);
+        }
+
+        const missingKeys = {};
+        for (const key of Object.keys(enTranslation)) {
+            if (!existingTranslation[key]) {
+                missingKeys[key] = enTranslation[key];
+            }
+        }
+
+        const missingKeysCount = Object.keys(missingKeys).length;
+        if (missingKeysCount === 0) {
+            console.log(`Skipping ${lang.name} (${lang.code}), already fully translated.`);
             continue;
         }
 
-        // Handle 5 RPM limit for free tier: Wait 12 seconds before each request after the first one
         if (i > 0) {
             console.log(`Waiting 12 seconds to respect rate limits...`);
             await sleep(12000);
         }
 
-        console.log(`Translating to ${lang.name} (${lang.code}) using Gemini...`);
+        console.log(`Translating ${missingKeysCount} missing keys to ${lang.name} (${lang.code}) using Gemini...`);
 
         try {
             const systemPrompt = `You are a professional UI translator. Translate the following JSON string values into ${lang.name}. Keep keys unchanged. Translate values naturally and concisely as they appear in a website UI. Return only valid JSON with no extra text, no markdown, no backticks.`;
-            const userPrompt = JSON.stringify(enTranslation);
+            const userPrompt = JSON.stringify(missingKeys);
 
             const result = await model.generateContent(`${systemPrompt}\n\nJSON Data:\n${userPrompt}`);
             const response = await result.response;
             let text = response.text();
 
-            // Basic cleanup of response in case Gemini adds markdown blocks
             text = text.replace(/^```json\s*/i, '').replace(/\s*```$/i, '').trim();
 
-            const translatedJson = JSON.parse(text);
+            const translatedPart = JSON.parse(text);
+            const finalTranslation = { ...existingTranslation, ...translatedPart };
+
             await fs.ensureDir(langDir);
-            await fs.writeJson(langFilePath, translatedJson, { spaces: 2 });
-            console.log(`Successfully translated to ${lang.name} (${lang.code}).`);
+            await fs.writeJson(langFilePath, finalTranslation, { spaces: 2 });
+            console.log(`Successfully updated ${lang.name} (${lang.code}).`);
         } catch (error) {
             console.error(`Error translating to ${lang.name}:`, error);
         }
