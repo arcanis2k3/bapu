@@ -62,3 +62,40 @@ npm run release
 - Node.js
 - Anthropic API Key or Google Gemini API Key (for auto-translation)
 - Google Cloud Service Account Credentials (for Google Sheets sync)
+
+## Running on Google Colab / Notebooks
+
+You can run this pipeline on a Google Colab notebook by following these steps:
+
+1.  **Clone the Repository**:
+    ```python
+    !git clone <repository-url>
+    %cd <repository-name>
+    ```
+2.  **Install Node.js (if not available)**:
+    ```python
+    !apt-get install -y nodejs npm
+    ```
+3.  **Install Dependencies**:
+    ```python
+    !npm install
+    ```
+4.  **Set Environment Variables**:
+    ```python
+    import os
+    os.environ['ANTHROPIC_API_KEY'] = 'your-api-key'
+    # or
+    os.environ['GOOGLE_GENAI_API_KEY'] = 'your-api-key'
+    ```
+5.  **Run Pipeline Commands**:
+    ```python
+    !npm run extract
+    !npm run translate  # or npm run translate:gemini
+    !npm run release
+    ```
+6.  **Download Build Artifacts**:
+    ```python
+    !zip -r dist.zip dist/
+    from google.colab import files
+    files.download('dist.zip')
+    ```

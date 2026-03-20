@@ -10,3 +10,6 @@ mobile_app/.flutter-plugins
 mobile_app/.flutter-plugins-dependencies
 mobile_app/.packages
 mobile_app/pubspec.lock
+dist/
+node_modules/
+config/google-credentials.json

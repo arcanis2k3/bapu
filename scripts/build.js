@@ -16,34 +16,68 @@ async function build() {
     let count = 0;
 
     for (const lang of langCodes) {
-        const langTranslation = await fs.readJson(path.join(LOCALES_DIR, lang, 'translation.json'));
+        const langTranslationPath = path.join(LOCALES_DIR, lang, 'translation.json');
+        const langTranslation = await fs.readJson(langTranslationPath);
 
         for (const template of templates) {
             const templatePath = path.join(TEMPLATES_DIR, template);
-            const html = await fs.readFile(templatePath, 'utf8');
+            let html = await fs.readFile(templatePath, 'utf8');
+
+            // 1. Replace {{t('key')}} placeholders
+            html = html.replace(/{{t\('(.*?)'\)}}/g, (match, key) => {
+                const val = langTranslation[key] || enTranslation[key] || match;
+                // Basic HTML escaping for safety
+                return val.replace(/[&<>"']/g, char => {
+                    const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+                    return map[char];
+                });
+            });
+
             const dom = new JSDOM(html);
             const doc = dom.window.document;
 
-            // 1. Replace {{t('key')}} in all text and attributes
-            // Using a simple regex approach on the serialized HTML for broad coverage,
-            // but carefully to avoid nested issues.
-            let serialized = dom.serialize();
-            serialized = serialized.replace(/{{t\('(.*?)'\)}}/g, (match, key) => {
-                return langTranslation[key] || enTranslation[key] || match;
+            // 2. Fix Assets and Localize Internal Links
+            // - Fix stylesheets, icons, and scripts
+            doc.querySelectorAll('link[rel="stylesheet"], link[rel="icon"], script[src]').forEach(el => {
+                const attr = el.tagName === 'LINK' ? 'href' : 'src';
+                const val = el.getAttribute(attr);
+                if (val && val.startsWith('/') && !val.startsWith('//')) {
+                    // Prepend /assets/ to asset paths if missing
+                    if (!val.startsWith('/assets/')) {
+                        el.setAttribute(attr, '/assets' + val);
+                    }
+                }
             });
 
-            // Re-parse to manipulate DOM for lang and head tags
-            const finalDom = new JSDOM(serialized);
-            const finalDoc = finalDom.window.document;
+            // - Fix images
+            doc.querySelectorAll('img[src]').forEach(el => {
+                const val = el.getAttribute('src');
+                if (val && val.startsWith('/') && !val.startsWith('//') && !val.startsWith('/assets/')) {
+                    el.setAttribute('src', '/assets' + val);
+                }
+            });
 
-            // 2. Set lang attribute
-            finalDoc.documentElement.setAttribute('lang', lang);
+            // - Localize internal anchor links
+            doc.querySelectorAll('a[href]').forEach(el => {
+                const val = el.getAttribute('href');
+                if (val && (val.startsWith('/') || val.endsWith('.html')) && !val.startsWith('http') && !val.startsWith('mailto:')) {
+                    // Handle relative paths and root-relative paths
+                    let cleanVal = val.startsWith('/') ? val : '/' + val;
+                    // If not already localized
+                    if (!cleanVal.startsWith(`/${lang}/`)) {
+                        el.setAttribute('href', `/${lang}${cleanVal}`);
+                    }
+                }
+            });
 
-            // 3. Inject alternate hreflang tags
-            const head = finalDoc.querySelector('head');
+            // 3. Set lang attribute
+            doc.documentElement.setAttribute('lang', lang);
+
+            // 4. Inject alternate hreflang tags
+            const head = doc.querySelector('head');
             if (head) {
                 // x-default (English)
-                const defaultLink = finalDoc.createElement('link');
+                const defaultLink = doc.createElement('link');
                 defaultLink.rel = 'alternate';
                 defaultLink.hreflang = 'x-default';
                 defaultLink.href = `/en/${template}`;
@@ -51,7 +85,7 @@ async function build() {
 
                 // All language variants
                 for (const l of langCodes) {
-                    const altLink = finalDoc.createElement('link');
+                    const altLink = doc.createElement('link');
                     altLink.rel = 'alternate';
                     altLink.hreflang = l;
                     altLink.href = `/${l}/${template}`;
@@ -61,7 +95,7 @@ async function build() {
 
             const outDir = path.join(DIST_DIR, lang, path.dirname(template));
             await fs.ensureDir(outDir);
-            await fs.writeFile(path.join(outDir, path.basename(template)), finalDom.serialize(), 'utf8');
+            await fs.writeFile(path.join(outDir, path.basename(template)), dom.serialize(), 'utf8');
             count++;
         }
     }

@@ -36,8 +36,8 @@ const translations = {};
 
 function registerString(pagePrefix, section, text, type) {
     const trimmedText = text.trim();
+    if (!trimmedText || trimmedText.match(/^[.:,;!?()]+$/)) return null;
 
-    // Check if we already have this exact text in this page/section to reuse key
     for (const k in translations) {
         if (translations[k] === trimmedText && k.startsWith(`${pagePrefix}_${section}`)) {
             return k;
@@ -67,8 +67,6 @@ function registerString(pagePrefix, section, text, type) {
 
 function processContent(pagePrefix, el, text, type) {
     if (!text || !text.trim()) return text;
-
-    // If it looks like it's already a placeholder, skip
     if (text.trim().startsWith('{{t(') && text.trim().endsWith(')}}')) return text;
 
     const section = getSection(el);
@@ -76,7 +74,6 @@ function processContent(pagePrefix, el, text, type) {
     let result = '';
     let modified = false;
 
-    // Check if there's any non-brand, non-whitespace text
     const nonBrandText = text.replace(brandRegex, '').trim();
     if (!nonBrandText) return text;
 
@@ -85,10 +82,14 @@ function processContent(pagePrefix, el, text, type) {
             result += part;
         } else if (part.trim()) {
             const key = registerString(pagePrefix, section, part, type);
-            const leading = part.match(/^\s*/)[0];
-            const trailing = part.match(/\s*$/)[0];
-            result += `${leading}{{t('${key}')}}${trailing}`;
-            modified = true;
+            if (key) {
+                const leading = part.match(/^\s*/)[0];
+                const trailing = part.match(/\s*$/)[0];
+                result += `${leading}{{t('${key}')}}${trailing}`;
+                modified = true;
+            } else {
+                result += part;
+            }
         } else {
             result += part;
         }
@@ -106,12 +107,11 @@ async function run() {
         const doc = dom.window.document;
         const pagePrefix = file.replace(/\.html$/, '').replace(/[\\/]/g, '_');
 
-        // 1. Text Nodes
-        const walker = doc.createTreeWalker(doc.body, 4); // NodeFilter.SHOW_TEXT
+        const walker = doc.createTreeWalker(doc.body || doc.documentElement, 4);
         const nodes = [];
         let node;
         while (node = walker.nextNode()) {
-            const parentTag = node.parentElement.tagName;
+            const parentTag = node.parentElement ? node.parentElement.tagName : '';
             if (parentTag !== 'SCRIPT' && parentTag !== 'STYLE') {
                 nodes.push(node);
             }
@@ -124,7 +124,6 @@ async function run() {
             }
         });
 
-        // 2. Attributes
         const allElements = doc.querySelectorAll('*');
         allElements.forEach(el => {
             ['alt', 'placeholder', 'aria-label'].forEach(attr => {
@@ -138,7 +137,6 @@ async function run() {
             });
         });
 
-        // 3. Title
         const title = doc.querySelector('title');
         if (title) {
             const oldVal = title.textContent;
@@ -148,7 +146,6 @@ async function run() {
             }
         }
 
-        // 4. Meta
         const metaSpecs = [
             { selector: 'meta[name="description"]', type: 'meta_desc' },
             { selector: 'meta[property="og:title"]', type: 'og_title' },
@@ -168,7 +165,6 @@ async function run() {
         });
 
         let serialized = dom.serialize();
-        // Fix JSDOM escaping single/double quotes in placeholders within attributes
         serialized = serialized.replace(/{{t\(&apos;(.*?)&apos;\)}}/g, "{{t('$1')}}");
         serialized = serialized.replace(/{{t\(&quot;(.*?)&quot;\)}}/g, "{{t('$1')}}");
 
