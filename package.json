@@ -6,6 +6,7 @@
   "scripts": {
     "extract": "node scripts/extract.js",
     "translate": "node scripts/translate.js",
+    "translate:gemini": "node scripts/translate-gemini.js",
     "build": "node scripts/build.js",
     "sitemap": "node scripts/generate-sitemap.js",
     "export:sheets": "node scripts/export-to-sheets.js",
@@ -27,6 +28,7 @@
   "type": "commonjs",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
+    "@google/generative-ai": "^0.24.1",
     "fs-extra": "^11.3.4",
     "glob": "^13.0.6",
     "googleapis": "^171.4.0",

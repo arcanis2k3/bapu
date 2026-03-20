@@ -28,6 +28,12 @@ export ANTHROPIC_API_KEY='your-api-key'
 npm run translate
 ```
 
+Alternatively, use Google Gemini:
+```bash
+export GOOGLE_GENAI_API_KEY='your-api-key'
+npm run translate:gemini
+```
+
 ### 3. Human Review (Optional)
 To export current translations to Google Sheets for review or manual correction:
 ```bash
@@ -54,5 +60,5 @@ npm run release
 
 ## Requirements
 - Node.js
-- Anthropic API Key (for auto-translation)
+- Anthropic API Key or Google Gemini API Key (for auto-translation)
 - Google Cloud Service Account Credentials (for Google Sheets sync)
