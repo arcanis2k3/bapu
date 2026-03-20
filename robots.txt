@@ -1,7 +1,0 @@
-User-agent: *
-Disallow: /
-
-# Temporarily block all indexing.
-# Remove once public launch begins.
-
-Sitemap: https://bapu.app/sitemap.xml

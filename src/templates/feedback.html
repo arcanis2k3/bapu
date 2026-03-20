@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <title>BAPU {{t('feedback_general_title_feedback')}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{t('feedback_general_meta_desc_feedback_for')}} BAPU {{t('feedback_general_meta_desc_share_your_thoughts_and_suggestions')}}">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .feedback-container {
+      max-width: 640px;
+      margin: 20px auto;
+    }
+    #feedback-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .submit-button {
+      align-self: flex-start;
+      margin-top: 10px;
+    }
+    #form-status {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      display: none;
+    }
+    #form-status.success {
+      display: block !important;
+      background: rgba(40, 167, 69, 0.2);
+      border: 1px solid #28a745;
+      color: #fff;
+    }
+    #form-status.error {
+      display: block !important;
+      background: rgba(220, 53, 69, 0.2);
+      border: 1px solid #dc3545;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="brand">BAPU</a>
+    <div>
+      <a href="/" class="nav-link">{{t('feedback_nav_link_home')}}</a>
+      <a href="/handles.html" class="nav-link">{{t('feedback_nav_link_handles')}}</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <h1>BAPU {{t('feedback_main_feedback')}}</h1>
+  <p>{{t('feedback_main_we_value_your_feedback_please')}} BAPU{{t('feedback_main_text')}}</p>
+
+  <div class="feedback-container">
+    <form id="feedback-form">
+      <div class="form-group">
+        <label for="name">{{t('feedback_form_group_name_optional')}}</label>
+        <input type="text" id="name" name="name" placeholder="{{t('feedback_name_placeholder_your_name')}}">
+      </div>
+
+      <div class="form-group">
+        <label for="email">{{t('feedback_form_group_email_optional')}}</label>
+        <input type="email" id="email" name="email" placeholder="{{t('feedback_email_placeholder_your_email_com')}}">
+      </div>
+
+      <div class="form-group">
+        <label for="category">{{t('feedback_form_group_category')}}</label>
+        <select id="category" name="category">
+          <option value="General Feedback">{{t('feedback_category_general_feedback')}}</option>
+          <option value="Bug Report">{{t('feedback_category_bug_report')}}</option>
+          <option value="Feature Request">{{t('feedback_category_feature_request')}}</option>
+          <option value="Other">{{t('feedback_category_other')}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">{{t('feedback_form_group_message')}}</label>
+        <textarea id="message" name="message" rows="6" required="" placeholder="{{t('feedback_message_placeholder_tell_us_what_s_on')}}"></textarea>
+      </div>
+
+      <button type="submit" class="submit-button">{{t('feedback_submit_button_send_feedback')}}</button>
+    </form>
+
+    <div id="form-status"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p>{{t('feedback_footer_content_2026_aureus_z_inc')}}</p>
+    <p>
+      <a href="/">{{t('feedback_footer_content_home')}}</a>
+      <a href="/handles.html">{{t('feedback_footer_content_handles')}}</a>
+      <a href="/signup.html">{{t('feedback_footer_content_signup')}}</a>
+      <a href="https://zchat.bapu.app" target="_blank">ZChat</a>
+      <a href="/feedback.html">{{t('feedback_footer_content_feedback')}}</a>
+      <a href="/privacy.html">{{t('feedback_footer_content_privacy')}}</a>
+      <a href="/terms.html">{{t('feedback_footer_content_terms')}}</a>
+      <a href="/sitemap.html">{{t('feedback_footer_content_sitemap')}}</a> <a href="mailto:contact@bapu.app">{{t('feedback_footer_content_contact')}}</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  const feedbackForm = document.getElementById('feedback-form');
+  const formStatus = document.getElementById('form-status');
+  const submitButton = feedbackForm.querySelector('button[type="submit"]');
+
+  feedbackForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(feedbackForm);
+    const data = Object.fromEntries(formData.entries());
+
+    // Disable form
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+    formStatus.style.display = 'none';
+    formStatus.className = '';
+
+    try {
+      const response = await fetch('https://api.bapu.app/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        feedbackForm.style.display = 'none';
+        formStatus.textContent = 'Thank you! Your feedback has been received.';
+        formStatus.className = 'success';
+      } else {
+        throw new Error('Failed to send feedback');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      formStatus.textContent = 'Something went wrong. Please try again later or contact support@bapu.app.';
+      formStatus.className = 'error';
+      submitButton.disabled = false;
+      submitButton.textContent = 'Send Feedback';
+    }
+  });
+</script>
+
+
+
+</body></html>
