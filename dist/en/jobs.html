@@ -1,11 +1,11 @@
 <!DOCTYPE html><html lang="en"><head>
   <meta charset="utf-8">
-  <title>BAPU {{t('jobs_general_title_jobs')}}</title>
+  <title>BAPU — Jobs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{t('jobs_general_meta_desc_join_the')}} BAPU {{t('jobs_general_meta_desc_team_open_positions_and_careers')}}">
+  <meta name="description" content="Join the BAPU team – Open positions and careers.">
   <meta name="robots" content="index, follow">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="stylesheet" href="/assets/style.css">
   <style>
     .feedback-container {
       max-width: 640px;
@@ -44,62 +44,62 @@
       color: #fff;
     }
   </style>
-</head>
+<link rel="alternate" hreflang="x-default" href="/en/jobs.html"><link rel="alternate" hreflang="en" href="/en/jobs.html"></head>
 
 <body>
 
 <header>
   <nav>
-    <a href="/" class="brand">BAPU</a>
+    <a href="/en/" class="brand">BAPU</a>
     <div>
-      <a href="/" class="nav-link">{{t('jobs_nav_link_home')}}</a>
-      <a href="/handles.html" class="nav-link">{{t('jobs_nav_link_handles')}}</a>
+      <a href="/en/" class="nav-link">Home</a>
+      <a href="/en/handles.html" class="nav-link">Handles</a>
     </div>
   </nav>
 </header>
 
 <main>
-  <h1>{{t('jobs_main_join')}} BAPU</h1>
+  <h1>Join BAPU</h1>
 
   <p class="lead">
-    {{t('jobs_lead_we_would_be_happy_if')}}
+    We would be happy if you join us!
   </p>
 
   <p>
-    BAPU {{t('jobs_main_is_always_looking_for_passionate')}}
+    BAPU is always looking for passionate individuals who care about privacy, decentralized systems, and the future of the social web.
   </p>
 
   <div class="feedback-container">
-    <h2>{{t('jobs_feedback_container_send_us_a_message')}}</h2>
-    <p>{{t('jobs_feedback_container_tell_us_a_bit_about')}}</p>
+    <h2>Send us a message</h2>
+    <p>Tell us a bit about yourself and how you'd like to contribute.</p>
     <form id="jobs-form">
       <div class="form-group">
-        <label for="name">{{t('jobs_form_group_name')}}</label>
-        <input type="text" id="name" name="name" placeholder="{{t('jobs_name_placeholder_your_name')}}" required="">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required="">
       </div>
 
       <div class="form-group">
-        <label for="email">{{t('jobs_form_group_email')}}</label>
-        <input type="email" id="email" name="email" placeholder="{{t('jobs_email_placeholder_your_email_com')}}" required="">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required="">
       </div>
 
       <div class="form-group">
-        <label for="interest">{{t('jobs_form_group_area_of_interest')}}</label>
+        <label for="interest">Area of Interest</label>
         <select id="interest" name="category">
-          <option value="Engineering">{{t('jobs_interest_engineering')}}</option>
-          <option value="Design">{{t('jobs_interest_design')}}</option>
-          <option value="Product">{{t('jobs_interest_product')}}</option>
-          <option value="Community">{{t('jobs_interest_community')}}</option>
-          <option value="Other">{{t('jobs_interest_other')}}</option>
+          <option value="Engineering">Engineering</option>
+          <option value="Design">Design</option>
+          <option value="Product">Product</option>
+          <option value="Community">Community</option>
+          <option value="Other">Other</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="message">{{t('jobs_form_group_your_message')}}</label>
-        <textarea id="message" name="message" rows="6" required="" placeholder="{{t('jobs_message_placeholder_tell_us_about_your_skills')}}"></textarea>
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="6" required="" placeholder="Tell us about your skills and interests..."></textarea>
       </div>
 
-      <button type="submit" class="submit-button">{{t('jobs_submit_button_send_message')}}</button>
+      <button type="submit" class="submit-button">Send Message</button>
     </form>
 
     <div id="form-status"></div>
@@ -109,16 +109,16 @@
 
 <footer>
   <div class="footer-content">
-    <p>{{t('jobs_footer_content_2026_aureus_z_inc')}}</p>
+    <p>© 2026 Aureus Z, Inc.</p>
     <p>
-      <a href="/">{{t('jobs_footer_content_home')}}</a>
-      <a href="/handles.html">{{t('jobs_footer_content_handles')}}</a>
-      <a href="/signup.html">{{t('jobs_footer_content_signup')}}</a>
+      <a href="/en/">Home</a>
+      <a href="/en/handles.html">Handles</a>
+      <a href="/en/signup.html">Signup</a>
       <a href="https://zchat.bapu.app" target="_blank">ZChat</a>
-      <a href="/feedback.html">{{t('jobs_footer_content_feedback')}}</a>
-      <a href="/privacy.html">{{t('jobs_footer_content_privacy')}}</a>
-      <a href="/terms.html">{{t('jobs_footer_content_terms')}}</a>
-      <a href="/sitemap.html">{{t('jobs_footer_content_sitemap')}}</a> <a href="mailto:contact@bapu.app">{{t('jobs_footer_content_contact')}}</a>
+      <a href="/en/feedback.html">Feedback</a>
+      <a href="/en/privacy.html">Privacy</a>
+      <a href="/en/terms.html">Terms</a>
+      <a href="/en/sitemap.html">Sitemap</a> <a href="mailto:contact@bapu.app">Contact</a>
     </p>
   </div>
 </footer>

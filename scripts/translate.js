@@ -44,6 +44,17 @@ const LANGUAGES = [
     { name: 'Vietnamese', code: 'vi' }
 ];
 
+function chunkObject(obj, size) {
+    const keys = Object.keys(obj);
+    const chunks = [];
+    for (let i = 0; i < keys.length; i += size) {
+        const chunk = {};
+        keys.slice(i, i + size).forEach(k => chunk[k] = obj[k]);
+        chunks.push(chunk);
+    }
+    return chunks;
+}
+
 async function translate() {
     if (!process.env.ANTHROPIC_API_KEY) {
         console.error('Error: ANTHROPIC_API_KEY environment variable is missing.');
@@ -72,33 +83,40 @@ async function translate() {
             }
         }
 
-        const missingKeysCount = Object.keys(missingKeys).length;
-        if (missingKeysCount === 0) {
+        const totalMissing = Object.keys(missingKeys).length;
+        if (totalMissing === 0) {
             console.log(`Skipping ${lang.name} (${lang.code}), already fully translated.`);
             continue;
         }
 
-        console.log(`Translating ${missingKeysCount} missing keys to ${lang.name} (${lang.code}) using Claude...`);
+        console.log(`Translating ${totalMissing} keys to ${lang.name} (${lang.code})...`);
 
-        try {
-            const response = await anthropic.messages.create({
-                model: 'claude-sonnet-4-20250514',
-                max_tokens: 8192,
-                system: `You are a professional UI translator. Translate the following JSON string values into ${lang.name}. Keep keys unchanged. Translate values naturally and concisely as they appear in a website UI. Return only valid JSON with no extra text, no markdown, no backticks.`,
-                messages: [
-                    { role: 'user', content: JSON.stringify(missingKeys) }
-                ],
-            });
+        const chunks = chunkObject(missingKeys, 100);
+        let currentTranslation = { ...existingTranslation };
 
-            const translatedPart = JSON.parse(response.content[0].text);
-            const finalTranslation = { ...existingTranslation, ...translatedPart };
+        for (let i = 0; i < chunks.length; i++) {
+            console.log(`  - Processing batch ${i + 1}/${chunks.length}...`);
+            try {
+                const response = await anthropic.messages.create({
+                    model: 'claude-sonnet-4-20250514',
+                    max_tokens: 8192,
+                    system: `You are a professional UI translator. Translate the following JSON values into ${lang.name}. Keep keys unchanged. Return ONLY valid JSON.`,
+                    messages: [
+                        { role: 'user', content: JSON.stringify(chunks[i]) }
+                    ],
+                });
 
-            await fs.ensureDir(langDir);
-            await fs.writeJson(langFilePath, finalTranslation, { spaces: 2 });
-            console.log(`Successfully updated ${lang.name} (${lang.code}).`);
-        } catch (error) {
-            console.error(`Error translating to ${lang.name}:`, error);
+                const translatedPart = JSON.parse(response.content[0].text);
+                currentTranslation = { ...currentTranslation, ...translatedPart };
+
+                await fs.ensureDir(langDir);
+                await fs.writeJson(langFilePath, currentTranslation, { spaces: 2 });
+            } catch (error) {
+                console.error(`Error in batch ${i + 1} for ${lang.name}:`, error);
+            }
         }
+
+        console.log(`Successfully updated ${lang.name} (${lang.code}).`);
     }
 }
 

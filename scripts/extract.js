@@ -8,10 +8,10 @@ const LOCALES_DIR = 'src/locales';
 const EN_DIR = path.join(LOCALES_DIR, 'en');
 const TRANSLATION_FILE = path.join(EN_DIR, 'translation.json');
 
+// MANDATORY: Do not translate or replace these brands.
 const BRANDS = ['Bapu', 'ZChat'];
-// Regex to match brands or existing placeholders
-const placeholderRegex = /\{\{t\('.*?'\)\}\}/g;
-const brandRegex = new RegExp(`(\\b(?:${BRANDS.join('|')})\\b)`, 'gi');
+const brandRegexSource = `\\b(?:${BRANDS.join('|')})\\b`;
+const placeholderRegexSource = `\\{\\{t\\('.*?'\\)\}\\}`;
 
 function getSection(el) {
     let current = el;
@@ -38,8 +38,13 @@ let translations = {};
 
 function registerString(pagePrefix, section, text, type) {
     const trimmedText = text.trim();
-    // Don't extract placeholders or single punctuation
-    if (!trimmedText || trimmedText.match(placeholderRegex) || trimmedText.match(/^[.:,;!?()]+$/)) return null;
+    // NEVER extract brands or existing placeholders or single punctuation
+    if (!trimmedText ||
+        BRANDS.some(b => trimmedText.toLowerCase() === b.toLowerCase()) ||
+        trimmedText.match(new RegExp(`^${placeholderRegexSource}$`)) ||
+        trimmedText.match(/^[.:,;!?()\-]+$/)) {
+        return null;
+    }
 
     for (const k in translations) {
         if (translations[k] === trimmedText && k.startsWith(`${pagePrefix}_${section}`)) {
@@ -74,17 +79,19 @@ function processContent(pagePrefix, el, text, type) {
     const section = getSection(el);
 
     // Split by placeholders AND brands to preserve them
-    const combinedRegex = new RegExp(`(${placeholderRegex.source}|${brandRegex.source})`, 'gi');
+    // CRITICAL FIX: Use non-capturing groups for internal alternation,
+    // and a single outer capturing group for split() to preserve the delimiters.
+    const combinedRegex = new RegExp(`(${placeholderRegexSource}|${brandRegexSource})`, 'gi');
     const parts = text.split(combinedRegex);
 
     let result = '';
     let modified = false;
 
     for (const part of parts) {
-        if (!part) continue;
+        if (part === undefined || part === '') continue;
 
         const isBrand = BRANDS.some(b => part.toLowerCase() === b.toLowerCase());
-        const isPlaceholder = !!part.match(placeholderRegex);
+        const isPlaceholder = !!part.match(new RegExp(placeholderRegexSource, 'i'));
 
         if (isBrand || isPlaceholder) {
             result += part;
@@ -106,18 +113,7 @@ function processContent(pagePrefix, el, text, type) {
 }
 
 async function run() {
-    // Try to load existing translations first to maintain consistency
-    if (await fs.pathExists(TRANSLATION_FILE)) {
-        try {
-            const existing = await fs.readJson(TRANSLATION_FILE);
-            // Filter out any accidentally extracted placeholders from previous runs
-            for (const key in existing) {
-                if (!existing[key].match(placeholderRegex)) {
-                    translations[key] = existing[key];
-                }
-            }
-        } catch (e) {}
-    }
+    translations = {};
 
     const files = globSync('**/*.html', { cwd: TEMPLATES_DIR });
 
@@ -186,21 +182,6 @@ async function run() {
         });
 
         let serialized = dom.serialize();
-
-        // CRITICAL FIX: Flatten any accidentally nested placeholders like {{t('...{{t('key')}}...')}}
-        // This regex finds {{t('some_key_with_nested_t_inside')}} and tries to restore the inner key's value if possible,
-        // but it's simpler to just prevent it.
-        // The most common case is {{t('key_prefix_{{t('inner_key')}}')}}
-        // We will do a recursive replacement to flatten
-        let previous;
-        do {
-            previous = serialized;
-            serialized = serialized.replace(/{{t\('[^']*?{{t\('([^']*?)'\)}}[^']*?'\)}}/g, (match, innerKey) => {
-                // Return the inner placeholder - this effectively "unwraps" the outer one
-                return `{{t('${innerKey}')}}`;
-            });
-        } while (serialized !== previous);
-
         serialized = serialized.replace(/{{t\(&apos;(.*?)&apos;\)}}/g, "{{t('$1')}}");
         serialized = serialized.replace(/{{t\(&quot;(.*?)&quot;\)}}/g, "{{t('$1')}}");
 

@@ -1,11 +1,11 @@
 <!DOCTYPE html><html lang="en"><head>
   <meta charset="utf-8">
-  <title>ZChat {{t('zchat_feedback_general_title_feedback')}}</title>
+  <title>ZChat — Feedback</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{t('zchat_feedback_general_meta_desc_feedback_for')}} ZChat {{t('zchat_feedback_general_meta_desc_share_your_thoughts_and_suggestions')}}">
+  <meta name="description" content="Feedback for ZChat – Share your thoughts and suggestions.">
   <meta name="robots" content="index, follow">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="stylesheet" href="/assets/style.css">
   <style>
     .feedback-container {
       max-width: 640px;
@@ -44,52 +44,52 @@
       color: #fff;
     }
   </style>
-</head>
+<link rel="alternate" hreflang="x-default" href="/en/zchat/feedback.html"><link rel="alternate" hreflang="en" href="/en/zchat/feedback.html"></head>
 
 <body>
 
 <header>
   <nav>
-    <a href="/" class="brand">BAPU</a>
+    <a href="/en/" class="brand">BAPU</a>
     <div>
-      <a href="/" class="nav-link">{{t('zchat_feedback_nav_link_home')}}</a>
-      <a href="/handles.html" class="nav-link">{{t('zchat_feedback_nav_link_handles')}}</a>
+      <a href="/en/" class="nav-link">Home</a>
+      <a href="/en/handles.html" class="nav-link">Handles</a>
     </div>
   </nav>
 </header>
 
 <main>
-  <h1>ZChat {{t('zchat_feedback_main_feedback')}}</h1>
-  <p>{{t('zchat_feedback_main_we_value_your_feedback_please')}} ZChat.</p>
+  <h1>ZChat Feedback</h1>
+  <p>We value your feedback! Please use the form below to share your thoughts, suggestions, or report any issues you've encountered with ZChat.</p>
 
   <div class="feedback-container">
     <form id="feedback-form">
       <div class="form-group">
-        <label for="name">{{t('zchat_feedback_form_group_name_optional')}}</label>
-        <input type="text" id="name" name="name" placeholder="{{t('zchat_feedback_name_placeholder_your_name')}}">
+        <label for="name">Name (Optional)</label>
+        <input type="text" id="name" name="name" placeholder="Your name">
       </div>
 
       <div class="form-group">
-        <label for="email">{{t('zchat_feedback_form_group_email_optional')}}</label>
-        <input type="email" id="email" name="email" placeholder="{{t('zchat_feedback_email_placeholder_your_email_com')}}">
+        <label for="email">Email (Optional)</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com">
       </div>
 
       <div class="form-group">
-        <label for="category">{{t('zchat_feedback_form_group_category')}}</label>
+        <label for="category">Category</label>
         <select id="category" name="category">
-          <option value="General Feedback">{{t('zchat_feedback_category_general_feedback')}}</option>
-          <option value="Bug Report">{{t('zchat_feedback_category_bug_report')}}</option>
-          <option value="Feature Request">{{t('zchat_feedback_category_feature_request')}}</option>
-          <option value="Other">{{t('zchat_feedback_category_other')}}</option>
+          <option value="General Feedback">General Feedback</option>
+          <option value="Bug Report">Bug Report</option>
+          <option value="Feature Request">Feature Request</option>
+          <option value="Other">Other</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="message">{{t('zchat_feedback_form_group_message')}}</label>
-        <textarea id="message" name="message" rows="6" required="" placeholder="{{t('zchat_feedback_message_placeholder_tell_us_what_s_on')}}"></textarea>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required="" placeholder="Tell us what's on your mind..."></textarea>
       </div>
 
-      <button type="submit" class="submit-button">{{t('zchat_feedback_submit_button_send_feedback')}}</button>
+      <button type="submit" class="submit-button">Send Feedback</button>
     </form>
 
     <div id="form-status"></div>
@@ -98,16 +98,16 @@
 
 <footer>
   <div class="footer-content">
-    <p>{{t('zchat_feedback_footer_content_2026_aureus_z_inc')}}</p>
+    <p>© 2026 Aureus Z, Inc.</p>
     <p>
-      <a href="/">{{t('zchat_feedback_footer_content_home')}}</a>
-      <a href="/handles.html">{{t('zchat_feedback_footer_content_handles')}}</a>
-      <a href="/signup.html">{{t('zchat_feedback_footer_content_signup')}}</a>
+      <a href="/en/">Home</a>
+      <a href="/en/handles.html">Handles</a>
+      <a href="/en/signup.html">Signup</a>
       <a href="https://zchat.bapu.app" target="_blank">ZChat</a>
-      <a href="/feedback.html">{{t('zchat_feedback_footer_content_feedback')}}</a>
-      <a href="/privacy.html">{{t('zchat_feedback_footer_content_privacy')}}</a>
-      <a href="/terms.html">{{t('zchat_feedback_footer_content_terms')}}</a>
-      <a href="/sitemap.html">{{t('zchat_feedback_footer_content_sitemap')}}</a> <a href="mailto:contact@bapu.app">{{t('zchat_feedback_footer_content_contact')}}</a>
+      <a href="/en/feedback.html">Feedback</a>
+      <a href="/en/privacy.html">Privacy</a>
+      <a href="/en/terms.html">Terms</a>
+      <a href="/en/sitemap.html">Sitemap</a> <a href="mailto:contact@bapu.app">Contact</a>
     </p>
   </div>
 </footer>
