@@ -9,13 +9,25 @@ const LOCALES_DIR = 'src/locales';
 const DIST_DIR = 'dist';
 
 async function build() {
-    const langCodes = (await fs.readdir(LOCALES_DIR)).filter(f => fs.statSync(path.join(LOCALES_DIR, f)).isDirectory());
-    const enTranslation = await fs.readJson(path.join(LOCALES_DIR, 'en', 'translation.json'));
+    const localeEntries = await fs.readdir(LOCALES_DIR);
+    const langCodes = localeEntries.filter(f => fs.statSync(path.join(LOCALES_DIR, f)).isDirectory());
+
+    console.log(`Found ${langCodes.length} languages: ${langCodes.join(', ')}`);
+
+    const enTranslationPath = path.join(LOCALES_DIR, 'en', 'translation.json');
+    if (!(await fs.pathExists(enTranslationPath))) {
+        console.error('English translation file missing. Run extraction first.');
+        process.exit(1);
+    }
+    const enTranslation = await fs.readJson(enTranslationPath);
     const templates = globSync('**/*.html', { cwd: TEMPLATES_DIR });
+
+    console.log(`Processing ${templates.length} templates...`);
 
     let count = 0;
 
     for (const lang of langCodes) {
+        console.log(`Building for language: ${lang}...`);
         const langTranslationPath = path.join(LOCALES_DIR, lang, 'translation.json');
         const langTranslation = await fs.readJson(langTranslationPath);
 
@@ -37,19 +49,16 @@ async function build() {
             const doc = dom.window.document;
 
             // 2. Fix Assets and Localize Internal Links
-            // - Fix stylesheets, icons, and scripts
             doc.querySelectorAll('link[rel="stylesheet"], link[rel="icon"], script[src]').forEach(el => {
                 const attr = el.tagName === 'LINK' ? 'href' : 'src';
                 const val = el.getAttribute(attr);
                 if (val && val.startsWith('/') && !val.startsWith('//')) {
-                    // Prepend /assets/ to asset paths if missing
                     if (!val.startsWith('/assets/')) {
                         el.setAttribute(attr, '/assets' + val);
                     }
                 }
             });
 
-            // - Fix images
             doc.querySelectorAll('img[src]').forEach(el => {
                 const val = el.getAttribute('src');
                 if (val && val.startsWith('/') && !val.startsWith('//') && !val.startsWith('/assets/')) {
@@ -57,13 +66,10 @@ async function build() {
                 }
             });
 
-            // - Localize internal anchor links
             doc.querySelectorAll('a[href]').forEach(el => {
                 const val = el.getAttribute('href');
                 if (val && (val.startsWith('/') || val.endsWith('.html')) && !val.startsWith('http') && !val.startsWith('mailto:')) {
-                    // Handle relative paths and root-relative paths
                     let cleanVal = val.startsWith('/') ? val : '/' + val;
-                    // If not already localized
                     if (!cleanVal.startsWith(`/${lang}/`)) {
                         el.setAttribute('href', `/${lang}${cleanVal}`);
                     }
@@ -76,14 +82,12 @@ async function build() {
             // 4. Inject alternate hreflang tags
             const head = doc.querySelector('head');
             if (head) {
-                // x-default (English)
                 const defaultLink = doc.createElement('link');
                 defaultLink.rel = 'alternate';
                 defaultLink.hreflang = 'x-default';
                 defaultLink.href = `/en/${template}`;
                 head.appendChild(defaultLink);
 
-                // All language variants
                 for (const l of langCodes) {
                     const altLink = doc.createElement('link');
                     altLink.rel = 'alternate';
@@ -103,12 +107,13 @@ async function build() {
     // Copy assets to dist/assets
     if (await fs.pathExists(ASSETS_DIR)) {
         await fs.copy(ASSETS_DIR, path.join(DIST_DIR, 'assets'));
+        console.log('Assets copied to dist/assets');
     }
 
-    console.log(`Build complete. Generated ${count} pages (${templates.length} templates × ${langCodes.length} languages).`);
+    console.log(`Build finished. Created ${count} files.`);
 }
 
 build().catch(err => {
-    console.error(err);
+    console.error('Build failure:', err);
     process.exit(1);
 });

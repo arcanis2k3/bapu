@@ -71,14 +71,14 @@ async function translate() {
         const langDir = path.join(LOCALES_DIR, lang.code);
         const langFilePath = path.join(langDir, 'translation.json');
 
-        let existingTranslation = {};
+        let currentTranslation = {};
         if (await fs.pathExists(langFilePath)) {
-            existingTranslation = await fs.readJson(langFilePath);
+            currentTranslation = await fs.readJson(langFilePath);
         }
 
         const missingKeys = {};
         for (const key of Object.keys(enTranslation)) {
-            if (!existingTranslation[key]) {
+            if (!currentTranslation[key]) {
                 missingKeys[key] = enTranslation[key];
             }
         }
@@ -91,9 +91,7 @@ async function translate() {
 
         console.log(`Translating ${totalMissing} keys to ${lang.name} (${lang.code}) using Claude...`);
 
-        // Batch size of 200 for Claude
-        const chunks = chunkObject(missingKeys, 200);
-        let currentTranslation = { ...existingTranslation };
+        const chunks = chunkObject(missingKeys, 100);
 
         for (let i = 0; i < chunks.length; i++) {
             console.log(`  - Processing batch ${i + 1}/${chunks.length}...`);
@@ -114,10 +112,12 @@ async function translate() {
                 const translatedPart = JSON.parse(match[0]);
                 currentTranslation = { ...currentTranslation, ...translatedPart };
 
+                // SAVE AFTER EVERY SUCCESSFUL BATCH
                 await fs.ensureDir(langDir);
                 await fs.writeJson(langFilePath, currentTranslation, { spaces: 2 });
             } catch (error) {
-                console.error(`Error in batch ${i + 1} for ${lang.name}:`, error.message);
+                console.error(`    - Error in batch ${i + 1} for ${lang.name}:`, error.message);
+                break;
             }
         }
 

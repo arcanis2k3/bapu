@@ -1,103 +1,70 @@
-# BAPU Internationalization & Build System
+# BAPU Handle Management System
 
-This repository contains the static BAPU website with a full internationalization (i18n) and build pipeline.
+This repository contains the automated system for managing AT Protocol (Bluesky) handles under BAPU domains.
 
-## Project Structure
+## Components
 
-- `/src/templates/`: HTML source files with i18n placeholders `{{t('key_name')}}`.
-- `/src/assets/`: Static assets (CSS, images, JS).
-- `/src/locales/`: JSON translation files for each supported language.
-- `/scripts/`: Node.js automation scripts.
-- `/dist/`: Generated website output (built per language).
+### 1. Backend (`/backend`)
+A Node.js Express server that interacts with Cloudflare and AT Protocol.
 
-## Workflow
+**Setup:**
+1. `cd backend`
+2. `npm install`
+3. Copy `.env.example` to `.env` and fill in your `CLOUDFLARE_API_TOKEN`.
+4. `node server.js`
 
-To maintain and update the website, follow these steps:
+**API Endpoints:**
+- `GET /api/domains`: Lists active zones from Cloudflare.
+- `GET /api/check-handle`: Checks if a handle is available in DNS and reservations.
+- `POST /api/automate-all`: Handles the entire flow: verifies availability, sets DNS, and updates the user's Bluesky handle.
 
-### 1. Extraction
-If you've added new text to any HTML template, run the extraction script to sync keys with the English source-of-truth:
+### 2. Mobile App (`/mobile_app`)
+A Flutter-based Android application for users.
+
+**CI/CD:**
+This project uses GitHub Actions to automatically build the APK. You can download the latest build from the "Actions" tab of the repository under "Artifacts".
+
+**Setup:**
+1. `cd mobile_app`
+2. Ensure Flutter is installed.
+3. Update `baseUrl` in `lib/main.dart` to point to your deployed backend (e.g., `https://handles.bapu.app/api`). **Note:** `10.0.2.2` only works for the Android Emulator.
+4. `flutter pub get`
+5. `flutter run` (or `flutter build apk`)
+
+**Features:**
+- Login with Bluesky Handle + App Password.
+- Real-time availability check.
+- Automated handle switching.
+- History of reserved handles.
+
+## Technical Infrastructure Requirements
+- **Cloudflare Account**: To manage the domains.
+- **Node.js Hosting**: To run the backend (or Docker).
+- **SQLite**: Used for persistence (stored in `backend_data/handles.db` when using Docker).
+
+## Deployment with Docker & Caddy
+
+### Docker Compose
+You can run the backend using Docker Compose. Create a `.env` file in the root directory with your `CLOUDFLARE_API_TOKEN` and then run:
 ```bash
-npm run extract
-```
-This will update `/src/locales/en/translation.json`.
-
-### 2. Auto-Translation
-To automatically translate new or missing keys using Claude AI:
-```bash
-export ANTHROPIC_API_KEY='your-api-key'
-npm run translate
-```
-
-Alternatively, use Google Gemini:
-```bash
-export GOOGLE_GENAI_API_KEY='your-api-key'
-npm run translate:gemini
-```
-
-### 3. Human Review (Optional)
-To export current translations to Google Sheets for review or manual correction:
-```bash
-export SHEET_ID='your-google-sheet-id'
-# Ensure config/google-credentials.json exists
-npm run export:sheets
-```
-After editing the sheet, import the changes back:
-```bash
-npm run import:sheets
-```
-
-### 4. Build
-To build the localized site to the `/dist/` folder:
-```bash
-npm run build
+docker-compose up -d
 ```
 
-### 5. Release
-To build and generate the sitemap for deployment:
-```bash
-npm run release
+### Caddy Integration
+If you are running a PDS with Caddy using a wildcard like `*.bapu.app`, you can add a specific block for the handle backend. Caddy will prioritize the more specific match:
+
+```caddy
+handles.bapu.app {
+    reverse_proxy localhost:3001
+}
+
+# Your existing PDS block
+*.bapu.app, bapu.app {
+    tls {
+        on_demand
+    }
+    reverse_proxy localhost:3000
+}
 ```
 
-## Running on Google Colab / Notebooks
-
-You can run this pipeline on a Google Colab notebook by following these steps. Note that you must separate Python code from Shell/Bash commands.
-
-1.  **Clone and Install (Shell)**:
-    ```bash
-    !git clone <repository-url>
-    %cd <repository-name>
-    !npm install
-    ```
-2.  **Set Environment Variables (Python)**:
-    ```python
-    import os
-    # Set your API keys here
-    os.environ['ANTHROPIC_API_KEY'] = 'your-anthropic-key'
-    os.environ['GOOGLE_GENAI_API_KEY'] = 'your-gemini-key'
-    ```
-3.  **Run the Pipeline (Shell)**:
-    ```bash
-    # Extract strings
-    !npm run extract
-    # Translate (choose one)
-    !npm run translate
-    # !npm run translate:gemini
-    # Build localized site
-    !npm run release
-    ```
-4.  **Download the Build (Python)**:
-    ```python
-    !zip -r dist.zip dist/
-    from google.colab import files
-    files.download('dist.zip')
-    ```
-
-## Troubleshooting (Colab)
-
-- **Git Merge Errors**: If you encounter errors about "untracked working tree files would be overwritten by merge", it is likely due to the `dist/` folder. Simply run `!rm -rf dist/` before running the git command.
-- **Quota Exceeded (429)**: The Gemini script automatically rotates through multiple models. If you still hit limits, wait for the cooldown or use the Claude script if available.
-
-## Requirements
-- Node.js
-- Anthropic API Key or Google Gemini API Key (for auto-translation)
-- Google Cloud Service Account Credentials (for Google Sheets sync)
+This setup works smoothly alongside a PDS on port 3000. Ensure that the `BSKY_SERVICE` environment variable in `docker-compose.yml` points to your PDS URL (e.g., `http://localhost:3000`) if you want to use it for local account verification, though the default `https://bsky.social` is usually preferred for broader compatibility.

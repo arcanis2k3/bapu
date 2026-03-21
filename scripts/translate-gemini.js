@@ -44,48 +44,16 @@ const LANGUAGES = [
     { name: 'Vietnamese', code: 'vi' }
 ];
 
-// Available models with different quotas. 3.1-flash-lite has best RPD (500).
-let models = [
+// Rotating models. Prioritize 3.1-flash-lite (highest limit).
+let activeModels = [
     'gemini-3.1-flash-lite',
-    'gemini-2.5-flash',
     'gemini-3-flash',
+    'gemini-2.5-flash',
     'gemini-2.5-flash-lite'
 ];
 
-let currentModelIndex = 0;
+let modelIndex = 0;
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-async function callWithRetry(fn, maxRetries = 5) {
-    for (let i = 0; i < maxRetries; i++) {
-        try {
-            return await fn();
-        } catch (error) {
-            console.error(`Error with ${models[currentModelIndex]}: ${error.message}`);
-
-            // Check for Quota Exceeded (RPD or RPM)
-            if (error.message.includes('quota') || error.status === 429) {
-                // If Daily Quota hit (limit 20/50 etc), remove model from rotation
-                if (error.message.toLowerCase().includes('daily') || error.message.includes('limit: 20')) {
-                    console.warn(`Daily quota reached for ${models[currentModelIndex]}. Removing from rotation.`);
-                    models.splice(currentModelIndex, 1);
-                    if (models.length === 0) throw new Error('All models exhausted their daily quota.');
-                    currentModelIndex %= models.length;
-                } else {
-                    // Just a temporary RPM hit
-                    const delay = (i + 1) * 30000;
-                    console.log(`Rate limit hit. Waiting ${delay / 1000}s before retry...`);
-                    await sleep(delay);
-                    currentModelIndex = (currentModelIndex + 1) % models.length;
-                }
-            } else {
-                // Other errors (500 etc)
-                await sleep(5000);
-                currentModelIndex = (currentModelIndex + 1) % models.length;
-            }
-        }
-    }
-    throw new Error('Max retries reached.');
-}
 
 function chunkObject(obj, size) {
     const keys = Object.keys(obj);
@@ -96,6 +64,37 @@ function chunkObject(obj, size) {
         chunks.push(chunk);
     }
     return chunks;
+}
+
+async function runGeminiRequest(genAI, langName, chunk) {
+    // Try each model until one works
+    let attempts = 0;
+    while (attempts < activeModels.length) {
+        const currentModel = activeModels[modelIndex];
+        try {
+            const model = genAI.getGenerativeModel({ model: currentModel });
+            const systemPrompt = `You are a professional UI translator. Translate the following JSON values into ${langName}. Keep keys unchanged. Return ONLY valid JSON.`;
+            const userPrompt = JSON.stringify(chunk);
+
+            const result = await model.generateContent(`${systemPrompt}\n\nJSON:\n${userPrompt}`);
+            const response = await result.response;
+            const text = response.text();
+
+            const match = text.match(/\{[\s\S]*\}/);
+            if (!match) throw new Error('No JSON found');
+            return JSON.parse(match[0]);
+        } catch (error) {
+            console.warn(`Model ${currentModel} failed: ${error.message}`);
+            if (error.message.includes('quota') || error.status === 429) {
+                console.warn(`Rotating away from ${currentModel} due to rate/quota.`);
+            }
+            // Move to next model
+            modelIndex = (modelIndex + 1) % activeModels.length;
+            attempts++;
+            await sleep(2000);
+        }
+    }
+    throw new Error('All models failed to translate batch.');
 }
 
 async function translate() {
@@ -111,14 +110,14 @@ async function translate() {
         const langDir = path.join(LOCALES_DIR, lang.code);
         const langFilePath = path.join(langDir, 'translation.json');
 
-        let existingTranslation = {};
+        let currentTranslation = {};
         if (await fs.pathExists(langFilePath)) {
-            existingTranslation = await fs.readJson(langFilePath);
+            currentTranslation = await fs.readJson(langFilePath);
         }
 
         const missingKeys = {};
         for (const key of Object.keys(enTranslation)) {
-            if (!existingTranslation[key]) {
+            if (!currentTranslation[key]) {
                 missingKeys[key] = enTranslation[key];
             }
         }
@@ -131,42 +130,29 @@ async function translate() {
 
         console.log(`Translating ${totalMissing} keys to ${lang.name} (${lang.code})...`);
 
-        // Batch size of 300 to stay within daily limits and prevent JSON errors from truncation
-        const chunks = chunkObject(missingKeys, 300);
-        let currentTranslation = { ...existingTranslation };
+        const chunks = chunkObject(missingKeys, 50); // Smaller chunks for better success rate
 
         for (let j = 0; j < chunks.length; j++) {
-            const chunk = chunks[j];
-            console.log(`  - Processing batch ${j + 1}/${chunks.length} using ${models[currentModelIndex]}...`);
+            console.log(`  - Batch ${j + 1}/${chunks.length} using ${activeModels[modelIndex]}...`);
+            try {
+                const translatedPart = await runGeminiRequest(genAI, lang.name, chunks[j]);
+                currentTranslation = { ...currentTranslation, ...translatedPart };
 
-            const translatedPart = await callWithRetry(async () => {
-                const model = genAI.getGenerativeModel({ model: models[currentModelIndex] });
-                const systemPrompt = `You are a professional UI translator. Translate the following JSON values into ${lang.name}. Keep keys unchanged. Return ONLY valid JSON.`;
-                const userPrompt = JSON.stringify(chunk);
-
-                const result = await model.generateContent(`${systemPrompt}\n\nJSON:\n${userPrompt}`);
-                const response = await result.response;
-                let text = response.text();
-
-                // Robust JSON extraction
-                const match = text.match(/\{[\s\S]*\}/);
-                if (!match) throw new Error('No JSON object found in response.');
-                return JSON.parse(match[0]);
-            });
-
-            currentTranslation = { ...currentTranslation, ...translatedPart };
-            await fs.ensureDir(langDir);
-            await fs.writeJson(langFilePath, currentTranslation, { spaces: 2 });
-
-            // Respect RPM across models
-            await sleep(15000);
+                // SAVE AFTER EVERY SUCCESSFUL BATCH
+                await fs.ensureDir(langDir);
+                await fs.writeJson(langFilePath, currentTranslation, { spaces: 2 });
+                console.log(`    - Batch ${j + 1} saved.`);
+            } catch (err) {
+                console.error(`    - Fatal error in batch ${j + 1}:`, err.message);
+                // Continue to next language if this one is stuck
+                break;
+            }
+            await sleep(12000); // 5 RPM safety
         }
-
-        console.log(`Successfully updated ${lang.name} (${lang.code}).`);
     }
 }
 
 translate().catch(err => {
-    console.error('Fatal error during translation:', err);
+    console.error('Fatal translation failure:', err);
     process.exit(1);
 });
