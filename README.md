@@ -92,6 +92,11 @@ You can run this pipeline on a Google Colab notebook by following these steps. N
     files.download('dist.zip')
     ```
 
+## Troubleshooting (Colab)
+
+- **Git Merge Errors**: If you encounter errors about "untracked working tree files would be overwritten by merge", it is likely due to the `dist/` folder. Simply run `!rm -rf dist/` before running the git command.
+- **Quota Exceeded (429)**: The Gemini script automatically rotates through multiple models. If you still hit limits, wait for the cooldown or use the Claude script if available.
+
 ## Requirements
 - Node.js
 - Anthropic API Key or Google Gemini API Key (for auto-translation)

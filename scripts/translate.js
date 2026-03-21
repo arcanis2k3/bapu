@@ -89,9 +89,10 @@ async function translate() {
             continue;
         }
 
-        console.log(`Translating ${totalMissing} keys to ${lang.name} (${lang.code})...`);
+        console.log(`Translating ${totalMissing} keys to ${lang.name} (${lang.code}) using Claude...`);
 
-        const chunks = chunkObject(missingKeys, 100);
+        // Batch size of 200 for Claude
+        const chunks = chunkObject(missingKeys, 200);
         let currentTranslation = { ...existingTranslation };
 
         for (let i = 0; i < chunks.length; i++) {
@@ -106,13 +107,17 @@ async function translate() {
                     ],
                 });
 
-                const translatedPart = JSON.parse(response.content[0].text);
+                const text = response.content[0].text;
+                const match = text.match(/\{[\s\S]*\}/);
+                if (!match) throw new Error('No JSON object found in response.');
+
+                const translatedPart = JSON.parse(match[0]);
                 currentTranslation = { ...currentTranslation, ...translatedPart };
 
                 await fs.ensureDir(langDir);
                 await fs.writeJson(langFilePath, currentTranslation, { spaces: 2 });
             } catch (error) {
-                console.error(`Error in batch ${i + 1} for ${lang.name}:`, error);
+                console.error(`Error in batch ${i + 1} for ${lang.name}:`, error.message);
             }
         }
 
