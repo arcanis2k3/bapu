@@ -1,0 +1,199 @@
+const fs = require('fs-extra');
+const path = require('path');
+const { JSDOM } = require('jsdom');
+const { globSync } = require('glob');
+
+const TEMPLATES_DIR = 'src/templates';
+const LOCALES_DIR = 'src/locales';
+const EN_DIR = path.join(LOCALES_DIR, 'en');
+const TRANSLATION_FILE = path.join(EN_DIR, 'translation.json');
+
+// MANDATORY: Do not translate or replace these brands.
+const BRANDS = ['Bapu', 'ZChat'];
+const brandRegexSource = `\\b(?:${BRANDS.join('|')})\\b`;
+const placeholderRegexSource = `\\{\\{t\\('.*?'\\)\}\\}`;
+
+function getSection(el) {
+    let current = el;
+    while (current) {
+        const tag = current.tagName;
+        if (tag === 'HEADER' || tag === 'FOOTER' || tag === 'NAV' || tag === 'MAIN') {
+            return tag.toLowerCase();
+        }
+        if (current.id) {
+            return current.id.toLowerCase().replace(/[^a-z0-9]/g, '_');
+        }
+        if (current.className && typeof current.className === 'string') {
+            const firstClass = current.className.split(' ')[0];
+            if (firstClass && !firstClass.includes('{')) {
+                return firstClass.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            }
+        }
+        current = current.parentElement;
+    }
+    return 'general';
+}
+
+let translations = {};
+
+function registerString(pagePrefix, section, text, type) {
+    const trimmedText = text.trim();
+    // NEVER extract brands or existing placeholders or single punctuation
+    if (!trimmedText ||
+        BRANDS.some(b => trimmedText.toLowerCase() === b.toLowerCase()) ||
+        trimmedText.match(new RegExp(`^${placeholderRegexSource}$`)) ||
+        trimmedText.match(/^[.:,;!?()\-]+$/)) {
+        return null;
+    }
+
+    for (const k in translations) {
+        if (translations[k] === trimmedText && k.startsWith(`${pagePrefix}_${section}`)) {
+            return k;
+        }
+    }
+
+    let base = trimmedText
+        .replace(/[^a-zA-Z0-9 ]/g, ' ')
+        .trim()
+        .split(/\s+/)
+        .slice(0, 5)
+        .join('_')
+        .toLowerCase();
+
+    if (!base) base = 'text';
+
+    const keyPrefix = `${pagePrefix}_${section}_${type ? type + '_' : ''}${base}`;
+    let key = keyPrefix;
+    let counter = 1;
+
+    while (translations[key] && translations[key] !== trimmedText) {
+        key = `${keyPrefix}_${counter++}`;
+    }
+    translations[key] = trimmedText;
+    return key;
+}
+
+function processContent(pagePrefix, el, text, type) {
+    if (!text || !text.trim()) return text;
+
+    const section = getSection(el);
+
+    // Split by placeholders AND brands to preserve them
+    // CRITICAL FIX: Use non-capturing groups for internal alternation,
+    // and a single outer capturing group for split() to preserve the delimiters.
+    const combinedRegex = new RegExp(`(${placeholderRegexSource}|${brandRegexSource})`, 'gi');
+    const parts = text.split(combinedRegex);
+
+    let result = '';
+    let modified = false;
+
+    for (const part of parts) {
+        if (part === undefined || part === '') continue;
+
+        const isBrand = BRANDS.some(b => part.toLowerCase() === b.toLowerCase());
+        const isPlaceholder = !!part.match(new RegExp(placeholderRegexSource, 'i'));
+
+        if (isBrand || isPlaceholder) {
+            result += part;
+        } else if (part.trim()) {
+            const key = registerString(pagePrefix, section, part, type);
+            if (key) {
+                const leading = part.match(/^\s*/)[0];
+                const trailing = part.match(/\s*$/)[0];
+                result += `${leading}{{t('${key}')}}${trailing}`;
+                modified = true;
+            } else {
+                result += part;
+            }
+        } else {
+            result += part;
+        }
+    }
+    return modified ? result : text;
+}
+
+async function run() {
+    translations = {};
+
+    const files = globSync('**/*.html', { cwd: TEMPLATES_DIR });
+
+    for (const file of files) {
+        const filePath = path.join(TEMPLATES_DIR, file);
+        const html = await fs.readFile(filePath, 'utf8');
+        const dom = new JSDOM(html);
+        const doc = dom.window.document;
+        const pagePrefix = file.replace(/\.html$/, '').replace(/[\\/]/g, '_');
+
+        const walker = doc.createTreeWalker(doc.body || doc.documentElement, 4);
+        const nodes = [];
+        let node;
+        while (node = walker.nextNode()) {
+            const parentTag = node.parentElement ? node.parentElement.tagName : '';
+            if (parentTag !== 'SCRIPT' && parentTag !== 'STYLE') {
+                nodes.push(node);
+            }
+        }
+        nodes.forEach(n => {
+            const oldVal = n.textContent;
+            const newVal = processContent(pagePrefix, n.parentElement, oldVal);
+            if (newVal !== oldVal) {
+                n.textContent = newVal;
+            }
+        });
+
+        const allElements = doc.querySelectorAll('*');
+        allElements.forEach(el => {
+            ['alt', 'placeholder', 'aria-label'].forEach(attr => {
+                const val = el.getAttribute(attr);
+                if (val) {
+                    const newVal = processContent(pagePrefix, el, val, attr);
+                    if (newVal !== val) {
+                        el.setAttribute(attr, newVal);
+                    }
+                }
+            });
+        });
+
+        const title = doc.querySelector('title');
+        if (title) {
+            const oldVal = title.textContent;
+            const newVal = processContent(pagePrefix, title, oldVal, 'title');
+            if (newVal !== oldVal) {
+                title.textContent = newVal;
+            }
+        }
+
+        const metaSpecs = [
+            { selector: 'meta[name="description"]', type: 'meta_desc' },
+            { selector: 'meta[property="og:title"]', type: 'og_title' },
+            { selector: 'meta[property="og:description"]', type: 'og_desc' }
+        ];
+        metaSpecs.forEach(spec => {
+            const meta = doc.querySelector(spec.selector);
+            if (meta) {
+                const val = meta.getAttribute('content');
+                if (val) {
+                    const newVal = processContent(pagePrefix, meta, val, spec.type);
+                    if (newVal !== val) {
+                        meta.setAttribute('content', newVal);
+                    }
+                }
+            }
+        });
+
+        let serialized = dom.serialize();
+        serialized = serialized.replace(/{{t\(&apos;(.*?)&apos;\)}}/g, "{{t('$1')}}");
+        serialized = serialized.replace(/{{t\(&quot;(.*?)&quot;\)}}/g, "{{t('$1')}}");
+
+        await fs.writeFile(filePath, serialized, 'utf8');
+    }
+
+    await fs.ensureDir(EN_DIR);
+    await fs.writeJson(TRANSLATION_FILE, translations, { spaces: 2 });
+    console.log(`Extraction complete. Generated ${Object.keys(translations).length} keys in ${TRANSLATION_FILE}`);
+}
+
+run().catch(err => {
+    console.error(err);
+    process.exit(1);
+});

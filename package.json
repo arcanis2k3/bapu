@@ -1,0 +1,37 @@
+{
+  "name": "bapu-web",
+  "version": "1.0.0",
+  "description": "BAPU Internationalized Static Website",
+  "main": "index.js",
+  "scripts": {
+    "extract": "node scripts/extract.js",
+    "translate": "node scripts/translate.js",
+    "translate:gemini": "node scripts/translate-gemini.js",
+    "build": "node scripts/build.js",
+    "sitemap": "node scripts/generate-sitemap.js",
+    "export:sheets": "node scripts/export-to-sheets.js",
+    "import:sheets": "node scripts/import-from-sheets.js",
+    "release": "npm run build && npm run sitemap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arcanis2k3/bapu.git"
+  },
+  "keywords": [
+    "i18n",
+    "static",
+    "bapu",
+    "zchat"
+  ],
+  "author": "Aureus Z, Inc.",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
+    "@google/generative-ai": "^0.24.1",
+    "fs-extra": "^11.3.4",
+    "glob": "^13.0.6",
+    "googleapis": "^171.4.0",
+    "jsdom": "^29.0.1"
+  }
+}
