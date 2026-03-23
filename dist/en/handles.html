@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en"><head>
   <meta charset="utf-8">
-  <title>BAPU {{t('handles_general_title_free_bluesky_handles_early_access')}}</title>
+  <title>BAPU — Free Bluesky Handles (Early Access)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{t('handles_general_meta_desc_professional_identity_verified_ownership_zero')}}">
+  <meta name="description" content="Professional identity. Verified ownership. Zero cost — while we test and harden our infrastructure.">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="stylesheet" href="/assets/style.css">
@@ -14,110 +14,123 @@
   <nav>
     <a href="/en/" class="brand">BAPU</a>
     <div>
-      <a href="/en/" class="nav-link">{{t('handles_nav_link_home')}}</a>
-      <a href="/en/handles.html" class="nav-link">{{t('handles_nav_link_handles')}}</a>
+      <a href="/en/" class="nav-link">Home</a>
+      <a href="/en/handles.html" class="nav-link">Handles</a>
     </div>
   </nav>
 </header>
 
 <main>
-  <h1>{{t('handles_main_early_access_handles')}}</h1>
+  <h1>Early Access Handles</h1>
   <p class="lead">
-    {{t('handles_lead_free_early_access_bluesky_atproto')}}
+    Free early-access Bluesky / ATProto handles under our domains.
+    Professional identity. Verified ownership. Zero cost — while we test and harden our infrastructure.
   </p>
 
   <div class="card highlight">
-    <h2>{{t('handles_card_free_handle_program')}}</h2>
+    <h2>Free Handle Program</h2>
     <p>
-      {{t('handles_card_we_are_currently_offering_free')}}
+      We are currently offering **free custom Bluesky handles** under selected domains we operate.
+      This program exists to **test, validate, and harden our identity infrastructure**.
     </p>
     <p>
-      {{t('handles_card_early_users_help_us_stress')}}
+      Early users help us stress-test automation, DNS control, DID resolution and security flows.
+      In return, you receive **a free professional handle**.
     </p>
   </div>
 
-  <h2>{{t('handles_main_what_you_get')}}</h2>
+  <h2>What You Get</h2>
   <div class="card">
     <ul>
-      <li>{{t('handles_card_custom_handle_under_our_domains')}} <strong>{{t('handles_card_yourname')}}bapu{{t('handles_card_app')}}</strong> {{t('handles_card_or')}} <strong>{{t('handles_card_yourname_idroot_org')}}</strong> )</li>
-      <li>{{t('handles_card_fully_managed_dns_identity_binding')}}</li>
-      <li>{{t('handles_card_cryptographically_verifiable_did_ownership')}}</li>
-      <li>{{t('handles_card_zero_configuration_on_your_side')}}</li>
-      <li>{{t('handles_card_future_migration_path_to_your')}}</li>
+      <li>Custom handle under our domains (e.g. <strong>@yourname.bapu.app</strong> or <strong>@yourname.idroot.org</strong> )</li>
+      <li>Fully managed DNS &amp; identity binding</li>
+      <li>Cryptographically verifiable DID ownership</li>
+      <li>Zero configuration on your side</li>
+      <li>Future migration path to your own domain</li>
     </ul>
   </div>
 
-  <h2>{{t('handles_main_security_identity_verification')}}</h2>
+  <h2>Security &amp; Identity Verification</h2>
   <div class="card">
     <p>
-      {{t('handles_card_we_only_approve_requests_if')}}
+      We only approve requests if we are **confident that you are who you claim to be**.
+      To ensure this, all users must verify their identity through our provider.
+      This process may involve a liveness check and/or an ID check.
     </p>
     <p>
-      {{t('handles_card_requests_without_successful_identity_verification')}}
+      Requests without **successful identity verification will be rejected**.
+      We reserve the right to deny or revoke any handle **without explanation**.
     </p>
   </div>
 
-  <h2>{{t('handles_main_how_it_works')}}</h2>
+  <h2>How It Works</h2>
   <div class="card">
-    <h3>{{t('handles_card_1_you_provide_your_profile')}}</h3>
+    <h3>1 — You Provide Your Profile Link</h3>
     <p>
-      {{t('handles_card_we_extract_your_did_decentralized')}}
+      We extract your **DID** (Decentralized Identifier) automatically from your profile link.
+      You don't need to look up any technical identifiers manually.
     </p>
-    <h3>{{t('handles_card_2_identity_verification')}}</h3>
+    <h3>2 — Identity Verification</h3>
     <p>
-      {{t('handles_card_you_will_be_directed_to')}}
+      You will be directed to our verification provider to complete an identity check.
+      This may include a liveness check and/or providing a government-issued ID.
+      A handle will only be granted after successful verification.
     </p>
-    <h3>{{t('handles_card_3_we_configure_everything')}}</h3>
+    <h3>3 — We Configure Everything</h3>
     <p>
-      {{t('handles_card_we_manage_all_dns_records')}}
+      We manage **all DNS records and verification** on our side to link your profile to the new handle.
+      We create and manage the required (public) TXT records and bind your DID to your new handle.
+      No DNS access, no technical setup required from your side.
     </p>
-    <h3>{{t('handles_card_4_you_activate_your_handle')}}</h3>
+    <h3>4 — You Activate Your Handle</h3>
     <p>
-      {{t('handles_card_once_we_have_activated_the')}}
+      Once we have activated the handle on our side, you need to complete the switch in your Bluesky settings:
     </p>
     <p>
-      <strong>{{t('handles_card_settings_account_handle_i_have')}}</strong>
+      <strong>Settings → Account → Handle → I have my own domain → Verify DNS record</strong>
     </p>
-    <h3>{{t('handles_card_5_your_handle_goes_live')}}</h3>
+    <h3>5 — Your Handle Goes Live</h3>
     <p>
-      {{t('handles_card_once_verified_your_new_handle')}}
+      Once verified, your new handle becomes active instantly. You can always go back autonomously to your original Bluesky handle at any time through the same settings menu.
     </p>
   </div>
 
-  <h2>{{t('handles_main_request_early_access')}}</h2>
+  <h2>Request Early Access</h2>
   <div class="card">
     <p>
-      {{t('handles_card_you_can_request_your_handle')}}
+      You can request your handle via:
     </p>
     <ul>
-      <li>{{t('handles_card_email')}} <strong>{{t('handles_card_handles')}}bapu{{t('handles_card_app')}}</strong></li>
-      <li>ZChat {{t('handles_card_dm_or_comment')}} <a href="https://web.bapu.app/profile/bapu.app" target="_blank">{{t('handles_card_text')}}bapu{{t('handles_card_app')}}</a></li>
+      <li>Email: <strong>handles@bapu.app</strong></li>
+      <li>ZChat DM or comment: <a href="https://web.bapu.app/profile/bapu.app" target="_blank">@bapu.app</a></li>
     </ul>
-    <h3>{{t('handles_card_please_include')}}</h3>
+    <h3>Please include:</h3>
     <ul>
-      <li>{{t('handles_card_desired_handle')}}</li>
-      <li>{{t('handles_card_your_current_bluesky_profile_link')}}</li>
-      <li>{{t('handles_card_verification_links_instagram_x_website')}}</li>
-    </ul>
-  </div>
-
-  <h2>{{t('handles_main_important_policies')}}</h2>
-  <div class="card">
-    <ul>
-      <li>{{t('handles_card_handles_are_provided_as_a')}}</li>
-      <li>{{t('handles_card_we_reserve_the_right_to')}}</li>
-      <li>{{t('handles_card_no_impersonation_scams_fraud_or')}}</li>
-      <li>{{t('handles_card_no_resale_squatting_automation_or')}}</li>
+      <li>Desired handle</li>
+      <li>Your current Bluesky profile link</li>
+      <li>Verification links (Instagram, X, website, etc.)</li>
     </ul>
   </div>
 
-  <h2>{{t('handles_main_why_free')}}</h2>
+  <h2>Important Policies</h2>
+  <div class="card">
+    <ul>
+      <li>Handles are provided as a revocable service, not permanent property.</li>
+      <li>We reserve the right to revoke any handle at any time.</li>
+      <li>No impersonation, scams, fraud or illegal activity.</li>
+      <li>No resale, squatting, automation, or speculative registration.</li>
+    </ul>
+  </div>
+
+  <h2>Why Free?</h2>
   <div class="card">
     <p>
-      {{t('handles_card_this_program_exists_to_test')}}
+      This program exists to **test and validate our identity infrastructure under real-world conditions**.
+      Early users help us identify edge cases, operational limits, and automation gaps.
     </p>
     <p>
-      {{t('handles_card_additionally_seeing_professional_handles_like')}} <strong>{{t('handles_card_name')}}bapu{{t('handles_card_app')}}</strong> {{t('handles_card_in_the_wild_is_great')}}
+      Additionally, seeing professional handles like <strong>@name.bapu.app</strong> in the wild is great advertising for us.
+      In exchange for this visibility and your feedback, we provide these handles at **zero cost** during this testing phase.
     </p>
   </div>
 
@@ -125,16 +138,16 @@
 
 <footer>
   <div class="footer-content">
-    <p>{{t('handles_footer_content_2026_aureus_z_inc')}}</p>
+    <p>© 2026 Aureus Z, Inc.</p>
     <p>
-      <a href="/en/">{{t('handles_footer_content_home')}}</a>
-      <a href="/en/handles.html">{{t('handles_footer_content_handles')}}</a>
-      <a href="/en/signup.html">{{t('handles_footer_content_signup')}}</a>
+      <a href="/en/">Home</a>
+      <a href="/en/handles.html">Handles</a>
+      <a href="/en/signup.html">Signup</a>
       <a href="https://zchat.bapu.app" target="_blank">ZChat</a>
-      <a href="/en/feedback.html">{{t('handles_footer_content_feedback')}}</a>
-      <a href="/en/privacy.html">{{t('handles_footer_content_privacy')}}</a>
-      <a href="/en/terms.html">{{t('handles_footer_content_terms')}}</a>
-      <a href="/en/sitemap.html">{{t('handles_footer_content_sitemap')}}</a> <a href="mailto:contact@bapu.app">{{t('handles_footer_content_contact')}}</a>
+      <a href="/en/feedback.html">Feedback</a>
+      <a href="/en/privacy.html">Privacy</a>
+      <a href="/en/terms.html">Terms</a>
+      <a href="/en/sitemap.html">Sitemap</a> <a href="mailto:contact@bapu.app">Contact</a>
     </p>
   </div>
 </footer>
