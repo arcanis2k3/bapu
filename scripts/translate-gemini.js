@@ -130,7 +130,7 @@ async function translate() {
 
         console.log(`Translating ${totalMissing} keys to ${lang.name} (${lang.code})...`);
 
-        const chunks = chunkObject(missingKeys, 50); // Smaller chunks for better success rate
+        const chunks = chunkObject(missingKeys, 300); // Smaller chunks avoid hitting output token limits (which truncates the JSON)
 
         for (let j = 0; j < chunks.length; j++) {
             console.log(`  - Batch ${j + 1}/${chunks.length} using ${activeModels[modelIndex]}...`);
@@ -147,7 +147,7 @@ async function translate() {
                 // Continue to next language if this one is stuck
                 break;
             }
-            await sleep(12000); // 5 RPM safety
+            await sleep(15000); // Wait 15 seconds to safely stay under the API rate limit (15 requests/minute)
         }
     }
 }
