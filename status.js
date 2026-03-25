@@ -1,13 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const fetchWithTimeout = async (url, timeoutMs = 5000, options = {}) => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      return await fetch(url, { ...options, signal: controller.signal });
+    } finally {
+      clearTimeout(timer);
+    }
+  };
+
   const footerContent = document.querySelector('.footer-content');
   if (!footerContent) return;
 
   const statusContainer = document.createElement('div');
   statusContainer.className = 'service-status-list';
+  statusContainer.setAttribute('role', 'status');
+  statusContainer.setAttribute('aria-live', 'polite');
+  statusContainer.setAttribute('aria-atomic', 'true');
   footerContent.appendChild(statusContainer);
 
   const announcementContainer = document.createElement('div');
   announcementContainer.className = 'announcement-banner';
+  announcementContainer.setAttribute('role', 'status');
+  announcementContainer.setAttribute('aria-live', 'polite');
+  announcementContainer.setAttribute('aria-atomic', 'true');
   footerContent.appendChild(announcementContainer);
 
   const services = [
@@ -15,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Backend',
       check: async () => {
         try {
-          const res = await fetch('https://api.bapu.app/health');
+          const res = await fetchWithTimeout('https://api.bapu.app/health');
           if (res.ok) {
             const data = await res.json();
             const status = data.ok ? 'green' : 'red';
@@ -33,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       check: async () => {
         try {
           // The PDS _health endpoint usually returns a version as well
-          const res = await fetch('https://pds.bapu.app/xrpc/_health');
+          const res = await fetchWithTimeout('https://pds.bapu.app/xrpc/_health');
           if (res.ok) {
             try {
               const data = await res.json();
@@ -96,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fetch Latest Announcement
   async function fetchAnnouncement() {
     try {
-      const res = await fetch('https://api.bapu.app/announcement');
+      const res = await fetchWithTimeout('https://api.bapu.app/announcement');
       if (res.ok) {
         const data = await res.json();
         if (data && data.message) {
