@@ -28,6 +28,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const services = [
     {
+      name: 'Clavis',
+      check: async () => {
+        try {
+          const res = await fetchWithTimeout('https://clavis.bapu.app/health');
+          if (res.ok) {
+            try {
+              const data = await res.json();
+              const status = (data.ok || data.status === 'ok') ? 'green' : 'red';
+              const version = data.version ? ` (v${data.version})` : '';
+              return { status, version };
+            } catch (jsonError) {
+              return { status: 'green', version: '' };
+            }
+          }
+          return { status: 'red', version: '' };
+        } catch (e) {
+          return { status: 'red', version: '' };
+        }
+      }
+    },
+    {
       name: 'Backend',
       check: async () => {
         try {
