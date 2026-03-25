@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   statusContainer.className = 'service-status-list';
   footerContent.appendChild(statusContainer);
 
+  const announcementContainer = document.createElement('div');
+  announcementContainer.className = 'announcement-banner';
+  footerContent.appendChild(announcementContainer);
+
   const services = [
     {
       name: 'Backend',
@@ -14,11 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
           const res = await fetch('https://api.bapu.app/health');
           if (res.ok) {
             const data = await res.json();
-            return data.ok ? 'green' : 'red';
+            const status = data.ok ? 'green' : 'red';
+            const version = data.version ? ` (v${data.version})` : '';
+            return { status, version };
           }
-          return 'red';
+          return { status: 'red', version: '' };
         } catch (e) {
-          return 'red';
+          return { status: 'red', version: '' };
         }
       }
     },
@@ -26,18 +32,42 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'PDS',
       check: async () => {
         try {
+          // The PDS _health endpoint usually returns a version as well
           const res = await fetch('https://pds.bapu.app/xrpc/_health');
-          return res.ok ? 'green' : 'red';
+          if (res.ok) {
+            try {
+              const data = await res.json();
+              const version = data.version ? ` (v${data.version})` : '';
+              return { status: 'green', version };
+            } catch (jsonError) {
+              return { status: 'green', version: '' };
+            }
+          }
+          return { status: 'red', version: '' };
         } catch (e) {
-          return 'red';
+          return { status: 'red', version: '' };
         }
       }
     },
     {
-      name: 'Frontends',
+      name: 'zchat.bapu.app',
       check: async () => {
         // Frontends signup is not working
-        return 'yellow';
+        return { status: 'yellow', version: '' };
+      }
+    },
+    {
+      name: 'web.bapu.app',
+      check: async () => {
+        // Frontends signup is not working
+        return { status: 'yellow', version: '' };
+      }
+    },
+    {
+      name: 'encryption.bapu.app',
+      check: async () => {
+        // Frontends signup is not working
+        return { status: 'yellow', version: '' };
       }
     }
   ];
@@ -59,7 +89,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   services.forEach(async (service) => {
-    const status = await service.check();
-    statusElements[service.name].innerHTML = `<strong>${service.name}:</strong> ${statusIcons[status]}`;
+    const result = await service.check();
+    statusElements[service.name].innerHTML = `<strong>${service.name}:</strong> ${statusIcons[result.status]}${result.version}`;
   });
+
+  // Fetch Latest Announcement
+  async function fetchAnnouncement() {
+    try {
+      const res = await fetch('https://api.bapu.app/announcement');
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.message) {
+          announcementContainer.innerHTML = `📢 <strong>Latest Announcement:</strong> ${data.message}`;
+        }
+      }
+    } catch (e) {
+      // Silently fail if announcement endpoint is not available yet
+    }
+  }
+
+  fetchAnnouncement();
 });
