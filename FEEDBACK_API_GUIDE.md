@@ -1,6 +1,6 @@
-# ZChat Feedback API Guide
+# Bapu Feedback API Guide
 
-This guide describes how to implement the backend API for the ZChat feedback form.
+This guide describes how to implement the backend API for the Bapu feedback form.
 
 ## Endpoint Overview
 

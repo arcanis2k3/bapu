@@ -91,7 +91,7 @@ Used by the `/feedback.html`, `/zchat/feedback.html`, and `/jobs.html` forms to 
 
 ## Important: CORS Configuration
 
-All of the above endpoints **must** have Cross-Origin Resource Sharing (CORS) configured correctly, as they are accessed by browsers directly from multiple frontend domains (e.g., `bapu.app`, `web.bapu.app`, `zchat.bapu.app`, `encryption.bapu.app`).
+All of the above endpoints **must** have Cross-Origin Resource Sharing (CORS) configured correctly, as they are accessed by browsers directly from multiple frontend domains (e.g., `bapu.app`, `web.bapu.app`, `encryption.bapu.app`).
 
 ### Recommended CORS Headers
 
