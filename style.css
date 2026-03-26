@@ -241,9 +241,9 @@ footer a:hover {
 
 .service-status-list {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   margin-top: 24px;
   padding-top: 16px;
   border-top: 1px dashed var(--border-color);
