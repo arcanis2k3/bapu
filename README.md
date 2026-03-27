@@ -7,12 +7,12 @@ This repository contains the static website, frontend HTML templates, and CSS st
 ## Components
 
 ### 1. Frontend Web App (Root & `/zchat`)
-The static HTML files providing information about BAPU, sovereign identity, decentralized social infrastructure, and ZChat documentation.
+The static HTML files providing information about BAPU, sovereign identity, decentralized social infrastructure, and Bapu documentation.
 
 **Key Pages:**
 - `index.html`: The landing page outlining core principles.
 - `handles.html`: Details on the handle ecosystem and early access.
-- `/zchat/terms.html` & `/zchat/privacy.html`: Legal documentation for the ZChat client.
+- `/zchat/terms.html` & `/zchat/privacy.html`: Legal documentation for the Bapu client.
 - `/status.js`: A dynamic script injected into the footer to monitor the live operational status of BAPU's Backend, PDS, and Frontend applications.
 
 **Styling & Assets:**
