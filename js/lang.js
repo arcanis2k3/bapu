@@ -158,7 +158,31 @@ function initLanguageSelector() {
     });
 
     selectorContainer.appendChild(select);
-    footerContent.appendChild(selectorContainer);
+
+    // Find the paragraph containing the links
+    const pTags = footerContent.querySelectorAll('p');
+    let linksP = null;
+    let copyP = null;
+
+    pTags.forEach(p => {
+        if (p.querySelector('a')) {
+            linksP = p;
+        } else if (p.textContent.includes('©')) {
+            copyP = p;
+        }
+    });
+
+    if (linksP) {
+        linksP.appendChild(selectorContainer);
+    } else {
+        footerContent.appendChild(selectorContainer);
+    }
+
+    // Move copyright below links
+    if (copyP && linksP && copyP.nextElementSibling === linksP) {
+        // Swap them so links come first, then copyright
+        footerContent.insertBefore(linksP, copyP);
+    }
 }
 
 async function detectAndRedirectLanguage() {
