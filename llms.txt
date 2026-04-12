@@ -1,0 +1,836 @@
+# BAPU Website & Knowledge Base
+
+
+
+========================================
+## INDEX
+========================================
+
+Sovereign Social Infrastructure
+BAPU operates an experimental high-security Personal Data Server (PDS) for the AT Protocol, providing
+    privacy-first identity hosting, federation-grade reliability, and cryptographic trust primitives.
+What is BAPU?
+BAPU is decentralized social infrastructure — not a social media platform. We operate
+    protocol-compliant hosting that enables users to own their identity, data, and social graph
+    across the AT Protocol ecosystem.
+Core Principles
+Privacy First
+No surveillance, no tracking, no data resale. Minimal logging. Strong cryptography.
+Sovereign Identity
+Your handle, your keys, your control — independent from any single application.
+Federation Native
+Full compatibility with Bluesky and all AT Protocol appviews.
+Security Grade
+Hardened infrastructure, continuous monitoring, and zero-trust architecture.
+Create an Account
+Account creation is performed using trusted AT Protocol applications (“appviews”).
+    Choose your preferred client below and select
+bapu.app
+as your provider during signup.
+    Please note that granting a handle and access to our PDS requires identity verification through our provider, which may involve a liveness check and/or an ID check.
+    The PDS is at the moment only available to members of our Beta programm.
+ZChat
+Official Bapu client
+web.bapu.app →
+Deck.blue
+Advanced power-user interface
+deck.blue →
+Tokimeki
+Experimental & minimalist client
+tokimeki.blue →
+Handle Options
+Upon successful identity verification, you may choose:
+username.bapu.app
+username.idroot.org
+yourdomain.tld
+(requires DNS verification)
+You can autonomously switch back to your old handle any time.
+Early Access Programm Bluesky -AT Prot- handles
+Legal Position
+BAPU provides neutral hosting and protocol infrastructure. While we host a user interface and frontend for the AT Protocol (such as ZChat), we can technically only moderate content that is hosted on our own server or infrastructure. Content moderation for the wider network and social discovery are primarily the responsibility of the respective service and application providers.
+
+========================================
+## ABOUT
+========================================
+
+About BAPU
+BAPU is a startup dedicated to evolving the decentralized social web.
+We believe that social infrastructure should be open, federated, and secure. Our mission is to integrate powerful encryption in a way that is friendly to the federated nature of the AT Protocol.
+Our Vision
+We are building tools and infrastructure that enable private, secure communication for:
+Friends and Family
+Businesses and Teams
+Private Groups
+By combining the openness of the AT Protocol with zero-trust encryption principles, we empower users to maintain true sovereignty over their digital lives without sacrificing the benefits of a global, connected network.
+Startup Spirit
+As a young company, we move fast and iterate based on user needs. BAPU is currently in an experimental phase as we harden our infrastructure and refine our encryption models. We are excited to have you with us on this journey toward a more private and resilient social future.
+
+========================================
+## HANDLES
+========================================
+
+Early Access Handles
+Free early-access Bluesky / ATProto handles under our domains.
+    Professional identity. Verified ownership. Zero cost — while we test and harden our infrastructure.
+Free Handle Program
+We are currently offering **free custom Bluesky handles** under selected domains we operate.
+      This program exists to **test, validate, and harden our identity infrastructure**.
+Early users help us stress-test automation, DNS control, DID resolution and security flows.
+      In return, you receive **a free professional handle**.
+What You Get
+Custom handle under our domains (e.g.
+@yourname.bapu.app
+or
+@yourname.idroot.org
+)
+Fully managed DNS & identity binding
+Cryptographically verifiable DID ownership
+Zero configuration on your side
+Future migration path to your own domain
+Security & Identity Verification
+We only approve requests if we are **confident that you are who you claim to be**.
+      To ensure this, all users must verify their identity through our provider.
+      This process may involve a liveness check and/or an ID check.
+Requests without **successful identity verification will be rejected**.
+      We reserve the right to deny or revoke any handle **without explanation**.
+How It Works
+1 — You Provide Your Profile Link
+We extract your **DID** (Decentralized Identifier) automatically from your profile link.
+      You don't need to look up any technical identifiers manually.
+2 — Identity Verification
+You will be directed to our verification provider to complete an identity check.
+      This may include a liveness check and/or providing a government-issued ID.
+      A handle will only be granted after successful verification.
+3 — We Configure Everything
+We manage **all DNS records and verification** on our side to link your profile to the new handle.
+      We create and manage the required (public) TXT records and bind your DID to your new handle.
+      No DNS access, no technical setup required from your side.
+4 — You Activate Your Handle
+Once we have activated the handle on our side, you need to complete the switch in your Bluesky settings:
+Settings → Account → Handle → I have my own domain → Verify DNS record
+5 — Your Handle Goes Live
+Once verified, your new handle becomes active instantly. You can always go back autonomously to your original Bluesky handle at any time through the same settings menu.
+Request Early Access
+You can request your handle via:
+Email:
+handles@bapu.app
+ZChat DM or comment:
+@bapu.app
+Please include:
+Desired handle
+Your current Bluesky profile link
+Verification links (Instagram, X, website, etc.)
+Important Policies
+Handles are provided as a revocable service, not permanent property.
+We reserve the right to revoke any handle at any time.
+No impersonation, scams, fraud or illegal activity.
+No resale, squatting, automation, or speculative registration.
+Why Free?
+This program exists to **test and validate our identity infrastructure under real-world conditions**.
+      Early users help us identify edge cases, operational limits, and automation gaps.
+Additionally, seeing professional handles like
+@name.bapu.app
+in the wild is great advertising for us.
+      In exchange for this visibility and your feedback, we provide these handles at **zero cost** during this testing phase.
+
+========================================
+## SIGNUP
+========================================
+
+Signup
+A sovereign communication platform for privacy, security, and autonomy.
+Status: Private Beta
+ZChat is built on open standards. You can sign in with your existing account from any decentralized provider (such as Bluesky) directly at
+web.bapu.app
+or start fresh by creating an Account (DID)
+Our Mission
+We are building a next-generation social and communication platform with a
+      strong focus on client-side encryption, data sovereignty, and resilient
+      infrastructure.
+How to Join
+To request access, please contact us and briefly describe who you are and
+      how you intend to use the platform. Please note that joining BAPU and being granted a handle requires identity verification through our provider, which may involve a liveness check and/or an ID check.
+Email:
+contact@bapu.app
+ZChat:
+@bapu.app
+
+========================================
+## COMMUNITY
+========================================
+
+Community Guidelines
+Last Updated: March 16, 2026
+BAPU is a social networking application provided by Aureus Z, Inc. ("we", "us", "our”). BAPU runs on the Authenticated Transfer Protocol ("AT Protocol"), a decentralized social networking protocol that supports many different kinds of services. Together with the BAPU Terms of Service, Privacy Policy, and Copyright Policy, these Community Guidelines ("Guidelines") govern your use of the BAPU application, website, and services (collectively, "BAPU"). By accessing or using BAPU, you agree to be bound by these Guidelines. Please read them carefully.
+These Guidelines only apply to social networking that happens on BAPU. If you’re using another social networking application on the AT Protocol that isn’t BAPU (a “Developer Application”), the terms and conditions of that Developer Application will govern your experience. We are not responsible for the content or practices of Developer Applications.
+Our mission is to build technologies for open and decentralized public conversation. We want to foster a vibrant and evolving community that respects individual preferences and adapts to the changing needs of our users. These guidelines are part of your agreement with us and set out some rules for using BAPU.
+We drafted these guidelines to comply with applicable laws and to do three things:
+Empower user choice:
+We strive to make choices on BAPU that align with your personal preferences and values. To do this, we try to make it easy for people to run their own apps, to choose the algorithms that power their feeds, and to migrate between services.
+Cultivate a welcoming environment:
+We want to create a safe and friendly space where users feel welcomed, supported, and enjoy participating.
+Evolve with feedback:
+As we evolve, our guidelines and standards will, too. We will regularly review and update these guidelines in response to your feedback, emerging trends, and changing laws.
+Unless they are otherwise defined in these Community Guidelines, all capitalized terms have the meaning given to them in the BAPU Terms of Service. Throughout these Guidelines, the terms "including," "includes," "such as," and "for example" mean "without limitation."
+BAPU Community Guidelines
+These Guidelines promote a safe and enjoyable experience for everyone. We moderate content on BAPU using human moderators, working alongside automated systems. While we host a user interface and frontend for the AT Protocol (such as ZChat), we can technically only moderate content that is hosted on our own server or infrastructure. We also provide customizable options to help you shape your experience.
+Our approach to content moderation is grounded in respect for human rights and fundamental freedoms, while recognizing that we must follow the law in different jurisdictions. We use proportional enforcement actions that prioritize community safety while preserving space for legitimate expression and open dialogue.
+We recognize that no single company can get online safety right for every country, culture, and community, which is why we've built a composable moderation infrastructure that lets you create or subscribe to additional labeling services based on your preferences. This approach gives communities the power to create their own moderation tools alongside our baseline protections.
+While communities can build their own moderation tools, we remain responsible for setting and enforcing baseline rules that require careful judgment. That means we make difficult decisions every day about whether certain types of content or expression cross into becoming harassment or other prohibited conduct. We always use our best efforts when making these determinations, and our appeals process gives you an opportunity to tell us if you think we have gotten something wrong. Ultimately, however, this discretion rests with us, and we reserve the right to make final decisions about how to handle any specific piece of content or account. You can learn more about our enforcement procedures and appeals process in our Terms of Service.
+Our Principles:
+Safety First:
+We do not allow content that shows or promotes violence, harm, exploitation, or criminal activity against adults, children, or animals. Do not violate anyone's privacy or share personal information.
+Respect Others:
+We do not allow harassment, bullying, hate speech, or discrimination. This includes targeting individuals based on protected characteristics.
+Be Authentic:
+We do not allow content intended to misrepresent, defraud, trick, deceive, or mislead.
+Follow the Rules:
+We do not allow content or behavior that violates applicable laws, breaks platform policies, compromises our systems, or evades our enforcement actions.
+1. Safety First
+Public Safety:
+We keep our community safe by stopping people from using our platform for criminal activities.
+Do not coordinate, promote, recruit or disseminate content for criminal organizations, terrorist groups, or human trafficking networks.
+Do not provide instruction for criminal or terrorist activities:
+Detailed tutorials for committing crimes or terrorist acts.
+Coordination of harmful acts, including swatting or mob violence.
+Do not share violence content for harmful purposes:
+Content serving criminal or terrorist organizational operations.
+Videos exploiting victims of abuse or violence.
+Respectful Discourse:
+We create a safe space for discussion by prohibiting threats and content meant to scare or intimidate people.
+Do not threaten others with death, serious harm, or express that others should be hurt or killed.
+Do not promote, glorify, or incite violence against individuals or groups.
+Do not share graphic violent content designed to shock, disturb, or intimidate others.
+These rules do not prevent you from posting content that involves violence without glorifying real-world harm, including professional combat sports, or depiction of violence in clearly fictional contexts.
+Child Safety:
+We protect kids and teens with strong safeguards against exploitation, predatory behavior, and harmful content, implementing additional measures where legally required.
+Do not create, share, or promote content that harms minors: Content that sexualizes, exploits, or depicts minors or minor-aged characters in sexual or intimate contexts, including synthetic, simulated, illustrated, or animated versions.
+Do not engage in inappropriate conduct toward minors:
+Grooming behavior or soliciting intimate content, personal information, or offline meetings from minors.
+Coercing minors to create or share intimate content.
+Do not share personal information about minors: Identifying information, real-time location data, or personal details that could pose safety risks.
+Do not engage in commercial practices targeting minors, such as prohibited advertising that targets underage users, or promoting gambling, controlled substances, tobacco, alcohol, or deceptive financial services to minors.
+Adult Content:
+We provide a safe space for consensual adult expression by requiring clear consent and stopping abuse.
+We allow consensual adult sexual content, including fictional depictions, when appropriately labeled and subject to appropriate age restrictions.
+We do not allow sexual content involving non-consensual activity including synthetic, simulated, illustrated, or animated versions.
+Do not share, threaten to share, or promote tools to create intimate images or sexual content of any individual without their express consent, including synthetic or digitally altered content.
+Do not create, share, or promote sexual content involving realistic risk of death or serious injury.
+Do not engage in technology-facilitated abuse, harassment, or unwanted advances.
+Mental Health & Wellbeing:
+We support a healthier community by prohibiting content that could harm people's mental or physical health.
+Do not share content, methods, instructions, or promotion of self-harm, suicide, eating disorders, and extreme dieting practices.
+Do not share methods, instructions, depictions, or promotion of dangerous stunts or abuse of dangerous or controlled substances.
+Privacy Protection:
+We protect people's privacy by prohibiting unauthorized sharing of personal information and private content.
+Do not share home addresses, personal contact info, financial or medical data, or identification documents.
+Do not share sensitive private messages or communications you weren't authorized to share, unless sharing is in the public's interest.
+Do not share real-time location or other information that could pose immediate safety risks.
+Animal Safety:
+We protect animals by prohibiting abusive or exploitative content.
+Do not create, share, or promote sexual content involving real animals or realistically depicted synthetic, simulated, illustrated, or animated versions.
+Do not share content depicting animal abuse, torture, fighting, staged rescues, or wildlife exploitation.
+These rules do not prevent you from sharing content about hunting, fishing, and other legal wildlife activities.
+2. Respect Others
+Anti-Discrimination:
+We protect people's fundamental rights by prohibiting identity-based harm and hatred.
+Do not attack, harass, or incite hatred or discrimination against individuals or groups based on protected characteristics such as age, asylum-seeker/refugee status, caste, disability, disease, ethnicity, gender identity, immigrant status, race, religious affiliation, sex, or sexual orientation.
+This includes hate speech, slurs, dehumanizing comparisons, supremacist content, conspiracy theories targeting protected groups, and coordinated harassment campaigns.
+Anti-Harassment:
+We create space for everyone to express themselves by prohibiting harassment and toxic behaviors.
+Do not stalk, persistently target, or create malicious content designed to humiliate or degrade individuals, including through coordinated campaigns.
+Do not abuse BAPU features (lists, labels, community moderation tools), engage in bad-faith mass reporting, use automated harassment systems, or create single-purpose harassment accounts.
+Accounts that engage in extreme or persistent toxic or disruptive behavior may face restrictions or removal. This includes accounts with a high number or proportion of repeated personal attacks or inflammatory language intended to create an unwelcoming environment.
+3. Be Authentic
+Trust & Transparency:
+We keep our platform trustworthy by prohibiting deceptive and manipulative practices.
+Do not send spam or repeatedly post content in ways that disrupt normal conversations or service use.
+Do not create, share, or promote financial scams, phishing attempts, or fraudulent fundraising.
+Do not artificially manipulate features or social signals to gain unearned reach or mislead users, including engagement metrics, follower counts, or other measures of community interest.
+Do not post undisclosed commercial content, sponsored material, or advertising without clearly identifying its commercial nature to other users.
+Account Authenticity:
+We keep our community trustworthy by prohibiting impersonation and deceptive account practices.
+Do not impersonate others or official groups in ways that could mislead users, or create fake accounts to deceive others about who you are.
+Do not engage in deceptive account practices, including identity churning (changing your account identity to keep followers), handle-squatting, coordinated deception, or other deceptive behaviors.
+Do not abuse platform Trust & Safety systems by falsifying documents, selling accounts, or attempting to bypass age requirements.
+Information integrity:
+We allow reliable information sharing while prohibiting content that could undermine civic processes or is likely to cause immediate real-world harm.
+Do not share false or misleading information that could cause immediate real-world harm, including coordinating inauthentic campaigns.
+Do not coordinate to suppress voting, impersonate electoral officials or campaigns, interfere with democratic processes, or share false information about voting procedures, locations, times, eligibility, or results.
+4. Follow the Rules
+Regulated Goods & Services:
+Do not use BAPU to unlawfully sell, advertise, provide services for, or facilitate commercial transactions for controlled substances, weapons, firearms, ammunition, or other dangerous materials, stolen goods, or other restricted goods.
+Intellectual property & Copyright:
+Do not infringe copyrights, steal content, remove attribution or watermarks, violate trademarks or patents, impersonate brands or businesses, or share unauthorized streams or downloads.
+Site Security:
+Do not attempt to compromise, exploit, bypass, abuse, or disrupt BAPU's systems, security features, APIs, rate limits, or infrastructure.
+Repeated Violations & Ban Evasion:
+Do not create new accounts or use alternative methods to evade bans, suspensions, or other enforcement actions, or help others do so.
+5. Protected Expression
+These guidelines protect legitimate expression that serves the public interest and supports community wellbeing. The following content is welcome on BAPU when appropriately labeled and contextually framed:
+Journalism, Analysis, Education, and Advocacy:
+Factual reporting, academic research, or anti-violence advocacy.
+Support, Recovery, and Mental Health:
+Personal recovery experiences shared to promote healing and community support.
+Transparency and Public Information:
+Publicly available information from official sources such as court records or related to government transparency.
+
+========================================
+## PRIVACY
+========================================
+
+Privacy Policy
+Last Updated: March 18, 2026
+Note:
+Looking for ZChat privacy information? A different privacy policy applies to the ZChat application. You can find it here:
+ZChat Privacy Policy
+.
+This Privacy Policy explains how we collect, use, store, and protect personal data when you use our services,
+    including our Personal Data Server (PDS) operating on the AT Protocol network.
+1. Introduction
+This service is operated by
+Aureus Z, Inc.
+, operator of
+bapu.app
+.
+    We are committed to minimizing data collection, protecting user privacy, and operating our services in a secure and transparent manner.
+Contact:
+contact@bapu.app
+2. What Is Personal Data?
+Personal Data refers to information that can identify you directly or indirectly, including usernames, email addresses,
+    IP addresses, cryptographic identifiers, and technical metadata.
+3. Scope of This Policy
+This Policy applies to account registration, authentication, content hosting, federated communication,
+    API access, and system operation. It does not apply to third-party applications, appviews, or external services.
+4. Personal Data We Collect
+Data You Provide
+Username / handle
+Email address (optional, if enabled)
+Cryptographic identifiers (DID, public keys)
+Identity verification data (when required for handle granting)
+System Data
+IP address
+Request metadata
+Security and operational logs
+Public Content
+Content published on the AT Protocol network is public by design. This includes posts, profiles, follows, likes, and blocks.
+5. Data We Do Not Collect
+Payment or financial information
+Advertising profiles
+Behavioral tracking
+Note: Government-issued identification and biometric data (liveness checks) are processed directly by our identity verification provider and are not stored on our systems.
+6. How We Use Personal Data
+Account authentication and access
+Service operation and reliability
+Security, abuse detection, and fraud prevention
+Legal compliance
+We do not sell or commercially exploit personal data.
+7. Legal Basis for Processing
+We process personal data on the following legal bases:
+Contractual necessity:
+account creation, authentication, and service delivery
+Legitimate interest:
+security monitoring, abuse prevention, and service reliability
+Legal obligation:
+compliance with applicable law, including responses to valid legal requests
+Consent:
+where we explicitly request it, such as optional communications
+Users in the European Economic Area (EEA) may contact us to request clarification of the legal basis applicable to
+    any specific processing activity.
+8. Data Sharing
+Data may be shared with infrastructure service providers, including our identity verification provider, or when legally required.
+    We use Cloudflare for traffic routing, security, and performance monitoring. Cloudflare may process technical data including IP addresses and browser information as a data processor on our behalf.
+    We do not sell or rent personal data.
+9. Identity Verification
+For certain handle grants, we use Didit as our identity verification provider. Didit may process identity documents
+    and biometric data (such as liveness checks) directly on our behalf. This data is not transmitted to or stored on
+    Bapu's systems. Didit's processing is governed by their own privacy policy, available at
+didit.me
+. We encourage users to review it before completing verification.
+10. Data Retention
+Account data: retained while account is active
+Security logs: 14–90 days
+Legal compliance records: as required by law
+Backups are encrypted and retained on a rolling 30-day cycle, after which they are permanently and securely deleted.
+11. Security
+We implement industry-standard security controls including encryption, access controls, monitoring, and regular audits.
+    However, no system can be guaranteed completely secure.
+12. Your Rights
+You may request access to, correction, deletion, or export of your personal data at any time by contacting
+contact@bapu.app
+. We will respond within 30 days. Users in the EEA have
+    additional rights under GDPR, including the right to object to processing and the right to lodge a complaint with
+    a supervisory authority.
+13. Cookies
+We use only essential technical cookies required for authentication and system security.
+14. Children
+This service is not intended for users under 13 years of age or the minimum age required by applicable law.
+15. Jurisdiction
+This Policy is governed by the laws of the State of Delaware, United States.
+16. Policy Updates
+This Policy may be updated periodically. Material changes will be announced on our website.
+
+========================================
+## TERMS
+========================================
+
+Terms of Service
+Last updated: March 11, 2026
+Note:
+Looking for ZChat terms? Different terms apply to the ZChat application. You can find them here:
+ZChat Terms of Service
+.
+1. Acceptance of Terms
+By accessing or using BAPU services, you agree to these Terms of Service.
+    If you do not agree, you must not use the service.
+2. Description of Service
+BAPU operates decentralized social networking infrastructure based on the AT Protocol, providing identity, hosting,
+    federation, and communication services.
+3. Eligibility
+You must be at least 13 years of age, or the minimum age required by the laws of your jurisdiction.
+    You must not use this service if you are located in a jurisdiction subject to US sanctions or export restrictions.
+4. User Responsibilities
+Maintain account security
+Complete and maintain identity verification where required
+Use services lawfully
+Respect the rights and privacy of others
+Refrain from abuse, harassment, or illegal content
+5. Prohibited Activities
+Illegal activity
+Spam, phishing, or fraud
+Malware distribution
+Network abuse or denial-of-service attempts
+Exploitation of protocol vulnerabilities
+6. Content Responsibility
+Users are solely responsible for content they publish. BAPU does not actively monitor all content but reserves the
+    right to remove content that violates these terms or applicable law.
+BAPU complies with the Digital Millennium Copyright Act (DMCA). Copyright infringement notices may be sent to
+    legal@bapu.app. BAPU is not responsible for content originating from third-party AT Protocol servers federated
+    with this network.
+7. Account Termination
+We may suspend or terminate accounts that violate these Terms or pose security or legal risk.
+8. Service Availability
+The service is provided “as is” without guarantees of uptime, continuity, or availability.
+9. Limitation of Liability
+BAPU shall not be liable for indirect, incidental, or consequential damages arising from use or inability to use
+    the service.
+To the maximum extent permitted by law, BAPU's total liability for any claim arising out of or relating to these
+    Terms shall not exceed the greater of (a) the amount you paid BAPU in the 12 months preceding the claim, or (b) $10 USD.
+10. Modifications
+We reserve the right to update these Terms at any time. Continued use constitutes acceptance.
+11. Governing Law
+These Terms are governed by the laws of the State of Delaware, United States. Any disputes shall be resolved in the
+    courts of Delaware. You agree to attempt informal resolution by contacting legal@bapu.app before initiating any
+    formal proceeding.
+12. Contact
+Legal inquiries may be directed to:
+legal@bapu.app
+
+========================================
+## ZCHAT - PRIVACY
+========================================
+
+ZChat Privacy Policy
+Last Updated: March 18, 2026
+By using ZChat, you acknowledge that you have read and understand the information in this Policy.
+Table of Contents
+1. Introduction
+2. What is Personal Data?
+3. Informing us of changes
+4. Applicability of this Policy
+5. Third-party Services
+6. If you do not want to provide Personal Data
+7. Updates to this Policy
+8. Personal Data We Collect
+9. Cookies
+10. How We Use Personal Data
+11. How We Share your Personal Data
+12. International data transfers
+13. Your Privacy Choices and Rights
+14. Retention of Personal Data
+15. Supplemental Notice for Certain Jurisdictions
+16. Security
+17. Children's Personal Information
+18. Contact Us
+1. Introduction
+Aureus Z, Inc. ("we", "us", "our") respects your privacy and we are committed to protecting any of your Personal Data we process. Aureus Z, Inc. owns and operates a microblogging application ("ZChat" or "the App") and desktop application (available at bapu.app; each a "Site"; the App and Sites, collectively, "ZChat") that run on the Authenticated Transfer Protocol ("AT Protocol"). Your use of ZChat is subject to this privacy Policy ("Policy") as well as the ZChat Terms of Service, Bapu Community Guidelines, and Copyright Policy.
+This Policy explains what we do with our users’ Personal Data. It also explains how we handle Personal Data in the context of our relationships with other businesses.
+We process your Personal Data when you use ZChat and to provide the services that we offer via ZChat (the "Services"). We are a "data controller" of the Personal Data that we process in connection with the Services. This means that we decide why and how we process Personal Data about you.
+If you have any questions about this Policy or our processing of your Personal Data, please see Section 18, Contact Us, for contact information.
+We may update this Privacy Notice from time to time. We will post these changes on the Site or in the App. We may also send you other notifications about these updates.
+2. What is Personal Data?
+"Personal Data" is information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular person or household.
+We may also collect data that is not associated or linked with you or that cannot be used to identify you, like deidentified, aggregated or anonymised information. This is not Personal Data and is not subject to this Policy.
+3. Informing us of changes
+Please keep us informed if your Personal Data changes at any point during your relationship with us so we can keep our records accurate and current. Update your Personal Data in the App or on the Site.
+4. Applicability of this Policy
+This Policy is separate from our Terms of Service and our Bapu Community Guidelines, that also govern your use of ZChat.
+5. Third-party Services
+ZChat and the Services may include links to third-party websites, plug-ins, applications, services, products, and technology (“Third-party Services”). Clicking on links to and using Third-party Services may allow third parties to collect or share your Personal Data. We are not responsible for the content, security or privacy practices of those Third-party Services and this Policy does not apply to your use of Third-party Services. You should consider the privacy and cookie policies / notices of those third parties to find out how your Personal Data may be used.
+6. If you do not want to provide Personal Data
+We need to collect certain Personal Data to give you access to ZChat or to specific features and functionalities of ZChat, in accordance with our agreements with you. Applicable laws also require us to process certain Personal Data about you. If you do not want to provide Personal Data we request, we may not be able to provide you with access to the ZChat app or to specific features and functions of ZChat.
+7. Updates to this Policy
+We may update this Policy from time to time, and any updates will be effective when we post the revised Policy on ZChat. We will use reasonable efforts to notify you of any material updates to this Policy, by sending you a message in the App or on the Site, or at the email address you provide to us.
+You should review this Privacy Notice every time you access a ZChat App Service.
+8. Personal Data We Collect
+We process, or our third-party providers may process for us, different kinds of Personal Data:
+Personal Data you provide
+Account Creation.
+We collect information like email address, phone number, images you associate with your profile, birth date and username when you create a ZChat account.
+Your Communications with Us.
+We may collect personal information, like your name, email address, or phone number when you contact us.
+Your Posts.
+ZChat is a microblogging service that lets you post content and comment on other users' posts. We collect your posts. Your posts and comments are public, so exercise care when deciding what to share.
+Your Direct Messages.
+We store and process your direct messages so you can communicate directly with other users on ZChat. These are unencrypted and can be accessed for Trust & Safety purposes.
+Job Applications.
+If you apply to work with us, we collect any personal information you provide with your application.
+Payment Information.
+When you make a purchase, a third party service provider that handles payments for us will receive the payment information you provide, including your payment card information.
+Account Recovery.
+If you lose control of your account for some reason and need to recover it, we may ask you to provide information that helps us confirm your identity.
+Personal Data We Collect Automatically
+Usage Information.
+When you use ZChat, we collect certain information automatically, including your Internet protocol (IP) address (which can be used to derive your general location), user settings, cookie identifiers, mobile carrier, other unique identifiers, browser or device information, and Internet service provider (ISP). We may also collect personal information about your use of ZChat, including the posts you view on ZChat, the links you click within ZChat, and the frequency and duration of your activities.
+Cookies (and Other Technologies).
+We and third parties that provide content or other functionality on ZChat may use cookies, pixel tags, and other technologies ("Tracking Technologies") to automatically collect information. See Section 9, Cookies, for more information.
+Personal Data We Collect from Other Sources
+Third Parties, generally.
+We may collect personal information from third parties. For example, you may direct a developer application or other third-party social networking application to share personal information with us or you may live in a jurisdiction that requires age verification and we will collect information from a third-party provider telling us whether you meet certain age requirements.
+Third Party Age or Identity Verification.
+Where required by law, ZChat may use third-party services to verify that you are old enough to access certain features or content. This verification may involve one or more of the following methods, depending on your jurisdiction and availability:
+Government ID Verification: Uploading an image of a government-issued ID, which is checked for authenticity.
+Facial Age Estimation: Uploading a selfie or real-time facial scan used to estimate age via machine learning technology.
+Payment Card Verification: Providing a valid payment card to confirm age through a nominal transaction or validation check.
+Knowledge-Based Verification (KBV): Answering questions based on public records to confirm identity and age.
+Social Vouching: A verified adult vouches for the user's age using their own verified account or identity.
+Mobile Phone Verification: Using a phone number linked to a mobile carrier account to infer your age.
+Email Based Age Inference: Using publicly available data about an existing email account to infer your age.
+You will be able to choose from among available jurisdiction-specific options based on your preference. We do not retain any biometric data or facial images provided to third-party age verification vendors.
+9. Cookies
+We use cookies and other Tracking Technologies to collect certain information automatically. Tracking Technologies allow a website to recognize your device and can serve several purposes: to ensure that the website takes the user’s preferences into account by storing language preferences, to collect statistical data and adapt the content. Tracking Technologies can help provide you with a good experience when you browse websites and also help improve website functionality.
+Strictly Necessary Cookies.
+Some cookies are strictly necessary to make our ZChat Services available to you. We cannot provide you with our ZChat Services without this type of cookie.
+Analytical or Performance Cookies.
+We may also use cookies for website analytics purposes in order to operate, maintain and improve our ZChat Services. We may use our own analytics cookies or use third-party analytics providers.
+You can block cookies by setting your internet browser to block some or all cookies. However, if you use your browser settings to block all cookies (including strictly necessary cookies) you may not be able to access all or parts of the Sites and ZChat. You can change your browser settings to block or notify you when you receive a cookie, delete cookies or browse our Sites using your browser’s anonymous usage setting.
+Please refer to your browser instructions or help screen to learn more about how to adjust or modify your browser settings. If you do not agree to our use of cookies or similar Tracking Technologies which store information on your device, you should change your browser settings accordingly. Where required by applicable law, you will be asked to consent to certain cookies and similar Tracking Technologies before we use or install them on your computer or other device.
+10. How We Use Personal Data
+We will only use your Personal Data for the purposes for which we collected it, unless we reasonably consider that we need to use it for another reason and that reason is compatible with the original purpose.
+The list below indicates the purposes for which we collect and process your Personal Data. Some of the above grounds for processing will overlap and there may be several grounds which justify the processing of a single category of Personal Data.
+To Provide Our Services.
+We use personal information to fulfill our contract with you and provide ZChat and the Services, such as:
+Managing your account;
+Providing access to certain areas, functionalities, and features of the ZChat Services;
+Answering support requests; and
+Communicating with you about your account, activities on the ZChat Services, and policy changes.
+For Administrative Purposes.
+We use personal information for various administrative purposes, such as:
+Pursuing our legitimate interests like direct marketing, research and development (including marketing research), network and information security, and fraud prevention;
+Detecting security incidents, protecting against malicious, deceptive, fraudulent or illegal activity, and taking appropriate actions against malicious actors;
+Measuring interest in, and engagement with ZChat and with Services;
+Creating de-identified and/or aggregated information;
+Carrying out analytics;
+Improving, upgrading, or enhancing ZChat and Services;
+Developing new products and services;
+Ensuring internal quality control and safety;
+Sharing information with third parties as needed to provide ZChat and Services;
+Enforcing our agreements and policies; and
+Carrying out activities that are required to comply with our legal obligations.
+For Marketing.
+We may use personal information to provide you with marketing. If you have any questions about our marketing practices, you may contact us using the information provided below. You can opt-out from receiving marketing communications from us by using the unsubscribe link at the bottom of each e-mail.
+With Your Consent.
+We may use personal information for other purposes that are clearly disclosed to you at the time you provide personal information or with your consent.
+Other Purposes.
+We also use your personal information for other purposes as requested by you, as permitted by applicable law, or where we reasonably consider that we need to use it for another reason and that reason is compatible with the original purpose.
+Legal Bases for Processing.
+For explanations of our legal bases for processing in jurisdictions where this disclosure is required, see Section 15, Supplemental Notice for Certain Jurisdictions, below.
+11. How We Share your Personal Data
+Sharing to Provide ZChat and Services
+Your Posts and Public Profile.
+ZChat is a decentralized microblogging service where most user activity is public by design. This includes your posts, profile, likes, following, and blocks.
+Other Users You Share or Interact With.
+ZChat may allow you to share personal information, messages, or interact with other users.
+Third-party Services You Share or Interact With.
+ZChat may link to or allow you to interface, interact, share information with, direct us to share information with, access and/or use Third-party Services. If you do, the information you share will be subject to any Third-Party Service's privacy policy. For example, if you request that we share your personal information with a developer application or payment processor, we may facilitate the request.
+Service Providers.
+We may share Personal Data with our third-party service providers and vendors. This includes service providers and vendors that provide us with IT support, hosting, payment processing, customer service, and related services. We use Cloudflare for traffic routing, security, and performance monitoring. Cloudflare may process technical data including IP addresses and browser information as a data processor on our behalf.
+Business Partners.
+We may share Personal Data with our business partners to provide you with a product or service you have requested. We may also share your personal information with business partners with whom we jointly offer products or services.
+Sharing to Protect Us or Others.
+We may access, preserve, and disclose any information we store if we, in good faith, believe doing so is required or appropriate to: (i) comply with law enforcement, regulatory, or national security requests and legal process, like a court order or subpoena; (ii) protect your, our, or others' rights, property, or safety; (iii) enforce our policies or contracts; (iv) collect amounts owed to us; or (v) assist with an investigation or prosecution of suspected or actual illegal activity.
+Sharing with other Aureus Z Companies.
+We may share with parent or subsidiary companies to coordinate and manage our business, in accordance with the purposes set out in this Policy. These recipients will process Personal Data in the same way as set out in this Policy.
+Sharing to obtain Professional Services.
+We may share Personal Data with our legal advisors, bankers, auditors, accountants, consultants, and insurers. Our professional advisors will process Personal Data as necessary to provide their services to us.
+Sharing in the Event of Merger, Sale, or Other Asset Transfers.
+If we are involved in a merger, acquisition, financing, reorganization, bankruptcy, receivership, purchase or sale of assets, transition of service to another provider, or other similar corporate transaction, your personal information may be processed as part of such a transaction.
+12. International data transfers
+We may transfer, process, and store all personal information we collect anywhere in the world. Different countries have different data protection laws.
+If we transfer personal information from the European Economic Area, Switzerland, Brazil and/or the United Kingdom to a country that does not provide an adequate level of protection under applicable data protection laws, we will do so (i) using appropriate safeguards; (ii) based on safeguards like the European Commission-approved, UK Government-approved, or Brazil’s Data Protection Authority Standard Contractual Clauses or Addenda; or (iii) otherwise in accordance with applicable data protection laws.
+For more information about the safeguards we use for international transfers of your personal information, please contact us as set forth below.
+13. Your Privacy Choices and Rights
+Your Privacy Choices.
+The privacy choices you have about your Personal Data information are determined by applicable law and are described below.
+Email Communications.
+If you receive a marketing email from us, you may opt out by using the unsubscribe link at the bottom of such email. You will continue to receive transaction-related, non-promotional emails related to ZChat. You will not be opted out of those communications.
+Mobile Devices.
+We may send you push notifications through our App when you enable them. You may opt out from receiving these push notifications by changing the settings on your mobile device. We may collect precise location-based information via the App, but only if you permit us to do so. You may opt out of this collection by changing the settings on your mobile device.
+"Do Not Track".
+Do Not Track ("DNT") is a privacy preference that users can set in certain web browsers. Please note that we currently do not respond to or honor DNT signals or similar mechanisms transmitted by web browsers, as there is no consistent industry standard for compliance.
+Your Privacy Rights.
+Depending on what laws apply to your Personal Data, you may have the right to:
+Request Access to and Portability of Your Personal Information
+, including: (i) obtaining access to or a copy of your personal information; and (ii) receiving an electronic copy of personal information that you have provided to us, or asking us to send that information to another company in a structured, commonly used, and machine-readable format (also known as the "right of data portability");
+Request Correction
+of your personal information where it is inaccurate, incomplete, or outdated. We may provide self-service tools for you to update your personal information;
+Request Deletion, Anonymization or Blocking
+of personal information including when processing is based on your consent, or when processing is unnecessary, excessive or noncompliant (also known as the "right to be forgotten");
+Request to Opt-Out of Certain Processing Activities
+if we engage in certain data processing activities that give you a right of opt-out under applicable privacy laws;
+Request Restriction of or Object
+to our processing of your personal information;
+Withdraw your Consent
+to our processing of your personal information. Please note that your withdrawal will only take effect for future processing and will not affect the lawfulness of processing before the withdrawal;
+Be Informed
+about third parties with which your personal information has been shared; and
+Request the Review of Decisions Taken Exclusively Based on Automated Processing
+if these decisions could affect your rights under applicable data protection laws.
+Please contact us using the information in Section 18, Contact Us, if you would like to exercise any of these rights. We will process your requests in accordance with applicable laws. Before fulfilling your request, we may ask you to provide information to verify your identity. There are exceptions and limitations to each of these rights, and while any changes you make will be reflected in active user databases instantly or within a reasonable period of time, we may retain information for backups, archiving, prevention of fraud and abuse, analytics, satisfaction of legal obligations, or where we otherwise reasonably believe that we have a legitimate reason to do so. Some laws may allow you to appeal our decision if we decline to process your request.
+14. Retention of Personal Data
+We retain Personal Data for as long as necessary to fulfill the purposes for which it was collected, including for the purposes of satisfying any legal, accounting, or reporting requirements. Backups are encrypted and retained on a rolling 30-day cycle, after which they are permanently and securely deleted.
+15. Supplemental Notice for Certain Jurisdictions
+If you live in a jurisdiction that requires specific disclosures about our legal bases for processing or other rights, these notices apply to you.
+European Union / United Kingdom
+Legal Bases for Processing:
+We rely on the following legal bases to process your personal information:
+Legitimate Interest:
+We process your personal information when we or a third party have a legitimate interest that is not overridden by your interests or fundamental rights and freedoms.
+Consent:
+In some cases, Aureus Z, Inc. may also rely on your consent to process your personal information.
+Compliance with our Legal Obligations:
+Aureus Z, Inc. may process your personal information to comply with our legal obligations, such as tax, labor, and accounting requirements.
+Data Protection Officer:
+Aureus Z, Inc. has appointed a Data Protection Officer (DPO). You may contact our DPO at: [DPO_NAME], [DPO_ADDRESS], [DPO_EMAIL].
+Data Protection Representative:
+Aureus Z, Inc. has appointed a Data Protection Representative (DPR) for both the UK and EU.
+You may contact our EU Representative at: [EU_DPR_NAME], [EU_DPR_ADDRESS], [EU_DPR_EMAIL].
+You may contact our UK Representative at: [UK_DPR_NAME], [UK_DPR_ADDRESS], [UK_DPR_EMAIL].
+Brazil LGPD
+This Supplemental Notice for Brazil's General Data Protection Law (Law No. 13.709/2018 – the "LGPD") only applies to our processing of personal data that is subject to the LGPD. For purposes of the LGPD, personal information means any information relating to an identified or identifiable individual.
+If you are a user of ZChat App Services in Brazil, the below additional terms: (a) are incorporated into this Privacy Notice; (b) apply to your use of the ZChat App Services, and (c) supersede and control over any conflicts in the rest of the Privacy Notice to the extent of any inconsistency.
+Legal bases.
+We guarantee that the processing of personal information subject to the LGPD by us will be always carried out in accordance with one of the legal bases that include: (1) your consent; (2) compliance with legal or regulatory obligations; (3) execution of a contract with you; (4) to exercise our rights in contracts or judicial, administrative or arbitral proceedings; (5) the protection of your – or third parties' – life and physical safety; (6) our legitimate interests; (7) credit protection; (8) prevention of fraud and the safety of the data subject in processes of identification and authentication.
+Data Subject's Rights.
+In addition to the rights outlined in section 13 of this Privacy Notice, for purposes of the LGPD you also have the right to:
+Obtain confirmation that we process your personal information. In response to this request, we will inform you whether we process your personal information or not. Please note that, if you are a user, we necessarily process your personal information.
+Obtain information about the possibility of not providing your consent and the respective consequences. When consent is used as a legal basis for the processing of your personal information, you have the right to be informed about the possibility of not providing consent and the consequences of refusal.
+16. Security
+We make reasonable efforts to protect your information by using physical and electronic safeguards designed to improve the security of the information we maintain. However, as our Services are hosted electronically, we can make no guarantees as to the security or privacy of your information.
+17. Children's Personal Information
+The ZChat App Services are not directed to children under 13 (or other age as required by local law outside of the United States). We do not knowingly collect personal information from children.
+If you are a parent or guardian and believe your child has uploaded personal information to our site without your consent, you may contact us using the information provided below.
+18. Contact Us
+If you have any questions about this Privacy Policy, please contact us at
+contact@bapu.app
+.
+
+========================================
+## ZCHAT - TERMS
+========================================
+
+ZChat Terms of Service
+Last Updated: March 11, 2026
+Welcome to ZChat, a social networking application provided by Aureus Z, Inc. ("we", "us", "our”). We are excited to have you as a user.
+ZChat runs on the Authenticated Transfer Protocol ("AT Protocol"), a decentralized social networking protocol that supports many different kinds of services. Together with the Bapu Community Guidelines, Privacy Policy, and Copyright Policy, these Terms of Service ("Terms") govern your use of the ZChat application, website, and services (collectively, "ZChat"). By accessing or using ZChat, you agree to be bound by these Terms. Please read them carefully.
+These Terms only apply to social networking that happens on ZChat. If you’re using another social networking application on the AT Protocol that isn’t ZChat (a “Developer Application”), the terms and conditions of that Developer Application will govern your experience. We are not responsible for the content or practices of Developer Applications.
+Important Note: These Terms contain an agreement to resolve most disputes between us through arbitration (instead of suing in court) and to waive jury trials and class actions in most cases. Please read Section 13 carefully.
+Table of Contents
+1. Eligibility and Age Verification
+2. Account Registration and Responsibilities
+3. User Content
+4. Proactive Moderation and Illegal Content
+5. Discover Feed and Recommender Systems
+6. Complaints and Appeals
+7. Termination
+8. Third-Party Services
+9. Open Source Software
+10. Warranty Disclaimer
+11. Indemnification
+12. Limitation of Liability
+13. Governing Law, Jurisdiction, Venue, Dispute Resolution, and Arbitration
+14. Updates to Terms
+15. Intellectual Property
+16. General Terms
+17. Contact Us
+18. Apple App Store and Google Play Required Terms
+1. Eligibility and Age Verification
+To use ZChat, you must be at least 13 years old and meet the minimum age required by your local laws to enter into a binding agreement. In some locations, we may be required to restrict access to certain features or content unless you complete an age assurance process and demonstrate that you are an adult. When age assurance is required, we use methods that comply with the laws that apply in that jurisdiction.
+2. Account Registration and Responsibilities
+Summary: To use ZChat, you need your own account. Don’t share accounts. You’re responsible for what happens on your account, even if you didn’t do it. Keep your login info safe. If someone breaks into your account, tell us right away at contact@bapu.app.
+To be a ZChat user, you must create an account (“Account”). You are responsible for any use of ZChat made through your valid login credentials, including any communications or actions taken through your Account, whether or not you authorized it. Each time your credentials are used, we will presume you authorized the activity, and we are not required to verify the source of access. Do not share your Account with others or use anyone else’s account.
+By uploading or posting content on ZChat, you warrant that you possess or have secured all rights, licenses, consents, and releases that are necessary for your use of that content and for ZChat’s use as set forth in these Terms.
+If you’re using ZChat on behalf of a company or organization, you confirm that you have the authority to represent your company or organization.
+If you are a government entity or official using ZChat in an official capacity, please refer to our Terms of Service Amendment for Government Users. If any provision of these Terms—whether on their own or as modified by the government amendment—is inconsistent with applicable laws that govern your use, please contact us at legal@bapu.app to discuss alternative arrangements.
+You alone are responsible for protecting the security and confidentiality of your Account. In no event shall we be liable for any loss, theft or fraudulent use of your Account. If you believe your ZChat Account has been compromised, report it to us at contact@bapu.app.
+3. User Content
+Summary: What you post is yours, but you must follow the rules. ZChat can use your posts to run and improve the app, show them to others, and keep things safe. You can report misuse.
+User Content.
+“Content” means anything you share on ZChat, including posts, profile details, photos, videos, feedback, suggestions, links, and direct messages. Content also refers to your "handle", the identifier you use to represent yourself on the AT Protocol.
+Your Responsibility.
+You are solely responsible for your Content. You agree that your Content will comply with all applicable laws and with the Bapu Community Guidelines. ZChat is not obligated to actively monitor or control your Content.
+Use by Others.
+ZChat does not control how others may use your Content. If you believe someone is using your Content in a way that violates these Terms or the Community Guidelines, please follow the Complaints and Appeals process outlined below.
+ZChat’s Use of Your Content.
+We use your Content only to (i) operate, provide, and improve ZChat and its features, including by sharing it across ZChat and the AT Protocol; and (ii) promote and market ZChat and its services.
+ZChat’s License to Your Content.
+You retain ownership of your Content on the ZChat application and website. ZChat does not claim rights to your Content, except for the limited rights you grant us under this license.
+By sharing Content on ZChat, you grant us a limited, worldwide, non-exclusive, royalty-free license to:
+Operate and Improve Services:
+Use your Content to develop, operate, and enhance ZChat, the AT Protocol, and future products and services. For example, we may store and display your posts to other ZChat and AT Protocol Developer Application users.
+Adapt and Display Content:
+Reproduce, modify, adapt, distribute, and publicly display your Content in any format or media. For example, we may resize content for different devices or feature user posts in promotional materials.
+Enable Third-Party Tools:
+Allow trusted partners—such as content moderation providers—to use your Content as necessary to support ZChat.
+Enforce Our Policies:
+Remove, block, or modify your Content if we believe it violates these Terms, our Community Guidelines, or other applicable policies.
+This license enables us to support core platform functionality and to ensure ZChat remains safe, responsive, and engaging for everyone. We will never sell your Content without getting your permission first.
+Content Deletion.
+If you delete your account, we will use reasonable efforts to remove your Content from ZChat, in accordance with applicable laws and with our Privacy Policy. We also will notify other services and Developer Applications on the AT Protocol that you have deleted your account. Due to the decentralized nature of the AT Protocol, we cannot control or force other services and Developer Applications on the AT Protocol to treat your Content in a particular way and some posts may continue to exist on these services that are outside our control. That means that complete deletion across the network may not always be possible.
+ZChat is not responsible for Content you’ve shared on other services that use the AT Protocol. To request removal from those services, contact them directly.
+4. Proactive Moderation and Illegal Content
+We proactively use automated tools and human moderation to detect and act on prohibited content. ZChat prioritizes the swift removal of terrorism content, child sexual exploitation and abuse (CSEA) content, and other priority illegal content. This proactive technology includes tools that help us recognize hashes of known illegal content and that can detect violations of our terms based on the text in and content of a post. We also rely on user reports, trusted flaggers, law enforcement reports, and reports we receive from NGOs and civil society. When notified, we act swiftly to minimize exposure.
+5. Discover Feed and Recommender Systems
+ZChat uses a recommender algorithm to populate the Discover Feed and personalize recommendations such as suggested accounts. You can opt out of the Discover Feed via your settings. In addition to the Discover Feed, you can install third-party feeds hosted by other services. ZChat does not control the recommender systems used by third-party feeds.
+6. Complaints and Appeals
+Summary: You can report posts or users that break the rules. If your account is suspended or restricted, you can ask us to review the decision by emailing us within two weeks. If you live in the EU, you also have the right to challenge our decisions through special review groups or the courts in your country.
+Complaints.
+You can report posts or users for violations of our rules using the in-app reporting tools or feedback form. If you are not a ZChat user but are legally entitled to submit a report or takedown request, please contact us at contact@bapu.app.
+We will promptly notify users when we take enforcement action in response to a report.
+Appeals.
+If your account has been suspended, terminated, or otherwise restricted under these Terms, you may appeal the decision using the in-app appeal tool or by emailing contact@bapu.app. Appeals must be well-founded and include sufficient information or documentation for us to conduct a meaningful review. Appeals must be filed within two weeks of the account suspension, termination, or restriction you seek to appeal. Appeals that lack supporting detail or that are not filed within two weeks may not be eligible for reconsideration.
+We will notify you when we've reviewed your appeal and taken action.
+EU / EEA Appeals Procedures.
+If you're in the EU or EEA, you have the right to challenge ZChat's content-moderation or account decisions through various channels:
+Internal appeal, as described above, by emailing contact@bapu.app.
+Out‑of‑court dispute with a certified DSA body. You may choose any EU-certified dispute settlement body with appropriate expertise. ZChat will engage in good‑faith resolution under Article 21, but these bodies' decisions are non‑binding.
+Judicial remedy in the courts of your country of residence or establishment.
+Information about certified bodies—such as their areas of expertise, languages, and procedures—can be found via your national Digital Services Coordinator and the EU Commission's public list.
+Please note: ZChat may decline participation if an identical dispute has already been resolved. These procedures supplement but do not replace your right to pursue Court actions or other regulatory complaints.
+7. Termination
+Summary: You can delete your ZChat account anytime in your settings. We might suspend or disable your account if you break the rules or if we're required to by law. Some rules still apply even after your account is deleted.
+This agreement remains in effect until terminated by either you or ZChat.
+Your Right to Terminate.
+You may terminate your Account at any time by using the account deletion option in your settings. If your Account is deleted or terminated, we will retain your Personal Data in accordance with our Privacy Policy and only as necessary for trust and safety, legal compliance, or other legitimate purposes. Certain provisions of these Terms will continue to apply after termination.
+Our Right to Terminate.
+We may suspend, restrict, or terminate your Account—or specific features of ZChat—at any time, without prior notice, if:
+You violate these Terms, the Privacy Policy, Community Guidelines, or Copyright Policy;
+We are legally required to do so, such as by court order or regulatory demand; or
+We believe that your continued access poses a risk to ZChat, to other users, or to third parties, including in cases involving safety, legal exposure, reputational risk, or platform integrity.
+8. Third-Party Services
+Summary: ZChat might link to other apps or websites that we don't control. If you use them, that's your choice and your responsibility. We're not responsible for what happens there.
+ZChat may provide access to third-party websites, services, or resources—including Developer Applications operating on the AT Protocol. Any third-party links or mention of third-party names, trademarks, products, or services is not an endorsement, sponsorship, or recommendation by ZChat.
+We do not control, verify, or assume responsibility for the content, policies, or practices of third-party sites or services. You are solely responsible for reviewing and complying with the terms and privacy policies of any third-party resource you choose to access.
+Your use of third-party services is at your own risk, and ZChat is not liable for any content, functionality, or harm arising from such use.
+9. Open Source Software
+Certain parts of ZChat are licensed under open source terms, including the MIT and Apache licenses. The use of these components is governed by the terms of their respective licenses, which are maintained by the organizations that oversee each license.
+You are responsible for reviewing and complying with the terms of any applicable open source licenses.
+10. Warranty Disclaimer
+Summary: We don't promise that everything will work perfectly. We aren't responsible if something goes wrong, or if you see content you don't like. We also aren't responsible for other apps or websites, even if we link to them.
+ZChat and all Content and services provided through it are offered on an "as is" and "as available" basis, without warranties of any kind—express, implied, or statutory. TO THE FULLEST EXTENT PERMITTED BY LAW, WE EXPRESSLY DISCLAIM ALL WARRANTIES, including:
+Implied warranties of merchantability, fitness for a particular purpose, non-infringement, and any warranties arising from course of dealing or usage of trade;
+Any guarantee that ZChat will be uninterrupted, timely, secure, error-free, or meet your expectations or requirements.
+WE MAKE NO REPRESENTATIONS OR WARRANTIES–AND ACCEPT NO RESPONSIBILITY–FOR ANY THIRD-PARTY CONTENT, DEVELOPER APPLICATIONS, OR OTHER PRODUCTS OR SERVICES OFFERED BY THIRD PARTIES, WHETHER REFERENCED OR LINKED WITHIN ZCHAT.
+ZChat is not responsible or liable for any Content shared or transmitted by you, other users, or third parties. You understand that you may encounter Content that is inaccurate, misleading, offensive, inappropriate, untimely, or otherwise objectionable.
+THESE DISCLAIMERS APPLY TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW. Nothing in this section limits or excludes any warranty or legal right that ZChat is prohibited from disclaiming under the law.
+11. Indemnification
+Summary: If you break the rules or cause problems on ZChat, you might have to pay for and help us solve any complaints or legal issues that come up.
+You agree to indemnify, defend, and hold harmless ZChat, its affiliates, and their respective officers, directors, employees, and agents (collectively, the “ZChat Parties”) from and against any and all claims, disputes, demands, liabilities, damages, losses, and expenses—including reasonable legal and accounting fees—arising out of or in any way related to:
+Your access to or use of ZChat;
+Your User Content;
+Your violation of these Terms or any other applicable Bapu policies;
+Any actions you take through or in connection with our services; or
+Your violation of any law or the rights of a third party.
+ZChat reserves the right to assume the exclusive defense and control of any matter subject to indemnification by you. If we do, you agree to fully cooperate with our defense of the claim.
+12. Limitation of Liability
+Summary: ZChat isn’t responsible for any problems caused by other people’s posts or third-party claims. If something goes wrong, ZChat’s responsibility is limited to $100—unless ZChat did something really bad, like broke the law or acted on purpose to hurt someone.
+Excluded Damages.
+To the fullest extent permitted by law, and except for claims covered under the Exceptions to Exclusion below, ZChat and its affiliates will not be liable for:
+Indirect, special, incidental, punitive, or consequential damages—such as lost profits, business interruption, or loss of data;
+Costs for substitute services;
+Any third-party claims, including those arising from User Content.
+All third-party claims are expressly excluded from ZChat's liability, regardless of cause or theory of liability.
+Exceptions to Exclusion.
+The exclusions in this Section do not apply to claims of death or personal injury based on:
+ZChat's fraud or criminal misconduct;
+Gross negligence or willful misconduct by ZChat;
+Violations of statutory rights that cannot be contractually disclaimed under applicable law.
+Monetary Cap.
+Except for claims falling within the Exceptions to Exclusion, ZChat's total cumulative liability for all claims arising out of or related to these Terms—whether in contract, tort, statute, or otherwise—is limited to one hundred U.S. dollars (US$100).
+Scope & Legal Validity.
+These limitations apply to the maximum extent allowed by law. If any jurisdiction limits or prohibits certain exclusions or limitations, those exclusions or limitations will apply to the extent allowed, and the remainder of this Section will remain enforceable.
+13. Governing Law, Jurisdiction, Venue, Dispute Resolution, and Arbitration
+Summary: If there's a problem, email us and we'll try to fix it. If that doesn't work, most issues have to go to private arbitration, not court—unless it's about a safety issue like an injury. You can't join a group lawsuit against ZChat unless we say it's okay. These rules still apply if you delete your account.
+Governing Law and Jurisdiction.
+These Terms and any disputes or claims arising out of or relating to them (including non-contractual disputes) are governed by the Federal Arbitration Act, applicable federal arbitration law, and the laws of the State of Delaware, without regard to its conflict of law principles.
+Jurisdiction and Venue.
+Except as otherwise provided in these Terms, any legal action that is not subject to arbitration must be brought exclusively in the state or federal courts located in Delaware. You and ZChat consent to personal jurisdiction and venue in those courts and waive any objections based on forum or convenience.
+Mandatory Local Law Exception.
+If you reside in a jurisdiction that requires the application of its own local laws, courts, or other mandatory procedures for non-arbitral disputes—such as Brazil—then those mandatory provisions will apply instead of the Delaware governing law and venue provisions in this Section, but only to the extent required by applicable law.
+Dispute Resolution and Arbitration.
+Informal Resolution.
+Most disputes can be resolved informally. If you have an issue with the services, you agree to contact us first and allow us at least 60 days to resolve the dispute before initiating a lawsuit or arbitration. You can do this by contacting us at contact@bapu.app. In order for your informal resolution request to be valid and for us to respond, you must provide us with: your name, your email address, a statement that you are invoking the pre-arbitration informal dispute resolution process, the jurisdiction where you live (city and state, province, or county), your account handle, the specific amount of damages and/or other relief you are seeking, all supporting evidence in your possession that will help us resolve the dispute, links to or descriptions of the location of any evidence you know of but do not possess that will help us resolve the dispute, and whether you intend to pursue arbitration if we cannot resolve your dispute informally and, if so, what your claim will be in arbitration.
+You agree that after you submit your informal resolution request, you will participate with us via telephone or videoconference, in a good-faith effort to resolve the dispute informally. If you are represented by counsel, your counsel may participate in the conference as well, but you agree to fully participate in the conference personally. Likewise, if we are represented by counsel, our counsel may participate in the conference, but we will have a company representative fully participate in the conference.
+The statute of limitations and any filing fee deadlines shall be tolled while the parties engage in the informal dispute resolution process required by this paragraph. You agree that participating in the informal dispute resolution process described in this paragraph is a necessary pre-condition to filing an arbitration demand.
+Mandatory, Mutual Arbitration of Disputes.
+If the Informal Resolution process listed above does not resolve your dispute, you agree that, subject only to the below carve-out and to the maximum extent permitted by local laws, you will resolve any dispute, disagreement, or claim relating to these Terms through final and binding arbitration by AAA (U.S.) or ICDR (UK/EU), seated in the county (or parish) where you live, unless we agree to a different location. Both parties agree that the arbitrator shall have exclusive authority to decide all issues relating to the interpretation, applicability, enforceability and scope of this arbitration agreement. Each party shall select one arbitrator; the pair appoint a third.
+The AAA Rules are available at www.adr.org or by calling 1-800-778-7879. To start arbitration, submit a written Demand for Arbitration to AAA and give notice to ZChat as specified in the AAA Rules.
+Payment of all filing, administration and arbitrator fees will be governed by the AAA Rules. If we prevail in arbitration we'll pay all of our attorneys' fees and costs and won't seek to recover them from you, unless the arbitrator determines your claims were frivolous. If you prevail in arbitration you will be entitled to an award of attorneys' fees and expenses to the extent provided under applicable law.
+Carve-Out for Safety Claims.
+Arbitration does not apply to claims that fraud, criminal misconduct, or gross negligence by ZChat caused death or personal injury. Those matters may be brought in court or arbitration, at the claimant's choice, subject to these Terms.
+Waiver of Class Actions.
+TO THE EXTENT PERMITTED BY APPLICABLE LAW, YOU AND ZCHAT AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF, CLASS MEMBER, OR REPRESENTATIVE IN ANY PURPORTED CLASS, COLLECTIVE, OR REPRESENTATIVE PROCEEDING.
+If any part of this Waiver of Representative Actions is found to be unenforceable, Section 13 ("Dispute Resolution and Arbitration") shall be deemed void in its entirety.
+Nothing in this section shall prohibit the AAA's consolidation of the administration of multiple claims pursuant to the AAA Rules.
+ZChat's Discretion to Consolidate.
+Notwithstanding the foregoing waiver, ZChat may, at its sole discretion, elect to consolidate multiple arbitrations involving similar issues or claimants into a single consolidated arbitration or class-arbitration-like proceeding. Any such consolidation will occur only under the applicable AAA rules.
+Small Claims and Injunctive Relief.
+This clause, "Dispute Resolution and Arbitration," does not restrict you from bringing eligible claims in small claims court. It also does not waive your statutory rights under the law of your country of residence.
+To the extent that you or we prevail on a claim in arbitration and seek public injunctive relief (injunctive relief that has the primary purpose and effect of prohibiting unlawful acts that threaten future injury to the public), the entitlement to and extent of such relief must be litigated in a civil court of competent jurisdiction, not in arbitration. The parties agree that litigation of any issues of public injunctive relief shall be stayed pending the outcome of the merits of any individual claims in arbitration.
+Survival.
+This Section survives account Termination.
+14. Updates to Terms
+We may update these Terms periodically. We will always post the revised version here and we will notify you through the App, website, or other communication channel if we make any material changes.
+It’s your responsibility to review the Terms regularly. By continuing to use ZChat after any update, you agree to the revised Terms. If you do not agree to the changes, you must stop using ZChat.
+15. Intellectual Property
+Summary: ZChat owns its name, design, code, and other creations. You can use ZChat and all of the open source parts it’s made of, but that does not mean that you own anything we’ve made.
+We reserve all rights not expressly granted to you in these Terms. ZChat is protected by trademark, copyright, patent and other laws of the United States and other countries.
+Except for the parts of ZChat that are licensed under open source terms, we own all applicable rights, title, interest in and to ZChat, and all Intellectual Property Rights in it. Your use of ZChat is subject to these Terms, and, unless explicitly provided, these Terms do not grant you any rights to our Intellectual Property Rights or the Intellectual Property Rights of our licensors, licensees, or partners.
+For the purposes of these Terms, "Intellectual Property Rights" are all patent rights, copyright rights, mask work rights, moral rights, rights of publicity, trademark, trade dress and service mark rights, goodwill, trade secret rights, and other intellectual property rights that may exist now or come into existence in the future, and all of their applications, registrations, renewals and extensions, under the laws of any state, country, territory or other jurisdiction.
+16. General Terms
+Summary: These rules are the whole agreement between you and ZChat. If one part doesn’t hold up in court, the rest still counts. We’ll contact you through the app, website, or email. If we don’t enforce a rule right away, we can still enforce it later. We try to keep things fair, and short summaries in italics, like this one, are just to help you understand—they don’t change the rules.
+Entire Agreement.
+These Terms, together with the Bapu Community Guidelines, Privacy Policy, and Copyright Policy, constitute the complete and exclusive agreement between you and ZChat regarding your use of ZChat. They supersede and replace any prior or contemporaneous agreements, understandings, or communications—whether oral or written—between you and ZChat concerning the same subject matter.
+If any provision of these Terms is determined to be invalid or unenforceable by an arbitrator or court, it will be enforced to the maximum extent permitted by law, and the remaining provisions will remain in full force and effect.
+Severability.
+If any provision of these Terms is held to be unlawful, void, or unenforceable, that provision will be severed from these Terms, and the remainder will continue in full force and effect.
+Notices.
+We may provide notices to you by posting them in the ZChat App or on our website, or by sending them by email or other communication methods based on the information associated with your account. By using ZChat, you agree to receive communications from us electronically and acknowledge that all electronic communications satisfy any legal requirement for a written communication.
+Waiver.
+Our failure to enforce any provision of these Terms is not a waiver of our rights to enforce it later. To be effective, any waiver must be in writing and signed by an authorized ZChat representative. The exercise of one right does not waive other rights or remedies unless explicitly stated.
+Interpretation.
+These Terms shall be interpreted fairly and without bias to either party. As used in these Terms, the terms "including," "includes," "such as," and "for example" mean "without limitation."
+The italicized summaries at the beginning of some sections are provided for convenience and ease of navigation only. They do not have any legal effect. In the event of any conflict or inconsistency between a summary and the full text of the Terms, the full text will govern.
+17. Contact Us
+If you have any questions about these Terms or ZChat, please contact us at
+contact@bapu.app
+.
+18. Apple App Store and Google Play Required Terms
+The Apple App Store and Google Play (each, an "App Provider") require us to tell you that the following additional terms apply if you download or access ZChat through an App Provider:
+These Terms are between you and ZChat—not the App Provider. The App Provider has no responsibility for ZChat or its content.
+ZChat is solely responsible for the App, including any claims, losses, liabilities, or expenses arising from its failure to meet any applicable warranties. If the App does not conform to a warranty, you may notify the App Provider—but, to the maximum extent permitted by law, the App Provider will have no further warranty obligations.
+The App Provider is not obligated to provide maintenance or support services for the App.
+The App Provider is not responsible for addressing any claims you or third parties may have in connection with the App, including product liability, legal compliance, or intellectual property infringement.
+If a third party claims that your use of the App infringes their intellectual property rights, ZChat—not the App Provider—is solely responsible for handling that claim under these Terms.
+The App Provider and its affiliates are third-party beneficiaries of these Terms and may enforce them accordingly.
+You must comply with all applicable third-party terms of service when using the ZChat App.

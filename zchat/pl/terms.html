@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZChat – ZChat Warunki Usługi</title>
+<link rel="alternate" hreflang="en" href="https://bapu.app/terms.html">
+<link rel="alternate" hreflang="ar" href="https://bapu.app/ar/terms.html">
+<link rel="alternate" hreflang="an" href="https://bapu.app/an/terms.html">
+<link rel="alternate" hreflang="ast" href="https://bapu.app/ast/terms.html">
+<link rel="alternate" hreflang="eu" href="https://bapu.app/eu/terms.html">
+<link rel="alternate" hreflang="km" href="https://bapu.app/km/terms.html">
+<link rel="alternate" hreflang="ca" href="https://bapu.app/ca/terms.html">
+<link rel="alternate" hreflang="da" href="https://bapu.app/da/terms.html">
+<link rel="alternate" hreflang="nl" href="https://bapu.app/nl/terms.html">
+<link rel="alternate" hreflang="eo" href="https://bapu.app/eo/terms.html">
+<link rel="alternate" hreflang="fi" href="https://bapu.app/fi/terms.html">
+<link rel="alternate" hreflang="fr" href="https://bapu.app/fr/terms.html">
+<link rel="alternate" hreflang="fy" href="https://bapu.app/fy/terms.html">
+<link rel="alternate" hreflang="gd" href="https://bapu.app/gd/terms.html">
+<link rel="alternate" hreflang="gl" href="https://bapu.app/gl/terms.html">
+<link rel="alternate" hreflang="de" href="https://bapu.app/de/terms.html">
+<link rel="alternate" hreflang="el" href="https://bapu.app/el/terms.html">
+<link rel="alternate" hreflang="hi" href="https://bapu.app/hi/terms.html">
+<link rel="alternate" hreflang="hu" href="https://bapu.app/hu/terms.html">
+<link rel="alternate" hreflang="id" href="https://bapu.app/id/terms.html">
+<link rel="alternate" hreflang="ia" href="https://bapu.app/ia/terms.html">
+<link rel="alternate" hreflang="ga" href="https://bapu.app/ga/terms.html">
+<link rel="alternate" hreflang="it" href="https://bapu.app/it/terms.html">
+<link rel="alternate" hreflang="ja" href="https://bapu.app/ja/terms.html">
+<link rel="alternate" hreflang="ko" href="https://bapu.app/ko/terms.html">
+<link rel="alternate" hreflang="ne" href="https://bapu.app/ne/terms.html">
+<link rel="alternate" hreflang="pt" href="https://bapu.app/pt/terms.html">
+<link rel="alternate" hreflang="ro" href="https://bapu.app/ro/terms.html">
+<link rel="alternate" hreflang="ru" href="https://bapu.app/ru/terms.html">
+<link rel="alternate" hreflang="zh-CN" href="https://bapu.app/zh-CN/terms.html">
+<link rel="alternate" hreflang="es" href="https://bapu.app/es/terms.html">
+<link rel="alternate" hreflang="sv" href="https://bapu.app/sv/terms.html">
+<link rel="alternate" hreflang="th" href="https://bapu.app/th/terms.html">
+<link rel="alternate" hreflang="zh-TW" href="https://bapu.app/zh-TW/terms.html">
+<link rel="alternate" hreflang="tr" href="https://bapu.app/tr/terms.html">
+<link rel="alternate" hreflang="uk" href="https://bapu.app/uk/terms.html">
+<link rel="alternate" hreflang="vi" href="https://bapu.app/vi/terms.html">
+<link rel="alternate" hreflang="cy" href="https://bapu.app/cy/terms.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0f14;--s:#13161e;--b:#1e2230;--a:#4f8ef7;--t:#e8eaf0;--m:#6b7280;--pb:#1a1e2a}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:'DM Mono',monospace;font-size:14px;line-height:1.75;min-height:100vh}
+header{position:sticky;top:0;z-index:100;background:rgba(13,15,20,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--b);padding:0 1.5rem;height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t);text-decoration:none;flex-shrink:0}
+.logo span{color:var(--a)}
+.lnav{position:relative;flex-shrink:0}
+.lcur{background:var(--pb);border:1px solid var(--b);color:var(--t);padding:5px 12px;border-radius:6px;font-family:'DM Mono',monospace;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:6px}
+.lcur::after{content:'▾';color:var(--m);font-size:10px}
+.ldrop{display:none;position:absolute;right:0;top:calc(100% + 6px);background:var(--s);border:1px solid var(--b);border-radius:8px;padding:6px;min-width:220px;max-height:400px;overflow-y:auto;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.ldrop a{display:block;padding:6px 10px;border-radius:5px;color:var(--m);text-decoration:none;font-size:12px;transition:all .15s}
+.ldrop a:hover,.ldrop a.active{background:var(--pb);color:var(--a)}
+.lnav:hover .ldrop,.lnav:focus-within .ldrop{display:block}
+.wrap{max-width:780px;margin:0 auto;padding:4rem 2rem 6rem}
+.dh{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--b)}
+.badge{display:inline-block;background:var(--pb);border:1px solid var(--b);color:var(--m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:1.2rem}
+h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:.75rem}
+.meta{color:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.toc{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1.5rem 2rem;margin-bottom:3rem}
+.toc ol{padding-left:1.2rem;columns:2;column-gap:2rem}
+.toc li{margin-bottom:.35rem;break-inside:avoid}
+.toc a{color:var(--m);text-decoration:none;font-size:12px}
+.toc a:hover{color:var(--a)}
+section{margin-bottom:2.8rem;padding-bottom:2.8rem;border-bottom:1px solid var(--b)}
+section:last-child{border-bottom:none}
+h2{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--t);margin-bottom:1rem;display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.n{font-family:'DM Mono',monospace;font-size:10px;color:var(--a);letter-spacing:.08em;background:rgba(79,142,247,.1);padding:2px 7px;border-radius:4px;flex-shrink:0}
+.sum{background:rgba(79,142,247,.06);border-left:2px solid var(--a);padding:.75rem 1rem;margin-bottom:1.2rem;border-radius:0 6px 6px 0;font-size:12px;color:var(--m);font-style:italic}
+.sev{background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.25);border-radius:8px;padding:1.2rem 1.4rem;margin-top:.5rem}
+.sev p{color:#c4b5fd;margin:0}
+p{margin-bottom:1rem;color:#b8bfcc}
+p:last-child{margin-bottom:0}
+a{color:var(--a);text-decoration:none}
+a:hover{text-decoration:underline}
+.doc-switch{display:flex;gap:8px;margin-bottom:2rem}
+.doc-switch a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--pb);border:1px solid var(--b);border-radius:6px;color:var(--m);font-size:12px;text-decoration:none;transition:all .15s}
+.doc-switch a.active,.doc-switch a:hover{border-color:var(--a);color:var(--a)}
+footer{border-top:1px solid var(--b);padding:2rem;text-align:center;color:var(--m);font-size:11px}
+@media(max-width:600px){.toc ol{columns:1}.wrap{padding:2rem 1rem 4rem}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="../">Z<span>Chat</span></a>
+  <div class="lnav" tabindex="0">
+    <div class="lcur">🇵🇱 Polski</div>
+    <nav class="ldrop"><a href="../terms.html">🇬🇧 English</a>
+<a href="../ar/terms.html">🇸🇦 العربية</a>
+<a href="../an/terms.html">🏴 Aragonés</a>
+<a href="../ast/terms.html">🏴 Asturianu</a>
+<a href="../eu/terms.html">🏴 Euskara</a>
+<a href="../km/terms.html">🇰🇭 ភាសាខ្មែរ</a>
+<a href="../ca/terms.html">🏴 Català</a>
+<a href="../da/terms.html">🇩🇰 Dansk</a>
+<a href="../nl/terms.html">🇳🇱 Nederlands</a>
+<a href="../eo/terms.html">🟩 Esperanto</a>
+<a href="../fi/terms.html">🇫🇮 Suomi</a>
+<a href="../fr/terms.html">🇫🇷 Français</a>
+<a href="../fy/terms.html">🏴 Frysk</a>
+<a href="../gd/terms.html">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Gàidhlig</a>
+<a href="../gl/terms.html">🏴 Galego</a>
+<a href="../de/terms.html">🇩🇪 Deutsch</a>
+<a href="../el/terms.html">🇬🇷 Ελληνικά</a>
+<a href="../hi/terms.html">🇮🇳 हिन्दी</a>
+<a href="../hu/terms.html">🇭🇺 Magyar</a>
+<a href="../id/terms.html">🇮🇩 Bahasa Indonesia</a>
+<a href="../ia/terms.html">🌐 Interlingua</a>
+<a href="../ga/terms.html">🇮🇪 Gaeilge</a>
+<a href="../it/terms.html">🇮🇹 Italiano</a>
+<a href="../ja/terms.html">🇯🇵 日本語</a>
+<a href="../ko/terms.html">🇰🇷 한국어</a>
+<a href="../ne/terms.html">🇳🇵 नेपाली</a>
+<a href="../pl/terms.html" class="active">🇵🇱 Polski</a>
+<a href="../pt/terms.html">🇧🇷 Português</a>
+<a href="../ro/terms.html">🇷🇴 Română</a>
+<a href="../ru/terms.html">🇷🇺 Русский</a>
+<a href="../zh-CN/terms.html">🇨🇳 简体中文</a>
+<a href="../es/terms.html">🇪🇸 Español</a>
+<a href="../sv/terms.html">🇸🇪 Svenska</a>
+<a href="../th/terms.html">🇹🇭 ภาษาไทย</a>
+<a href="../zh-TW/terms.html">🇹🇼 繁體中文</a>
+<a href="../tr/terms.html">🇹🇷 Türkçe</a>
+<a href="../uk/terms.html">🇺🇦 Українська</a>
+<a href="../vi/terms.html">🇻🇳 Tiếng Việt</a>
+<a href="../cy/terms.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Cymraeg</a></nav>
+  </div>
+</header>
+<div class="wrap">
+  <div class="dh">
+    <div class="badge">Prawne · Warunki Usługi</div>
+    <h1>ZChat Warunki<br>Usługi</h1>
+    <div class="meta">Ostatnia aktualizacja: 11 marca 2026 r. · Aureus Z, Inc.</div>
+  </div>
+  <div class="doc-switch">
+  <a href="../terms.html" class="active">📋 Terms</a>
+  <a href="../privacy.html" class="">🔒 Privacy</a>
+</div>
+  <div class="toc"><ol><li><a href="#s01">Warunki dostępu i weryfikacja wieku</a></li><li><a href="#s02">Rejestracja konta i odpowiedzialność</a></li><li><a href="#s03">Treści użytkownika</a></li><li><a href="#s04">Proaktywna moderacja i nielegalne treści</a></li><li><a href="#s05">Kanał Discover i systemy rekomendacji</a></li><li><a href="#s06">Skargi i odwołania</a></li><li><a href="#s07">Wypowiedzenie</a></li><li><a href="#s08">Usługi podmiotów trzecich</a></li><li><a href="#s09">Oprogramowanie open source</a></li><li><a href="#s10">Wyłączenie gwarancji</a></li><li><a href="#s11">Odszkodowanie</a></li><li><a href="#s12">Ograniczenie odpowiedzialności</a></li><li><a href="#s13">Prawo właściwe, jurysdykcja, rozstrzyganie sporów i arbitraż</a></li><li><a href="#s14">Aktualizacje Warunków</a></li><li><a href="#s15">Własność intelektualna</a></li><li><a href="#s16">Klauzula salwatoryjna</a></li><li><a href="#s17">Kontakt</a></li><li><a href="#s18">Warunki App Store (Apple / Google)</a></li></ol></div><section id="s01"><h2><span class="n">01</span>Warunki dostępu i weryfikacja wieku</h2><p>Aby korzystać z ZChat, musisz mieć co najmniej 13 lat i spełniać minimalny wiek wymagany przez lokalne prawo.</p></section>
+<section id="s02"><h2><span class="n">02</span>Rejestracja konta i odpowiedzialność</h2><div class="sum">Nie udostępniaj konta. Ponosisz odpowiedzialność za całą aktywność. W przypadku naruszenia: <a href="mailto:contact@bapu.app">contact@bapu.app</a>.</div><p>Jesteś odpowiedzialny za wszelkie korzystanie z ZChat z wykorzystaniem Twoich danych logowania. Nie udostępniaj konta. O naruszeniu bezpieczeństwa powiadom natychmiast pod adresem <a href="mailto:contact@bapu.app">contact@bapu.app</a>.</p></section>
+<section id="s03"><h2><span class="n">03</span>Treści użytkownika</h2><div class="sum">To, co publikujesz, należy do Ciebie. ZChat używa treści wyłącznie do obsługi i ulepszania platformy. Nie sprzedamy Twoich treści bez pozwolenia.</div><p>Zachowujesz własność swoich Treści. Udostępniając Treści, udzielasz nam ograniczonej, ogólnoświatowej, niewyłącznej, bezpłatnej licencji do obsługi i ulepszania ZChat.</p></section>
+<section id="s04"><h2><span class="n">04</span>Proaktywna moderacja i nielegalne treści</h2><p>Używamy narzędzi automatycznych i moderacji ludzkiej do wykrywania zabronionych treści. ZChat priorytetowo usuwa treści terrorystyczne, CSEA i inne nielegalne materiały.</p></section>
+<section id="s05"><h2><span class="n">05</span>Kanał Discover i systemy rekomendacji</h2><p>ZChat używa algorytmu rekomendacji dla kanału Discover. Możesz zrezygnować w Ustawieniach.</p></section>
+<section id="s06"><h2><span class="n">06</span>Skargi i odwołania</h2><div class="sum">Zgłaszaj naruszenia przez narzędzia in-app. Odwołania w ciągu dwóch tygodni. Użytkownicy UE/EOG mają dodatkowe prawa na mocy DSA.</div><p>Zgłaszaj naruszenia przez narzędzia in-app lub <a href="mailto:contact@bapu.app">contact@bapu.app</a>. Odwołania od zawieszeń muszą być złożone w ciągu dwóch tygodni.</p></section>
+<section id="s07"><h2><span class="n">07</span>Wypowiedzenie</h2><div class="sum">Możesz usunąć konto w Ustawieniach w dowolnym momencie.</div><p>Możesz usunąć konto w dowolnym momencie w Ustawieniach. Możemy zawiesić lub zakończyć Twoje konto w przypadku naruszenia Warunków lub wymogu prawnego.</p></section>
+<section id="s08"><h2><span class="n">08</span>Usługi podmiotów trzecich</h2><p>ZChat może łączyć się z witrynami lub usługami podmiotów trzecich. Nie ponosimy odpowiedzialności za ich treści. Korzystanie odbywa się na własne ryzyko.</p></section>
+<section id="s09"><h2><span class="n">09</span>Oprogramowanie open source</h2><p>Część ZChat jest licencjonowana na warunkach open source (MIT, Apache).</p></section>
+<section id="s10"><h2><span class="n">10</span>Wyłączenie gwarancji</h2><div class="sum">ZChat jest dostarczany tak jak jest, bez jakichkolwiek gwarancji.</div><p>ZChat i wszystkie usługi są dostarczane tak jak są i w miarę dostępności bez jakichkolwiek gwarancji. W maksymalnym dopuszczalnym przez prawo zakresie wyłączamy wszelkie gwarancje.</p></section>
+<section id="s11"><h2><span class="n">11</span>Odszkodowanie</h2><p>Zgadzasz się na zwolnienie ZChat i jego podmiotów powiązanych z odpowiedzialności z tytułu wszelkich roszczeń, szkód i wydatków wynikających z korzystania z ZChat.</p></section>
+<section id="s12"><h2><span class="n">12</span>Ograniczenie odpowiedzialności</h2><div class="sum">Odpowiedzialność ZChat jest ograniczona do US$100, z wyjątkiem oszustwa lub rażącego niedbalstwa.</div><p>Z wyjątkiem przypadków oszustwa, rażącego niedbalstwa lub nienaruszalnych praw ustawowych, całkowita odpowiedzialność ZChat jest ograniczona do US$100.</p></section>
+<section id="s13"><h2><span class="n">13</span>Prawo właściwe, jurysdykcja, rozstrzyganie sporów i arbitraż</h2><div class="sum">Najpierw skontaktuj się z nami — 60 dni na nieformalne rozwiązanie. Większość sporów trafia do wiążącego arbitrażu. Bez pozwów zbiorowych bez zgody ZChat. Obowiązuje prawo stanu Delaware. Roszczenia dotyczące bezpieczeństwa (śmierć/obrażenia) mogą trafić do sądu.</div><p>Prawo właściwe i jurysdykcja. Niniejsze Warunki podlegają Federalnej Ustawie o Arbitrażu i prawu stanu Delaware, bez uwzględnienia zasad kolizji norm prawnych.</p><p>Jurysdykcja i miejsce. Wszelkie działania prawne niepodlegające arbitrażowi muszą być wszczynane wyłącznie przed sądami stanowymi lub federalnymi w Delaware.</p><p>Wyjątek dotyczący obowiązkowego prawa lokalnego. Jeśli mieszkasz w jurysdykcji wymagającej stosowania własnych lokalnych przepisów (np. Brazylia), te obowiązkowe przepisy będą miały zastosowanie w wymaganym zakresie.</p><p>Nieformalne rozwiązanie. Większość sporów można rozwiązać nieformalnie. Zgadzasz się najpierw skontaktować z nami pod adresem <a href="mailto:contact@bapu.app">contact@bapu.app</a> i dać nam co najmniej 60 dni na rozwiązanie sporu. Zgadzasz się w dobrej wierze uczestniczyć w rozmowie telefonicznej lub wideokonferencji.</p><p>Obowiązkowy arbitraż. Jeśli nieformalne rozwiązanie się nie powiedzie, zgadzasz się rozstrzygać spory poprzez ostateczny i wiążący arbitraż AAA (USA) lub ICDR (UK/UE). Każda strona wybiera jednego arbitra; para mianuje trzeciego. Zasady AAA dostępne są na www.adr.org.</p><p>Wyjątek dotyczący roszczeń bezpieczeństwa. Arbitraż nie dotyczy roszczeń za śmierć lub obrażenia ciała spowodowane oszustwem, przestępstwem lub rażącym zaniedbaniem ZChat.</p><p>Zrzeczenie się pozwów zbiorowych. W MAKSYMALNYM ZAKRESIE DOZWOLONYM PRZEZ OBOWIĄZUJĄCE PRAWO, TY I ZCHAT ZGADZACIE SIĘ WNOSIĆ ROSZCZENIA WYŁĄCZNIE W CHARAKTERZE INDYWIDUALNYM. Jeśli to zrzeczenie jest niewykonalne, Sekcja 13 zostaje uznana za nieważną w całości.</p><p>Przeżywalność. Niniejsza Sekcja obowiązuje po rozwiązaniu konta.</p></section>
+<section id="s14"><h2><span class="n">14</span>Aktualizacje Warunków</h2><p>Możemy aktualizować Warunki. Dalsze korzystanie oznacza akceptację zaktualizowanych Warunków.</p></section>
+<section id="s15"><h2><span class="n">15</span>Własność intelektualna</h2><p>ZChat i jego oryginalna treść stanowią własność Aureus Z, Inc. i są chronione przepisami o własności intelektualnej.</p></section>
+<section id="s16"><h2><span class="n">16</span>Klauzula salwatoryjna</h2><div class="sev"><p>Jeżeli jakiekolwiek postanowienie zostanie uznane za nieważne lub niewykonalne, zostanie zmienione w minimalnym zakresie lub wyłączone. Pozostałe postanowienia zachowują pełną moc.</p></div></section>
+<section id="s17"><h2><span class="n">17</span>Kontakt</h2><p>Aureus Z, Inc. · <a href="mailto:contact@bapu.app">contact@bapu.app</a> · <a href="mailto:legal@bapu.app">legal@bapu.app</a> · bapu.app</p></section>
+<section id="s18"><h2><span class="n">18</span>Warunki App Store (Apple / Google)</h2><p>Jeśli pobrałeś ZChat ze sklepu Apple App Store, Apple nie jest stroną Warunków, ale jest beneficjentem trzeciej strony. To samo dotyczy Google w przypadku Google Play.</p></section>
+</div>
+<footer>© 2026 Aureus Z, Inc. · <a href="mailto:legal@bapu.app">legal@bapu.app</a> · bapu.app</footer>
+<script src="/js/lang.js" defer></script>
+</body></html>
