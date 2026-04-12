@@ -140,10 +140,22 @@ function initLanguageSelector() {
         // Quick HEAD request to check if translated file exists
         if (selectedLang !== 'en') {
             try {
-                const response = await fetch(targetPath, { method: 'HEAD' });
-                if (response.ok) {
-                    window.location.href = targetPath;
-                } else {
+            const response = await fetch(targetPath);
+            if (response.ok) {
+                const text = await response.text();
+                const isFallbackIndex = text.includes('<title>BAPU — Sovereign Social Infrastructure</title>') && !targetPath.includes('index.html') && targetPath !== '/' + preferredLang + '/';
+
+                if (!isFallbackIndex) {
+                    window.location.replace(targetPath);
+                    return;
+                }
+            }
+            sessionStorage.setItem(`lang_fail_${preferredLang}_${pathInfo.basePath}`, 'true');
+        } catch (err) {
+            console.error('Error checking language existence', err);
+        }
+        }
+        } else {
                     console.warn(`Translation for ${selectedLang} not found at ${targetPath}. Falling back to English.`);
                     // If not en, we redirect to English version
                     window.location.href = constructLocalizedPath(pathInfo.basePath, pathInfo.isZchat, 'en');
@@ -222,12 +234,17 @@ async function detectAndRedirectLanguage() {
         if (failedLang) return;
 
         try {
-            const response = await fetch(targetPath, { method: 'HEAD' });
+            const response = await fetch(targetPath);
             if (response.ok) {
-                window.location.replace(targetPath);
-            } else {
-                sessionStorage.setItem(`lang_fail_${preferredLang}_${pathInfo.basePath}`, 'true');
+                const text = await response.text();
+                const isFallbackIndex = text.includes('<title>BAPU — Sovereign Social Infrastructure</title>') && !targetPath.includes('index.html') && targetPath !== '/' + preferredLang + '/';
+
+                if (!isFallbackIndex) {
+                    window.location.replace(targetPath);
+                    return;
+                }
             }
+            sessionStorage.setItem(`lang_fail_${preferredLang}_${pathInfo.basePath}`, 'true');
         } catch (err) {
             console.error('Error checking language existence', err);
         }
