@@ -304,3 +304,14 @@ footer a:hover {
   outline: none;
   border-color: var(--link-color);
 }
+
+.cloudflare-badge {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cloudflare-badge img {
+  height: 40px;
+  width: auto;
+}
