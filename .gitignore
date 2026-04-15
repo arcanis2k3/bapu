@@ -1,6 +1,15 @@
+# Ignore python cache
+__pycache__/
+*.pyc
 
-patch_lang.py
-patch_style.py
-test.html
-server.log
-patch_*.py
+# Virtual env
+venv/
+.venv/
+env/
+
+# Build artifacts and logs
+dist/
+node_modules/
+
+# Credentials
+config/google-credentials.json

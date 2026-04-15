@@ -2,7 +2,7 @@
 <html lang="zh-CN" dir="ltr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ZChat – ZChat Privacy Policy</title>
+<title>ZChat – ZChat 隐私政策</title>
 <link rel="alternate" hreflang="en" href="https://bapu.app/privacy.html">
 <link rel="alternate" hreflang="ar" href="https://bapu.app/ar/privacy.html">
 <link rel="alternate" hreflang="an" href="https://bapu.app/an/privacy.html">
@@ -41,101 +41,57 @@
 <link rel="alternate" hreflang="uk" href="https://bapu.app/uk/privacy.html">
 <link rel="alternate" hreflang="vi" href="https://bapu.app/vi/privacy.html">
 <link rel="alternate" hreflang="cy" href="https://bapu.app/cy/privacy.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0d0f14;--s:#13161e;--b:#1e2230;--a:#4f8ef7;--t:#e8eaf0;--m:#6b7280;--pb:#1a1e2a}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--t);font-family:'DM Mono',monospace;font-size:14px;line-height:1.75;min-height:100vh}
-header{position:sticky;top:0;z-index:100;background:rgba(13,15,20,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--b);padding:0 1.5rem;height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t);text-decoration:none;flex-shrink:0}
-.logo span{color:var(--a)}
-.lnav{position:relative;flex-shrink:0}
-.lcur{background:var(--pb);border:1px solid var(--b);color:var(--t);padding:5px 12px;border-radius:6px;font-family:'DM Mono',monospace;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:6px}
-.lcur::after{content:'▾';color:var(--m);font-size:10px}
-.ldrop{display:none;position:absolute;right:0;top:calc(100% + 6px);background:var(--s);border:1px solid var(--b);border-radius:8px;padding:6px;min-width:220px;max-height:400px;overflow-y:auto;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,.5)}
-.ldrop a{display:block;padding:6px 10px;border-radius:5px;color:var(--m);text-decoration:none;font-size:12px;transition:all .15s}
-.ldrop a:hover,.ldrop a.active{background:var(--pb);color:var(--a)}
-.lnav:hover .ldrop,.lnav:focus-within .ldrop{display:block}
-.wrap{max-width:780px;margin:0 auto;padding:4rem 2rem 6rem}
-.dh{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--b)}
-.badge{display:inline-block;background:var(--pb);border:1px solid var(--b);color:var(--m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:1.2rem}
-h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:.75rem}
-.meta{color:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
-.toc{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1.5rem 2rem;margin-bottom:3rem}
-.toc ol{padding-left:1.2rem;columns:2;column-gap:2rem}
-.toc li{margin-bottom:.35rem;break-inside:avoid}
-.toc a{color:var(--m);text-decoration:none;font-size:12px}
-.toc a:hover{color:var(--a)}
-section{margin-bottom:2.8rem;padding-bottom:2.8rem;border-bottom:1px solid var(--b)}
-section:last-child{border-bottom:none}
-h2{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--t);margin-bottom:1rem;display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
-.n{font-family:'DM Mono',monospace;font-size:10px;color:var(--a);letter-spacing:.08em;background:rgba(79,142,247,.1);padding:2px 7px;border-radius:4px;flex-shrink:0}
-.sum{background:rgba(79,142,247,.06);border-left:2px solid var(--a);padding:.75rem 1rem;margin-bottom:1.2rem;border-radius:0 6px 6px 0;font-size:12px;color:var(--m);font-style:italic}
-.sev{background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.25);border-radius:8px;padding:1.2rem 1.4rem;margin-top:.5rem}
-.sev p{color:#c4b5fd;margin:0}
-p{margin-bottom:1rem;color:#b8bfcc}
-p:last-child{margin-bottom:0}
-a{color:var(--a);text-decoration:none}
-a:hover{text-decoration:underline}
-.doc-switch{display:flex;gap:8px;margin-bottom:2rem}
-.doc-switch a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--pb);border:1px solid var(--b);border-radius:6px;color:var(--m);font-size:12px;text-decoration:none;transition:all .15s}
-.doc-switch a.active,.doc-switch a:hover{border-color:var(--a);color:var(--a)}
-footer{border-top:1px solid var(--b);padding:2rem;text-align:center;color:var(--m);font-size:11px}
-@media(max-width:600px){.toc ol{columns:1}.wrap{padding:2rem 1rem 4rem}}
-</style>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+  .lnav{position:relative;flex-shrink:0;margin-left:auto;}
+  .lcur{background:rgba(18, 25, 48, 0.9);border:1px solid #1f2a44;color:#e6eaf2;padding:5px 12px;border-radius:6px;font-family:monospace;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:6px}
+  .lcur::after{content:'▾';color:#8892b0;font-size:10px}
+  .ldrop{display:none;position:absolute;right:0;top:calc(100% + 6px);background:#07090f;border:1px solid #1f2a44;border-radius:8px;padding:6px;min-width:220px;max-height:400px;overflow-y:auto;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+  .ldrop a{display:block;padding:6px 10px;border-radius:5px;color:#8892b0;text-decoration:none;font-size:12px;transition:all .15s}
+  .ldrop a:hover,.ldrop a.active{background:rgba(18, 25, 48, 0.9);color:#9fb4ff}
+  .lnav:hover .ldrop,.lnav:focus-within .ldrop{display:block}
+
+  /* Additional styling required for the new translated texts inside main */
+  main h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem,5vw,3rem); margin-bottom: 0.75rem; line-height: 1.15; }
+  main .meta { color: #8892b0; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 2rem; }
+  main .doc-switch { display: flex; gap: 8px; margin-bottom: 2rem; }
+  main .doc-switch a { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: rgba(18, 25, 48, 0.9); border: 1px solid #1f2a44; border-radius: 6px; color: #8892b0; font-size: 12px; text-decoration: none; transition: all .15s; }
+  main .doc-switch a.active, main .doc-switch a:hover { border-color: #4f8ef7; color: #4f8ef7; }
+  main .badge { display: inline-block; background: rgba(18, 25, 48, 0.9); border: 1px solid #1f2a44; color: #8892b0; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; margin-bottom: 1.2rem; }
+  main .toc { background: rgba(18, 25, 48, 0.9); border: 1px solid #1f2a44; border-radius: 10px; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+  main .toc ol { padding-left: 1.2rem; columns: 2; column-gap: 2rem; }
+  main .toc li { margin-bottom: 0.35rem; break-inside: avoid; }
+  main .toc a { color: #8892b0; text-decoration: none; font-size: 12px; }
+  main .toc a:hover { color: #4f8ef7; }
+  main section { margin-bottom: 2.8rem; padding-bottom: 2.8rem; border-bottom: 1px solid #1f2a44; }
+  main section:last-child { border-bottom: none; }
+  main h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: #e6eaf2; margin-bottom: 1rem; display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap; }
+  main .n { font-family: monospace; font-size: 10px; color: #4f8ef7; letter-spacing: .08em; background: rgba(79,142,247,.1); padding: 2px 7px; border-radius: 4px; flex-shrink: 0; }
+  main .sum { background: rgba(79,142,247,.06); border-left: 2px solid #4f8ef7; padding: .75rem 1rem; margin-bottom: 1.2rem; border-radius: 0 6px 6px 0; font-size: 12px; color: #8892b0; font-style: italic; }
+  main .sev { background: rgba(167,139,250,.07); border: 1px solid rgba(167,139,250,.25); border-radius: 8px; padding: 1.2rem 1.4rem; margin-top: .5rem; }
+  main .sev p { color: #c4b5fd; margin: 0; }
+  @media(max-width:600px){main .toc ol{columns:1}}
+  </style>
 </head>
 <body>
+
 <header>
-  <a class="logo" href="../">Z<span>Chat</span></a>
-  <div class="lnav" tabindex="0">
+  <nav>
+    <a href="/" class="brand">BAPU</a>
+    <div>
+      <a href="/" class="nav-link">Home</a>
+      <a href="/handles.html" class="nav-link">Handles</a>
+    </div>
+    <div class="lnav" tabindex="0">
     <div class="lcur">🇨🇳 简体中文</div>
-    <nav class="ldrop"><a href="../privacy.html">🇬🇧 English</a>
-<a href="../ar/privacy.html">🇸🇦 العربية</a>
-<a href="../an/privacy.html">🏴 Aragonés</a>
-<a href="../ast/privacy.html">🏴 Asturianu</a>
-<a href="../eu/privacy.html">🏴 Euskara</a>
-<a href="../km/privacy.html">🇰🇭 ភាសាខ្មែរ</a>
-<a href="../ca/privacy.html">🏴 Català</a>
-<a href="../da/privacy.html">🇩🇰 Dansk</a>
-<a href="../nl/privacy.html">🇳🇱 Nederlands</a>
-<a href="../eo/privacy.html">🟩 Esperanto</a>
-<a href="../fi/privacy.html">🇫🇮 Suomi</a>
-<a href="../fr/privacy.html">🇫🇷 Français</a>
-<a href="../fy/privacy.html">🏴 Frysk</a>
-<a href="../gd/privacy.html">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Gàidhlig</a>
-<a href="../gl/privacy.html">🏴 Galego</a>
-<a href="../de/privacy.html">🇩🇪 Deutsch</a>
-<a href="../el/privacy.html">🇬🇷 Ελληνικά</a>
-<a href="../hi/privacy.html">🇮🇳 हिन्दी</a>
-<a href="../hu/privacy.html">🇭🇺 Magyar</a>
-<a href="../id/privacy.html">🇮🇩 Bahasa Indonesia</a>
-<a href="../ia/privacy.html">🌐 Interlingua</a>
-<a href="../ga/privacy.html">🇮🇪 Gaeilge</a>
-<a href="../it/privacy.html">🇮🇹 Italiano</a>
-<a href="../ja/privacy.html">🇯🇵 日本語</a>
-<a href="../ko/privacy.html">🇰🇷 한국어</a>
-<a href="../ne/privacy.html">🇳🇵 नेपाली</a>
-<a href="../pl/privacy.html">🇵🇱 Polski</a>
-<a href="../pt/privacy.html">🇧🇷 Português</a>
-<a href="../ro/privacy.html">🇷🇴 Română</a>
-<a href="../ru/privacy.html">🇷🇺 Русский</a>
-<a href="../zh-CN/privacy.html" class="active">🇨🇳 简体中文</a>
-<a href="../es/privacy.html">🇪🇸 Español</a>
-<a href="../sv/privacy.html">🇸🇪 Svenska</a>
-<a href="../th/privacy.html">🇹🇭 ภาษาไทย</a>
-<a href="../zh-TW/privacy.html">🇹🇼 繁體中文</a>
-<a href="../tr/privacy.html">🇹🇷 Türkçe</a>
-<a href="../uk/privacy.html">🇺🇦 Українська</a>
-<a href="../vi/privacy.html">🇻🇳 Tiếng Việt</a>
-<a href="../cy/privacy.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Cymraeg</a></nav>
-  </div>
+  </nav>
 </header>
-<div class="wrap">
-  <div class="dh">
+
+<main>
+<div class="dh">
     <div class="badge">法律 · 隐私政策</div>
-    <h1>ZChat<br>Privacy Policy</h1>
+    <h1>ZChat<br>隐私政策</h1>
     <div class="meta">最后更新：2026年3月18日 · Aureus Z, Inc.</div>
   </div>
   <div class="doc-switch">
@@ -154,19 +110,40 @@ footer{border-top:1px solid var(--b);padding:2rem;text-align:center;color:var(--
 <section id="p10"><h2><span class="n">10</span>How We Use Personal Data</h2><p>We use Personal Data to: provide and manage your account; answer support requests; communicate policy changes; pursue legitimate interests such as fraud prevention and analytics; send marketing communications (opt-out available via unsubscribe link); and fulfill legal obligations.</p></section>
 <section id="p11"><h2><span class="n">11</span>How We Share Your Personal Data</h2><p>Your posts and public profile are visible to other users by design. We share data with service providers (including Cloudflare for traffic and security), business partners, legal authorities when required, professional advisors, and in the event of a corporate transaction such as a merger or acquisition.</p></section>
 <section id="p12"><h2><span class="n">12</span>International Data Transfers</h2><p>We may transfer personal information internationally. For transfers from the EEA, Switzerland, Brazil, or the UK to countries without adequate protection, we use appropriate safeguards including Standard Contractual Clauses.</p></section>
-<section id="p13"><h2><span class="n">13</span>Your Privacy Choices and Rights</h2><p>Depending on applicable law, you may have the right to access, correct, delete, port, restrict, or object to our processing of your Personal Data, withdraw consent, and request review of automated decisions. You can opt out of marketing emails using the unsubscribe link. Contact us (Section 18) to exercise your rights.</p></section>
-<section id="p14"><h2><span class="n">14</span>Retention of Personal Data</h2><p>We retain your Personal Data for as long as needed to fulfill the purposes for which it was collected, including legal obligations and fraud prevention. When no longer needed, we delete or anonymise it.</p></section>
-<section id="p15"><h2><span class="n">15</span>Supplemental Notice for Certain Jurisdictions</h2><p>EEA/UK/Switzerland: legal bases include contract, legal obligation, legitimate interests, and consent. You may lodge a complaint with your supervisory authority. California (CCPA/CPRA): we do not sell your personal information. Brazil (LGPD): Brazilian residents have rights under the LGPD. We comply with all applicable privacy laws.</p></section>
-<section id="p16"><h2><span class="n">16</span>Security</h2><p>We take reasonable and appropriate measures to protect your Personal Data. However, no security system is impenetrable and we cannot guarantee absolute security.</p></section>
-<section id="p17"><h2><span class="n">17</span>Children's Personal Information</h2><p>ZChat is not directed to children under 13. We do not knowingly collect Personal Data from children under 13 without parental consent. Contact us to request deletion if you believe a child has provided data without appropriate consent.</p></section>
-<section id="p18"><h2><span class="n">18</span>Contact Us</h2><p>Aureus Z, Inc. · <a href="mailto:privacy@bapu.app">privacy@bapu.app</a> · <a href="mailto:legal@bapu.app">legal@bapu.app</a> · bapu.app</p></section>
-</div>
-<footer>© 2026 Aureus Z, Inc. · <a href="mailto:legal@bapu.app">legal@bapu.app</a> · bapu.app
-    <div class="cloudflare-badge" style="display: flex; justify-content: center; margin-top: 20px;">
+<section id="p13"><h2><span class="n">13</span>Your Privacy Choices and Rights</h2><p>Your Privacy Choices</p><p>Email Communications: If you receive a marketing email from us, you may opt out by using the unsubscribe link at the bottom of such email. You will continue to receive transaction-related, non-promotional emails. You will not be opted out of those communications.</p><p>Mobile Devices: We may send you push notifications through our App when you enable them. You may opt out by changing the settings on your mobile device. We may collect precise location-based information via the App, but only if you permit us to do so. You may opt out of this collection by changing the settings on your mobile device.</p><p>"Do Not Track": We currently do not respond to or honor DNT signals or similar mechanisms transmitted by web browsers, as there is no consistent industry standard for compliance.</p><p>Your Privacy Rights</p><p>Depending on what laws apply to your Personal Data, you may have the right to:</p><p>• Request Access to and Portability of Your Personal Information, including obtaining a copy of your personal information and receiving it in a structured, commonly used, machine-readable format (right of data portability);</p><p>• Request Correction of your personal information where it is inaccurate, incomplete, or outdated;</p><p>• Request Deletion, Anonymization or Blocking of personal information (right to be forgotten);</p><p>• Request to Opt-Out of Certain Processing Activities;</p><p>• Request Restriction of or Object to our processing of your personal information;</p><p>• Withdraw your Consent to our processing — note that withdrawal only affects future processing and does not affect the lawfulness of prior processing;</p><p>• Be Informed about third parties with which your personal information has been shared; and</p><p>• Request the Review of Decisions Taken Exclusively Based on Automated Processing.</p><p>Please contact us using the information in Section 18 to exercise any of these rights. We will process your requests in accordance with applicable laws. Before fulfilling your request, we may ask you to verify your identity. We may retain information for backups, archiving, prevention of fraud and abuse, analytics, or satisfaction of legal obligations. Some laws may allow you to appeal our decision if we decline to process your request.</p></section>
+<section id="p14"><h2><span class="n">14</span>Retention of Personal Data</h2><p>We retain Personal Data for as long as necessary to fulfill the purposes for which it was collected, including for the purposes of satisfying any legal, accounting, or reporting requirements.</p><p>Backups are encrypted and retained on a rolling 30-day cycle, after which they are permanently and securely deleted.</p><p>When we no longer need your Personal Data for the purposes described in this Policy, we will delete or anonymise it. If deletion is not immediately possible (for example, because your personal information has been stored in backup archives), we will securely store your personal information and isolate it from any further processing until deletion is possible.</p></section>
+<section id="p15"><h2><span class="n">15</span>Supplemental Notice for Certain Jurisdictions</h2><p>If you live in a jurisdiction that requires specific disclosures about our legal bases for processing or other rights, these notices apply to you.</p><p>European Union / United Kingdom</p><p>Legal Bases for Processing:</p><p>• Legitimate Interest: We process your personal information when we or a third party have a legitimate interest that is not overridden by your interests or fundamental rights and freedoms.</p><p>• Consent: In some cases, Aureus Z, Inc. may rely on your consent to process your personal information.</p><p>• Compliance with Legal Obligations: We may process your personal information to comply with our legal obligations, such as tax, labor, and accounting requirements.</p><p>Data Protection Officer (DPO): Aureus Z, Inc. has appointed a Data Protection Officer. Contact: dpo@bapu.app</p><p>Data Protection Representative: Aureus Z, Inc. has appointed a Data Protection Representative for both the UK and EU. Contact: dpr@bapu.app</p><p>Brazil (LGPD)</p><p>This Supplemental Notice for Brazil's General Data Protection Law (LGPD, Law No. 13.709/2018) applies to our processing of personal data subject to the LGPD.</p><p>Legal Bases: We guarantee that processing will always be carried out in accordance with one of the following legal bases: (1) your consent; (2) compliance with legal or regulatory obligations; (3) execution of a contract with you; (4) to exercise our rights in judicial, administrative or arbitral proceedings; (5) protection of life and physical safety; (6) our legitimate interests; (7) credit protection; (8) prevention of fraud and safety in identification and authentication processes.</p><p>Additional Data Subject Rights under LGPD:</p><p>• Obtain confirmation that we process your personal information;</p><p>• Obtain information about the possibility of not providing your consent and the respective consequences.</p><p>California (CCPA/CPRA): We do not sell your personal information. California residents have the right to know about, delete, and opt out of the sale or sharing of personal information, and the right to non-discrimination for exercising these rights.</p><p>Other Jurisdictions: We comply with all applicable privacy laws in jurisdictions where we operate.</p></section>
+<section id="p16"><h2><span class="n">16</span>Security</h2><p>We make reasonable efforts to protect your information by using physical and electronic safeguards designed to improve the security of the information we maintain. However, as our Services are hosted electronically, we can make no guarantees as to the security or privacy of your information.</p><p>If you have reason to believe that your interaction with us is no longer secure, please notify us immediately by contacting us at <a href="mailto:contact@bapu.app">contact@bapu.app</a>.</p></section>
+<section id="p17"><h2><span class="n">17</span>Children's Personal Information</h2><p>The ZChat App Services are not directed to children under 13 (or other age as required by local law outside of the United States). We do not knowingly collect personal information from children.</p><p>If you are a parent or guardian and believe your child has uploaded personal information to our site without your consent, you may contact us using the information provided in Section 18. If we become aware that a child under 13 (or other applicable minimum age) has provided us with Personal Data without appropriate consent, we will take steps to remove such information and terminate the child's account.</p></section>
+<section id="p18"><h2><span class="n">18</span>Contact Us</h2><p>Aureus Z, Inc.
+电子邮件：<a href="mailto:contact@bapu.app">contact@bapu.app</a>
+隐私：<a href="mailto:privacy@bapu.app">privacy@bapu.app</a>
+法律：<a href="mailto:legal@bapu.app">legal@bapu.app</a>
+网站：bapu.app</p></section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p>© 2026 Aureus Z, Inc.</p>
+    <p>
+      <a href="/">Home</a>
+      <a href="/handles.html">Handles</a>
+      <a href="/signup.html">Signup</a>
+      <a href="https://zchat.bapu.app" target="_blank">ZChat</a>
+      <a href="/feedback.html">Feedback</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/legal.html">Legal</a>
+      <a href="/sitemap.html">Sitemap</a> <a href="mailto:contact@bapu.app">Contact</a>
+    </p>
+    <div class="cloudflare-badge">
       <a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer">
-        <img src="/cloudflare-badge.png" alt="Protected by Cloudflare" style="height: 40px; width: auto;" />
+        <img src="/cloudflare-badge.png" alt="Protected by Cloudflare" />
       </a>
     </div>
+  </div>
 </footer>
+
 <script src="/js/lang.js" defer></script>
-</body></html>
+</body>
+</html>
