@@ -1,0 +1,12 @@
+127.0.0.1 - - [15/Apr/2026 20:31:19] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 20:31:20] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 20:31:20] "GET /cloudflare-badge.png HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 20:31:20] "GET /js/lang.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 20:31:20] "GET /status.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 20:31:22] "GET /legal.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 20:31:24] "GET /zchat/fr/terms.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 20:43:22] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 20:43:22] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 20:43:22] "GET /cloudflare-badge.png HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 20:43:22] "GET /js/lang.js HTTP/1.1" 200 -
+127.0.0.1 - - [15/Apr/2026 20:43:22] "GET /status.js HTTP/1.1" 200 -

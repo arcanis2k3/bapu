@@ -41,99 +41,55 @@
 <link rel="alternate" hreflang="uk" href="https://bapu.app/uk/terms.html">
 <link rel="alternate" hreflang="vi" href="https://bapu.app/vi/terms.html">
 <link rel="alternate" hreflang="cy" href="https://bapu.app/cy/terms.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0d0f14;--s:#13161e;--b:#1e2230;--a:#4f8ef7;--t:#e8eaf0;--m:#6b7280;--pb:#1a1e2a}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--t);font-family:'DM Mono',monospace;font-size:14px;line-height:1.75;min-height:100vh}
-header{position:sticky;top:0;z-index:100;background:rgba(13,15,20,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--b);padding:0 1.5rem;height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t);text-decoration:none;flex-shrink:0}
-.logo span{color:var(--a)}
-.lnav{position:relative;flex-shrink:0}
-.lcur{background:var(--pb);border:1px solid var(--b);color:var(--t);padding:5px 12px;border-radius:6px;font-family:'DM Mono',monospace;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:6px}
-.lcur::after{content:'▾';color:var(--m);font-size:10px}
-.ldrop{display:none;position:absolute;right:0;top:calc(100% + 6px);background:var(--s);border:1px solid var(--b);border-radius:8px;padding:6px;min-width:220px;max-height:400px;overflow-y:auto;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,.5)}
-.ldrop a{display:block;padding:6px 10px;border-radius:5px;color:var(--m);text-decoration:none;font-size:12px;transition:all .15s}
-.ldrop a:hover,.ldrop a.active{background:var(--pb);color:var(--a)}
-.lnav:hover .ldrop,.lnav:focus-within .ldrop{display:block}
-.wrap{max-width:780px;margin:0 auto;padding:4rem 2rem 6rem}
-.dh{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--b)}
-.badge{display:inline-block;background:var(--pb);border:1px solid var(--b);color:var(--m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:1.2rem}
-h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:.75rem}
-.meta{color:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
-.toc{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1.5rem 2rem;margin-bottom:3rem}
-.toc ol{padding-left:1.2rem;columns:2;column-gap:2rem}
-.toc li{margin-bottom:.35rem;break-inside:avoid}
-.toc a{color:var(--m);text-decoration:none;font-size:12px}
-.toc a:hover{color:var(--a)}
-section{margin-bottom:2.8rem;padding-bottom:2.8rem;border-bottom:1px solid var(--b)}
-section:last-child{border-bottom:none}
-h2{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--t);margin-bottom:1rem;display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
-.n{font-family:'DM Mono',monospace;font-size:10px;color:var(--a);letter-spacing:.08em;background:rgba(79,142,247,.1);padding:2px 7px;border-radius:4px;flex-shrink:0}
-.sum{background:rgba(79,142,247,.06);border-left:2px solid var(--a);padding:.75rem 1rem;margin-bottom:1.2rem;border-radius:0 6px 6px 0;font-size:12px;color:var(--m);font-style:italic}
-.sev{background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.25);border-radius:8px;padding:1.2rem 1.4rem;margin-top:.5rem}
-.sev p{color:#c4b5fd;margin:0}
-p{margin-bottom:1rem;color:#b8bfcc}
-p:last-child{margin-bottom:0}
-a{color:var(--a);text-decoration:none}
-a:hover{text-decoration:underline}
-.doc-switch{display:flex;gap:8px;margin-bottom:2rem}
-.doc-switch a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--pb);border:1px solid var(--b);border-radius:6px;color:var(--m);font-size:12px;text-decoration:none;transition:all .15s}
-.doc-switch a.active,.doc-switch a:hover{border-color:var(--a);color:var(--a)}
-footer{border-top:1px solid var(--b);padding:2rem;text-align:center;color:var(--m);font-size:11px}
-@media(max-width:600px){.toc ol{columns:1}.wrap{padding:2rem 1rem 4rem}}
-</style>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+  .lnav{position:relative;flex-shrink:0;margin-left:auto;}
+  .lcur{background:rgba(18, 25, 48, 0.9);border:1px solid #1f2a44;color:#e6eaf2;padding:5px 12px;border-radius:6px;font-family:monospace;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:6px}
+  .lcur::after{content:'▾';color:#8892b0;font-size:10px}
+  .ldrop{display:none;position:absolute;right:0;top:calc(100% + 6px);background:#07090f;border:1px solid #1f2a44;border-radius:8px;padding:6px;min-width:220px;max-height:400px;overflow-y:auto;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+  .ldrop a{display:block;padding:6px 10px;border-radius:5px;color:#8892b0;text-decoration:none;font-size:12px;transition:all .15s}
+  .ldrop a:hover,.ldrop a.active{background:rgba(18, 25, 48, 0.9);color:#9fb4ff}
+  .lnav:hover .ldrop,.lnav:focus-within .ldrop{display:block}
+
+  /* Additional styling required for the new translated texts inside main */
+  main h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem,5vw,3rem); margin-bottom: 0.75rem; line-height: 1.15; }
+  main .meta { color: #8892b0; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 2rem; }
+  main .doc-switch { display: flex; gap: 8px; margin-bottom: 2rem; }
+  main .doc-switch a { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: rgba(18, 25, 48, 0.9); border: 1px solid #1f2a44; border-radius: 6px; color: #8892b0; font-size: 12px; text-decoration: none; transition: all .15s; }
+  main .doc-switch a.active, main .doc-switch a:hover { border-color: #4f8ef7; color: #4f8ef7; }
+  main .badge { display: inline-block; background: rgba(18, 25, 48, 0.9); border: 1px solid #1f2a44; color: #8892b0; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; margin-bottom: 1.2rem; }
+  main .toc { background: rgba(18, 25, 48, 0.9); border: 1px solid #1f2a44; border-radius: 10px; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+  main .toc ol { padding-left: 1.2rem; columns: 2; column-gap: 2rem; }
+  main .toc li { margin-bottom: 0.35rem; break-inside: avoid; }
+  main .toc a { color: #8892b0; text-decoration: none; font-size: 12px; }
+  main .toc a:hover { color: #4f8ef7; }
+  main section { margin-bottom: 2.8rem; padding-bottom: 2.8rem; border-bottom: 1px solid #1f2a44; }
+  main section:last-child { border-bottom: none; }
+  main h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: #e6eaf2; margin-bottom: 1rem; display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap; }
+  main .n { font-family: monospace; font-size: 10px; color: #4f8ef7; letter-spacing: .08em; background: rgba(79,142,247,.1); padding: 2px 7px; border-radius: 4px; flex-shrink: 0; }
+  main .sum { background: rgba(79,142,247,.06); border-left: 2px solid #4f8ef7; padding: .75rem 1rem; margin-bottom: 1.2rem; border-radius: 0 6px 6px 0; font-size: 12px; color: #8892b0; font-style: italic; }
+  main .sev { background: rgba(167,139,250,.07); border: 1px solid rgba(167,139,250,.25); border-radius: 8px; padding: 1.2rem 1.4rem; margin-top: .5rem; }
+  main .sev p { color: #c4b5fd; margin: 0; }
+  @media(max-width:600px){main .toc ol{columns:1}}
+  </style>
 </head>
 <body>
+
 <header>
-  <a class="logo" href="../">Z<span>Chat</span></a>
-  <div class="lnav" tabindex="0">
+  <nav>
+    <a href="/" class="brand">BAPU</a>
+    <div>
+      <a href="/" class="nav-link">Home</a>
+      <a href="/handles.html" class="nav-link">Handles</a>
+    </div>
+    <div class="lnav" tabindex="0">
     <div class="lcur">🇯🇵 日本語</div>
-    <nav class="ldrop"><a href="../terms.html">🇬🇧 English</a>
-<a href="../ar/terms.html">🇸🇦 العربية</a>
-<a href="../an/terms.html">🏴 Aragonés</a>
-<a href="../ast/terms.html">🏴 Asturianu</a>
-<a href="../eu/terms.html">🏴 Euskara</a>
-<a href="../km/terms.html">🇰🇭 ភាសាខ្មែរ</a>
-<a href="../ca/terms.html">🏴 Català</a>
-<a href="../da/terms.html">🇩🇰 Dansk</a>
-<a href="../nl/terms.html">🇳🇱 Nederlands</a>
-<a href="../eo/terms.html">🟩 Esperanto</a>
-<a href="../fi/terms.html">🇫🇮 Suomi</a>
-<a href="../fr/terms.html">🇫🇷 Français</a>
-<a href="../fy/terms.html">🏴 Frysk</a>
-<a href="../gd/terms.html">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Gàidhlig</a>
-<a href="../gl/terms.html">🏴 Galego</a>
-<a href="../de/terms.html">🇩🇪 Deutsch</a>
-<a href="../el/terms.html">🇬🇷 Ελληνικά</a>
-<a href="../hi/terms.html">🇮🇳 हिन्दी</a>
-<a href="../hu/terms.html">🇭🇺 Magyar</a>
-<a href="../id/terms.html">🇮🇩 Bahasa Indonesia</a>
-<a href="../ia/terms.html">🌐 Interlingua</a>
-<a href="../ga/terms.html">🇮🇪 Gaeilge</a>
-<a href="../it/terms.html">🇮🇹 Italiano</a>
-<a href="../ja/terms.html" class="active">🇯🇵 日本語</a>
-<a href="../ko/terms.html">🇰🇷 한국어</a>
-<a href="../ne/terms.html">🇳🇵 नेपाली</a>
-<a href="../pl/terms.html">🇵🇱 Polski</a>
-<a href="../pt/terms.html">🇧🇷 Português</a>
-<a href="../ro/terms.html">🇷🇴 Română</a>
-<a href="../ru/terms.html">🇷🇺 Русский</a>
-<a href="../zh-CN/terms.html">🇨🇳 简体中文</a>
-<a href="../es/terms.html">🇪🇸 Español</a>
-<a href="../sv/terms.html">🇸🇪 Svenska</a>
-<a href="../th/terms.html">🇹🇭 ภาษาไทย</a>
-<a href="../zh-TW/terms.html">🇹🇼 繁體中文</a>
-<a href="../tr/terms.html">🇹🇷 Türkçe</a>
-<a href="../uk/terms.html">🇺🇦 Українська</a>
-<a href="../vi/terms.html">🇻🇳 Tiếng Việt</a>
-<a href="../cy/terms.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Cymraeg</a></nav>
-  </div>
+  </nav>
 </header>
-<div class="wrap">
-  <div class="dh">
+
+<main>
+<div class="dh">
     <div class="badge">法的事項 · 利用規約</div>
     <h1>ZChat<br>利用規約</h1>
     <div class="meta">最終更新日：2026年3月11日 · Aureus Z, Inc.</div>
@@ -154,19 +110,36 @@ footer{border-top:1px solid var(--b);padding:2rem;text-align:center;color:var(--
 <section id="s10"><h2><span class="n">10</span>免責事項</h2><div class="sum">ZChatは現状のまま提供されます。稼働率、正確性、目的適合性について保証しません。</div><p>ZChatおよびすべてのサービスは現状のままかつ利用可能な状態で、いかなる種類の保証もなく提供されます。法律で許容される最大限の範囲で、すべての保証を否認します。</p></section>
 <section id="s11"><h2><span class="n">11</span>補償</h2><p>お客様は、ZChatの利用、コンテンツ、または利用規約違反から生じるすべての申立て、損害、費用からZChatとその関連会社を補償することに同意します。</p></section>
 <section id="s12"><h2><span class="n">12</span>責任の制限</h2><div class="sum">ZChatの責任はUS$100を上限とします（詐欺、重大な過失、または放棄できない法定権利の場合を除く）。</div><p>詐欺、重大な過失、故意の不正行為、または放棄できない法定権利に基づく申立てを除き、ZChatの総責任額はUS$100を上限とします。</p></section>
-<section id="s13"><h2><span class="n">13</span>準拠法、管轄、紛争解決および仲裁</h2><div class="sum">まずメールでご連絡ください — 60日間の非公式解決期間。ほとんどの紛争は拘束力のある仲裁へ。ZChatの同意なしにクラスアクション不可。デラウェア州法適用。安全クレーム（死亡/負傷）は裁判所へ持込可。</div><p>準拠法および管轄。本利用規約はデラウェア州法に準拠します。</p><p>管轄裁判所および場所。仲裁の対象とならない法的措置は、デラウェア州の州裁判所または連邦裁判所に排他的に提起されるものとします。</p><p>強制的な現地法の例外。ブラジルなど、非仲裁紛争に対して独自の現地法の適用を要求する法域に居住している場合、法律で必要とされる限り、それらの強制的な規定が適用されます。</p><p>非公式解決。ほとんどの紛争は非公式に解決できます。まず<a href="mailto:contact@bapu.app">contact@bapu.app</a>にご連絡いただき、仲裁を開始する前に少なくとも60日間の解決期間を設けることに同意するものとします。電話またはビデオ会議での誠実な参加に同意します。</p><p>強制仲裁。非公式解決が失敗した場合、AAA（米国）またはICDR（英国/EU）による最終的かつ拘束力のある仲裁により紛争を解決することに同意します。各当事者が1名の仲裁人を選定し、2名が3名目を選任します。AAA規則はwww.adr.orgで入手可能です。</p><p>安全クレームの除外。ZChatによる詐欺、刑事上の違法行為、または重大な過失により死亡または人身傷害が生じた場合、仲裁は適用されません。</p><p>クラスアクションの放棄。適用法の許す限り、あなたとZChatは、集団訴訟、集合訴訟、または代表訴訟の原告または構成員としてではなく、個人としてのみ請求を提起することに同意します。</p><p>存続。本条はアカウントの解約後も存続します。</p></section>
-<section id="s14"><h2><span class="n">14</span>利用規約の更新</h2><p>利用規約を更新することがあり、重要な変更についてはお知らせします。変更後も継続してZChatを使用することで、更新された利用規約に同意したものとみなされます。</p></section>
-<section id="s15"><h2><span class="n">15</span>知的財産</h2><p>ZChatおよびそのオリジナルコンテンツはAureus Z, Inc.の所有であり、適用される知的財産法によって保護されています。</p></section>
+<section id="s13"><h2><span class="n">13</span>準拠法、管轄、紛争解決および仲裁</h2><div class="sum">まずメールでご連絡ください — 60日間の非公式解決期間。ほとんどの紛争は拘束力のある仲裁で解決。ZChatの同意なしに集団訴訟不可。デラウェア州法適用。安全クレーム（死亡・負傷）は裁判所へ持込可。</div><p>準拠法および管轄。本利用規約は連邦仲裁法、適用される連邦仲裁法律およびデラウェア州法に準拠します。法律の抵触に関する原則は適用されません。</p><p>管轄裁判所および場所。仲裁の対象とならない法的措置は、デラウェア州の州裁判所または連邦裁判所に排他的に提起されるものとします。</p><p>強制的な現地法の例外。ブラジルなど、非仲裁紛争に対して独自の現地法の適用を要求する法域に居住している場合、法律で必要とされる限り、それらの強制的な規定が適用されます。</p><p>非公式解決。ほとんどの紛争は非公式に解決できます。まず<a href="mailto:contact@bapu.app">contact@bapu.app</a>にご連絡いただき、仲裁を開始する前に少なくとも60日間の解決期間を設けることに同意するものとします。非公式解決の申請には、氏名、メールアドレス、アカウントハンドル、居住地、求める損害賠償額および救済措置、すべての証拠を記載してください。電話またはビデオ会議での誠実な参加に同意します。仲裁申立て費用の時効および申立期限は、非公式解決手続き中は停止されます。</p><p>強制仲裁。非公式解決が失敗した場合、AAA（米国）またはICDR（英国/EU）による最終的かつ拘束力のある仲裁により紛争を解決することに同意します。仲裁地はお客様の居住地とします。各当事者が1名の仲裁人を選定し、2名が3番目を選任します。AAA規則はwww.adr.orgで入手可能です。当社が仲裁で勝訴した場合、お客様の請求が根拠のないものと仲裁人が判断しない限り、弁護士費用は請求しません。お客様が勝訴した場合、適用法の定める範囲で弁護士費用を受け取る権利があります。</p><p>安全クレームの除外。ZChatによる詐欺、刑事上の違法行為、または重大な過失により死亡または人身傷害が生じた場合、仲裁は適用されません。当事者の選択により、裁判所または仲裁で争うことができます。</p><p>集団訴訟の放棄。適用法の許す限り、あなたとZChatは、集団訴訟・集合訴訟・代表訴訟の原告または構成員としてではなく、個人としてのみ請求を提起することに同意します。この放棄が執行不能と判断された場合、第13条全体が無効となります。</p><p>小額訴訟および差止救済。本条は、少額訴訟裁判所への適格な請求の提起を妨げません。また、お客様の居住国の法律に基づく法定権利を放棄するものではありません。</p><p>存続。本条はアカウントの解約後も存続します。</p></section>
+<section id="s14"><h2><span class="n">14</span>利用規約の更新</h2><p>利用規約を随時更新する場合があります。改訂版は常にここに掲載し、重要な変更を加えた場合はアプリ、ウェブサイト、またはその他のコミュニケーションチャンネルを通じてお知らせします。</p><p>利用規約を定期的に確認するのはお客様の責任です。更新後もZChatを引き続き使用することで、改訂された利用規約に同意したものとみなされます。変更に同意しない場合は、ZChatの使用を停止してください。</p></section>
+<section id="s15"><h2><span class="n">15</span>知的財産</h2><div class="sum">ZChatはその名称、デザイン、コード、その他の創作物を所有しています。ZChatを使用しても、当社の創作物に対する所有権は付与されません。</div><p>本利用規約において明示的に付与されていないすべての権利を留保します。ZChatは米国およびその他の国の商標権、著作権、特許権その他の法律によって保護されています。</p><p>オープンソースの条件の下でライセンス供与されているZChatの部分を除き、当社はZChatにおけるすべての適用される権利、権原および利益、ならびにZChatに含まれるすべての知的財産権を所有します。ZChatの使用は本利用規約に従い、当社の知的財産権に対するいかなる権利も付与しません。</p></section>
 <section id="s16"><h2><span class="n">16</span>分離可能性</h2><div class="sev"><p>本利用規約のいずれかの条項が無効または執行不能と判断された場合、当該条項は必要最小限の範囲で修正されるか、修正が不可能な場合は分離されます。残りの条項は引き続き完全に有効です。</p></div></section>
 <section id="s17"><h2><span class="n">17</span>お問い合わせ</h2><p>Aureus Z, Inc. · <a href="mailto:contact@bapu.app">contact@bapu.app</a> · <a href="mailto:legal@bapu.app">legal@bapu.app</a> · bapu.app</p></section>
-<section id="s18"><h2><span class="n">18</span>App Store（Apple / Google）規定条項</h2><p>ZChatをApple App Storeからダウンロードした場合、Appleは本利用規約の当事者ではありませんが、第三者受益者です。Google Playからダウンロードした場合、Googleも同様です。</p></section>
-</div>
-<footer>© 2026 Aureus Z, Inc. · <a href="mailto:legal@bapu.app">legal@bapu.app</a> · bapu.app
-    <div class="cloudflare-badge" style="display: flex; justify-content: center; margin-top: 20px;">
+<section id="s18"><h2><span class="n">18</span>App Store（Apple / Google）規定条項</h2><p>ZChatをApple App StoreまたはGoogle Play（それぞれ「アプリ提供者」）からダウンロードまたはアクセスする場合、以下の追加条項が適用されます。</p><p>これらの利用規約はお客様とZChatの間のものであり、アプリ提供者は当事者ではありません。アプリ提供者はZChatまたはそのコンテンツについて一切の責任を負いません。</p><p>ZChatはアプリに対して単独で責任を負い、これには保証の不履行から生じる請求を含みます。アプリ提供者はメンテナンスまたはサポートサービスを提供する義務を負いません。</p><p>アプリ提供者およびその関連会社は、これらの利用規約の第三者受益者であり、これを執行することができます。ZChatアプリを使用する際は、適用されるすべてのサードパーティの利用規約を遵守する必要があります。</p></section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p>© 2026 Aureus Z, Inc.</p>
+    <p>
+      <a href="/">Home</a>
+      <a href="/handles.html">Handles</a>
+      <a href="/signup.html">Signup</a>
+      <a href="https://zchat.bapu.app" target="_blank">ZChat</a>
+      <a href="/feedback.html">Feedback</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/legal.html">Legal</a>
+      <a href="/sitemap.html">Sitemap</a> <a href="mailto:contact@bapu.app">Contact</a>
+    </p>
+    <div class="cloudflare-badge">
       <a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer">
-        <img src="/cloudflare-badge.png" alt="Protected by Cloudflare" style="height: 40px; width: auto;" />
+        <img src="/cloudflare-badge.png" alt="Protected by Cloudflare" />
       </a>
     </div>
+  </div>
 </footer>
+
 <script src="/js/lang.js" defer></script>
-</body></html>
+</body>
+</html>

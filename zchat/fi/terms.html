@@ -2,7 +2,7 @@
 <html lang="fi" dir="ltr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ZChat – ZChat Terms of Service</title>
+<title>ZChat – ZChat Käyttö- ehdot</title>
 <link rel="alternate" hreflang="en" href="https://bapu.app/terms.html">
 <link rel="alternate" hreflang="ar" href="https://bapu.app/ar/terms.html">
 <link rel="alternate" hreflang="an" href="https://bapu.app/an/terms.html">
@@ -41,132 +41,105 @@
 <link rel="alternate" hreflang="uk" href="https://bapu.app/uk/terms.html">
 <link rel="alternate" hreflang="vi" href="https://bapu.app/vi/terms.html">
 <link rel="alternate" hreflang="cy" href="https://bapu.app/cy/terms.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0d0f14;--s:#13161e;--b:#1e2230;--a:#4f8ef7;--t:#e8eaf0;--m:#6b7280;--pb:#1a1e2a}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--t);font-family:'DM Mono',monospace;font-size:14px;line-height:1.75;min-height:100vh}
-header{position:sticky;top:0;z-index:100;background:rgba(13,15,20,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--b);padding:0 1.5rem;height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--t);text-decoration:none;flex-shrink:0}
-.logo span{color:var(--a)}
-.lnav{position:relative;flex-shrink:0}
-.lcur{background:var(--pb);border:1px solid var(--b);color:var(--t);padding:5px 12px;border-radius:6px;font-family:'DM Mono',monospace;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:6px}
-.lcur::after{content:'▾';color:var(--m);font-size:10px}
-.ldrop{display:none;position:absolute;right:0;top:calc(100% + 6px);background:var(--s);border:1px solid var(--b);border-radius:8px;padding:6px;min-width:220px;max-height:400px;overflow-y:auto;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,.5)}
-.ldrop a{display:block;padding:6px 10px;border-radius:5px;color:var(--m);text-decoration:none;font-size:12px;transition:all .15s}
-.ldrop a:hover,.ldrop a.active{background:var(--pb);color:var(--a)}
-.lnav:hover .ldrop,.lnav:focus-within .ldrop{display:block}
-.wrap{max-width:780px;margin:0 auto;padding:4rem 2rem 6rem}
-.dh{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--b)}
-.badge{display:inline-block;background:var(--pb);border:1px solid var(--b);color:var(--m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:1.2rem}
-h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:.75rem}
-.meta{color:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
-.toc{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1.5rem 2rem;margin-bottom:3rem}
-.toc ol{padding-left:1.2rem;columns:2;column-gap:2rem}
-.toc li{margin-bottom:.35rem;break-inside:avoid}
-.toc a{color:var(--m);text-decoration:none;font-size:12px}
-.toc a:hover{color:var(--a)}
-section{margin-bottom:2.8rem;padding-bottom:2.8rem;border-bottom:1px solid var(--b)}
-section:last-child{border-bottom:none}
-h2{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--t);margin-bottom:1rem;display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
-.n{font-family:'DM Mono',monospace;font-size:10px;color:var(--a);letter-spacing:.08em;background:rgba(79,142,247,.1);padding:2px 7px;border-radius:4px;flex-shrink:0}
-.sum{background:rgba(79,142,247,.06);border-left:2px solid var(--a);padding:.75rem 1rem;margin-bottom:1.2rem;border-radius:0 6px 6px 0;font-size:12px;color:var(--m);font-style:italic}
-.sev{background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.25);border-radius:8px;padding:1.2rem 1.4rem;margin-top:.5rem}
-.sev p{color:#c4b5fd;margin:0}
-p{margin-bottom:1rem;color:#b8bfcc}
-p:last-child{margin-bottom:0}
-a{color:var(--a);text-decoration:none}
-a:hover{text-decoration:underline}
-.doc-switch{display:flex;gap:8px;margin-bottom:2rem}
-.doc-switch a{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:var(--pb);border:1px solid var(--b);border-radius:6px;color:var(--m);font-size:12px;text-decoration:none;transition:all .15s}
-.doc-switch a.active,.doc-switch a:hover{border-color:var(--a);color:var(--a)}
-footer{border-top:1px solid var(--b);padding:2rem;text-align:center;color:var(--m);font-size:11px}
-@media(max-width:600px){.toc ol{columns:1}.wrap{padding:2rem 1rem 4rem}}
-</style>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+  .lnav{position:relative;flex-shrink:0;margin-left:auto;}
+  .lcur{background:rgba(18, 25, 48, 0.9);border:1px solid #1f2a44;color:#e6eaf2;padding:5px 12px;border-radius:6px;font-family:monospace;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:6px}
+  .lcur::after{content:'▾';color:#8892b0;font-size:10px}
+  .ldrop{display:none;position:absolute;right:0;top:calc(100% + 6px);background:#07090f;border:1px solid #1f2a44;border-radius:8px;padding:6px;min-width:220px;max-height:400px;overflow-y:auto;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+  .ldrop a{display:block;padding:6px 10px;border-radius:5px;color:#8892b0;text-decoration:none;font-size:12px;transition:all .15s}
+  .ldrop a:hover,.ldrop a.active{background:rgba(18, 25, 48, 0.9);color:#9fb4ff}
+  .lnav:hover .ldrop,.lnav:focus-within .ldrop{display:block}
+
+  /* Additional styling required for the new translated texts inside main */
+  main h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem,5vw,3rem); margin-bottom: 0.75rem; line-height: 1.15; }
+  main .meta { color: #8892b0; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 2rem; }
+  main .doc-switch { display: flex; gap: 8px; margin-bottom: 2rem; }
+  main .doc-switch a { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: rgba(18, 25, 48, 0.9); border: 1px solid #1f2a44; border-radius: 6px; color: #8892b0; font-size: 12px; text-decoration: none; transition: all .15s; }
+  main .doc-switch a.active, main .doc-switch a:hover { border-color: #4f8ef7; color: #4f8ef7; }
+  main .badge { display: inline-block; background: rgba(18, 25, 48, 0.9); border: 1px solid #1f2a44; color: #8892b0; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; margin-bottom: 1.2rem; }
+  main .toc { background: rgba(18, 25, 48, 0.9); border: 1px solid #1f2a44; border-radius: 10px; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+  main .toc ol { padding-left: 1.2rem; columns: 2; column-gap: 2rem; }
+  main .toc li { margin-bottom: 0.35rem; break-inside: avoid; }
+  main .toc a { color: #8892b0; text-decoration: none; font-size: 12px; }
+  main .toc a:hover { color: #4f8ef7; }
+  main section { margin-bottom: 2.8rem; padding-bottom: 2.8rem; border-bottom: 1px solid #1f2a44; }
+  main section:last-child { border-bottom: none; }
+  main h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: #e6eaf2; margin-bottom: 1rem; display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap; }
+  main .n { font-family: monospace; font-size: 10px; color: #4f8ef7; letter-spacing: .08em; background: rgba(79,142,247,.1); padding: 2px 7px; border-radius: 4px; flex-shrink: 0; }
+  main .sum { background: rgba(79,142,247,.06); border-left: 2px solid #4f8ef7; padding: .75rem 1rem; margin-bottom: 1.2rem; border-radius: 0 6px 6px 0; font-size: 12px; color: #8892b0; font-style: italic; }
+  main .sev { background: rgba(167,139,250,.07); border: 1px solid rgba(167,139,250,.25); border-radius: 8px; padding: 1.2rem 1.4rem; margin-top: .5rem; }
+  main .sev p { color: #c4b5fd; margin: 0; }
+  @media(max-width:600px){main .toc ol{columns:1}}
+  </style>
 </head>
 <body>
+
 <header>
-  <a class="logo" href="../">Z<span>Chat</span></a>
-  <div class="lnav" tabindex="0">
+  <nav>
+    <a href="/" class="brand">BAPU</a>
+    <div>
+      <a href="/" class="nav-link">Home</a>
+      <a href="/handles.html" class="nav-link">Handles</a>
+    </div>
+    <div class="lnav" tabindex="0">
     <div class="lcur">🇫🇮 Suomi</div>
-    <nav class="ldrop"><a href="../terms.html">🇬🇧 English</a>
-<a href="../ar/terms.html">🇸🇦 العربية</a>
-<a href="../an/terms.html">🏴 Aragonés</a>
-<a href="../ast/terms.html">🏴 Asturianu</a>
-<a href="../eu/terms.html">🏴 Euskara</a>
-<a href="../km/terms.html">🇰🇭 ភាសាខ្មែរ</a>
-<a href="../ca/terms.html">🏴 Català</a>
-<a href="../da/terms.html">🇩🇰 Dansk</a>
-<a href="../nl/terms.html">🇳🇱 Nederlands</a>
-<a href="../eo/terms.html">🟩 Esperanto</a>
-<a href="../fi/terms.html" class="active">🇫🇮 Suomi</a>
-<a href="../fr/terms.html">🇫🇷 Français</a>
-<a href="../fy/terms.html">🏴 Frysk</a>
-<a href="../gd/terms.html">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Gàidhlig</a>
-<a href="../gl/terms.html">🏴 Galego</a>
-<a href="../de/terms.html">🇩🇪 Deutsch</a>
-<a href="../el/terms.html">🇬🇷 Ελληνικά</a>
-<a href="../hi/terms.html">🇮🇳 हिन्दी</a>
-<a href="../hu/terms.html">🇭🇺 Magyar</a>
-<a href="../id/terms.html">🇮🇩 Bahasa Indonesia</a>
-<a href="../ia/terms.html">🌐 Interlingua</a>
-<a href="../ga/terms.html">🇮🇪 Gaeilge</a>
-<a href="../it/terms.html">🇮🇹 Italiano</a>
-<a href="../ja/terms.html">🇯🇵 日本語</a>
-<a href="../ko/terms.html">🇰🇷 한국어</a>
-<a href="../ne/terms.html">🇳🇵 नेपाली</a>
-<a href="../pl/terms.html">🇵🇱 Polski</a>
-<a href="../pt/terms.html">🇧🇷 Português</a>
-<a href="../ro/terms.html">🇷🇴 Română</a>
-<a href="../ru/terms.html">🇷🇺 Русский</a>
-<a href="../zh-CN/terms.html">🇨🇳 简体中文</a>
-<a href="../es/terms.html">🇪🇸 Español</a>
-<a href="../sv/terms.html">🇸🇪 Svenska</a>
-<a href="../th/terms.html">🇹🇭 ภาษาไทย</a>
-<a href="../zh-TW/terms.html">🇹🇼 繁體中文</a>
-<a href="../tr/terms.html">🇹🇷 Türkçe</a>
-<a href="../uk/terms.html">🇺🇦 Українська</a>
-<a href="../vi/terms.html">🇻🇳 Tiếng Việt</a>
-<a href="../cy/terms.html">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Cymraeg</a></nav>
-  </div>
+  </nav>
 </header>
-<div class="wrap">
-  <div class="dh">
+
+<main>
+<div class="dh">
     <div class="badge">Oikeudellinen · Käyttöehdot</div>
-    <h1>ZChat Terms<br>of Service</h1>
+    <h1>ZChat Käyttö-<br>ehdot</h1>
     <div class="meta">Viimeksi päivitetty: 11. maaliskuuta 2026 · Aureus Z, Inc.</div>
   </div>
   <div class="doc-switch">
   <a href="../terms.html" class="active">📋 Terms</a>
   <a href="../privacy.html" class="">🔒 Privacy</a>
 </div>
-  <div class="toc"><ol><li><a href="#s01">Eligibility and Age Verification</a></li><li><a href="#s02">Account Registration and Responsibilities</a></li><li><a href="#s03">User Content</a></li><li><a href="#s04">Proactive Moderation and Illegal Content</a></li><li><a href="#s05">Discover Feed and Recommender Systems</a></li><li><a href="#s06">Complaints and Appeals</a></li><li><a href="#s07">Termination</a></li><li><a href="#s08">Third-Party Services</a></li><li><a href="#s09">Open Source Software</a></li><li><a href="#s10">Warranty Disclaimer</a></li><li><a href="#s11">Indemnification</a></li><li><a href="#s12">Limitation of Liability</a></li><li><a href="#s13">Governing Law, Jurisdiction, Venue, Dispute Resolution, and Arbitration</a></li><li><a href="#s14">Updates to Terms</a></li><li><a href="#s15">Intellectual Property</a></li><li><a href="#s16">Erotettavuuslauseke</a></li><li><a href="#s17">Contact Us</a></li><li><a href="#s18">Apple App Store and Google Play Required Terms</a></li></ol></div><section id="s01"><h2><span class="n">01</span>Eligibility and Age Verification</h2><p>To use ZChat, you must be at least 13 years old and meet the minimum age required by your local laws to enter into a binding agreement. In some locations, we may restrict access to certain features unless you complete an age assurance process.</p></section>
-<section id="s02"><h2><span class="n">02</span>Account Registration and Responsibilities</h2><div class="sum">Don't share accounts. You're responsible for all activity. If compromised: <a href="mailto:contact@bapu.app">contact@bapu.app</a>.</div><p>You are responsible for any use of ZChat through your login credentials. Do not share your Account. Report account compromise immediately to <a href="mailto:contact@bapu.app">contact@bapu.app</a>.</p></section>
-<section id="s03"><h2><span class="n">03</span>User Content</h2><div class="sum">What you post is yours. ZChat uses it only to operate and improve the platform. We will never sell your content without permission.</div><p>You retain ownership of your Content. By sharing Content, you grant us a limited, worldwide, non-exclusive, royalty-free license to operate and improve ZChat. We will never sell your Content without your permission.</p></section>
-<section id="s04"><h2><span class="n">04</span>Proactive Moderation and Illegal Content</h2><p>We use automated tools and human moderation to detect prohibited content. ZChat prioritizes swift removal of terrorism content, CSEA content, and other illegal material.</p></section>
-<section id="s05"><h2><span class="n">05</span>Discover Feed and Recommender Systems</h2><p>ZChat uses a recommender algorithm for the Discover Feed and suggested accounts. You may opt out via Settings.</p></section>
-<section id="s06"><h2><span class="n">06</span>Complaints and Appeals</h2><div class="sum">Report violations via in-app tools. Appeals must be filed within two weeks. EU/EEA users have additional rights under the DSA.</div><p>Report posts or users via in-app tools or at <a href="mailto:contact@bapu.app">contact@bapu.app</a>. Appeals against suspensions must be filed within two weeks. EU/EEA users may use certified DSA dispute bodies.</p></section>
-<section id="s07"><h2><span class="n">07</span>Termination</h2><div class="sum">You can delete your account anytime in Settings. We may suspend accounts that violate our rules.</div><p>You may delete your Account at any time in Settings. We may suspend, restrict, or terminate your Account if you violate these Terms, if required by law, or if your continued access poses a risk.</p></section>
-<section id="s08"><h2><span class="n">08</span>Third-Party Services</h2><p>ZChat may link to third-party websites or services. We do not control or assume responsibility for third-party content. Your use is at your own risk.</p></section>
-<section id="s09"><h2><span class="n">09</span>Open Source Software</h2><p>Certain parts of ZChat are licensed under open source terms, including MIT and Apache licenses. You are responsible for complying with applicable open source license terms.</p></section>
-<section id="s10"><h2><span class="n">10</span>Warranty Disclaimer</h2><div class="sum">ZChat is provided "as is." We make no guarantees about uptime, accuracy, or fitness for any purpose.</div><p>ZChat and all services are provided on an "as is" and "as available" basis without warranties of any kind. To the fullest extent permitted by law, we disclaim all warranties including implied warranties of merchantability and fitness for a particular purpose.</p></section>
-<section id="s11"><h2><span class="n">11</span>Indemnification</h2><p>You agree to indemnify and hold harmless ZChat and its affiliates from any claims, liabilities, damages, and expenses arising from your use of ZChat, your Content, or your violation of these Terms.</p></section>
-<section id="s12"><h2><span class="n">12</span>Limitation of Liability</h2><div class="sum">ZChat's liability is capped at US$100, except for fraud, gross negligence, or statutory rights that cannot be waived.</div><p>Except for claims of fraud, gross negligence, or violations of non-waivable statutory rights, ZChat total liability is limited to US$100.</p></section>
-<section id="s13"><h2><span class="n">13</span>Governing Law, Jurisdiction, Venue, Dispute Resolution, and Arbitration</h2><div class="sum">Email us first — 60 days to resolve informally. Most disputes go to binding arbitration, not court. No class actions without ZChat's consent. Delaware law governs. Safety claims (death/injury) may go to court.</div><p>Governing Law and Jurisdiction. These Terms and any disputes arising out of or relating to them are governed by the Federal Arbitration Act, applicable federal arbitration law, and the laws of the State of Delaware, without regard to its conflict of law principles.</p><p>Jurisdiction and Venue. Any legal action not subject to arbitration must be brought exclusively in the state or federal courts located in Delaware. You and ZChat consent to personal jurisdiction and venue in those courts and waive any objections based on forum or convenience.</p><p>Mandatory Local Law Exception. If you reside in a jurisdiction that requires application of its own local laws for non-arbitral disputes—such as Brazil—those mandatory provisions will apply to the extent required by applicable law.</p><p>Informal Resolution. Most disputes can be resolved informally. You agree to contact us first at <a href="mailto:contact@bapu.app">contact@bapu.app</a> and allow at least 60 days to resolve the dispute before initiating arbitration. Your informal resolution request must include: your name, email address, account handle, jurisdiction, the specific damages or relief you seek, all supporting evidence, and whether you intend to pursue arbitration if informal resolution fails. You agree to participate in a telephone or videoconference in good faith. Statute of limitations and filing fee deadlines are tolled during this process.</p><p>Mandatory Arbitration. If informal resolution fails, you agree to resolve any dispute through final and binding arbitration by AAA (U.S.) or ICDR (UK/EU), seated where you live, unless otherwise agreed. The arbitrator has exclusive authority over all issues of interpretation, applicability, enforceability, and scope of this arbitration agreement. Each party selects one arbitrator; the two appoint a third. AAA Rules are available at www.adr.org. If we prevail, we will not seek to recover attorneys' fees unless the arbitrator finds your claims were frivolous. If you prevail, you are entitled to attorneys' fees and expenses to the extent provided under applicable law.</p><p>Carve-Out for Safety Claims. Arbitration does not apply to claims that fraud, criminal misconduct, or gross negligence by ZChat caused death or personal injury. Those matters may be brought in court or arbitration, at the claimant's choice.</p><p>Waiver of Class Actions. TO THE EXTENT PERMITTED BY APPLICABLE LAW, YOU AND ZCHAT AGREE THAT EACH MAY BRING CLAIMS ONLY IN AN INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY CLASS, COLLECTIVE, OR REPRESENTATIVE PROCEEDING. If any part of this waiver is unenforceable, this entire Section 13 shall be deemed void.</p><p>Small Claims and Injunctive Relief. This clause does not restrict you from bringing eligible claims in small claims court, nor does it waive your statutory rights under the law of your country of residence.</p><p>Survival. This Section survives account termination.</p></section>
-<section id="s14"><h2><span class="n">14</span>Updates to Terms</h2><p>We may update these Terms periodically. We will always post the revised version here and will notify you through the App, website, or other communication channel if we make any material changes.</p><p>It is your responsibility to review the Terms regularly. By continuing to use ZChat after any update, you agree to the revised Terms. If you do not agree to the changes, you must stop using ZChat.</p></section>
-<section id="s15"><h2><span class="n">15</span>Intellectual Property</h2><div class="sum">ZChat owns its name, design, code, and other creations. Using ZChat does not give you ownership of anything we've made.</div><p>We reserve all rights not expressly granted to you in these Terms. ZChat is protected by trademark, copyright, patent, and other laws of the United States and other countries.</p><p>Except for the parts of ZChat licensed under open source terms, we own all applicable rights, title, and interest in ZChat and all Intellectual Property Rights in it. Your use of ZChat is subject to these Terms and does not grant you any rights to our Intellectual Property Rights or those of our licensors, licensees, or partners.</p><p>"Intellectual Property Rights" means all patent rights, copyright rights, mask work rights, moral rights, rights of publicity, trademark, trade dress and service mark rights, goodwill, trade secret rights, and other intellectual property rights, and all applications, registrations, renewals, and extensions thereof.</p></section>
+  <div class="toc"><ol><li><a href="#s01">Käyttöoikeus ja iän varmentaminen</a></li><li><a href="#s02">Tilin rekisteröinti ja vastuut</a></li><li><a href="#s03">Käyttäjäsisältö</a></li><li><a href="#s04">Ennakoiva sisällönvalvonta ja laiton sisältö</a></li><li><a href="#s05">Löydä-syöte ja suosittelujärjestelmät</a></li><li><a href="#s06">Valitukset ja muutoksenhaku</a></li><li><a href="#s07">Sopimuksen päättäminen</a></li><li><a href="#s08">Kolmansien osapuolien palvelut</a></li><li><a href="#s09">Avoimen lähdekoodin ohjelmisto</a></li><li><a href="#s10">Takuuvastuun poissulkeminen</a></li><li><a href="#s11">Vahingonkorvausvelvollisuus</a></li><li><a href="#s12">Vastuunrajoitus</a></li><li><a href="#s13">Sovellettava laki, toimivalta, riidanratkaisu ja välimiesmenettely</a></li><li><a href="#s14">Ehtojen päivitykset</a></li><li><a href="#s15">Immateriaalioikeudet</a></li><li><a href="#s16">Erotettavuuslauseke</a></li><li><a href="#s17">Ota yhteyttä</a></li><li><a href="#s18">App Store -ehdot (Apple / Google)</a></li></ol></div><section id="s01"><h2><span class="n">01</span>Käyttöoikeus ja iän varmentaminen</h2><p>ZChatin käyttö edellyttää, että olet vähintään 13-vuotias ja täytät paikallisen lainsäädäntösi mukaisen sitovan sopimuksen tekemiseen vaadittavan vähimmäisiän. Joillakin alueilla saatamme olla velvollisia rajoittamaan pääsyä tiettyihin ominaisuuksiin tai sisältöihin, jos et suorita iänvarmennusprosessia ja osoita olevasi täysi-ikäinen.</p></section>
+<section id="s02"><h2><span class="n">02</span>Tilin rekisteröinti ja vastuut</h2><div class="sum">Älä jaa tiliäsi. Olet vastuussa kaikesta tilisi toiminnasta. Tietomurrosta ilmoita osoitteeseen <a href="mailto:contact@bapu.app">contact@bapu.app</a>.</div><p>Olet vastuussa kaikesta ZChatin käytöstä kirjautumistietojesi avulla, riippumatta siitä, oletko valtuuttanut toimenpiteen vai et. Älä jaa tiliäsi muille äläkä käytä toisen henkilön tiliä. Ilmoita välittömästi mahdollisesta tietomurrosta osoitteeseen <a href="mailto:contact@bapu.app">contact@bapu.app</a>.</p></section>
+<section id="s03"><h2><span class="n">03</span>Käyttäjäsisältö</h2><div class="sum">Julkaisemasi sisältö kuuluu sinulle. ZChat käyttää sitä ainoastaan palvelun ylläpitämiseen ja kehittämiseen. Emme koskaan myy sisältöäsi ilman lupaasi.</div><p>"Sisältö" tarkoittaa kaikkea ZChatissa jakamasi materiaalia: viestejä, profiilin tietoja, kuvia, videoita, linkkejä, yksityisviestejä ja käyttäjätunnustasi. Säilytät omistusoikeutesi Sisältöön. Jakamalla Sisältöä myönnät meille rajoitetun, maailmanlaajuisen, ei-yksinoikeudellisen ja rojaltivapaan lisenssin ylläpitää, näyttää, muokata ja jakaa Sisältöäsi ZChatin ajamiseen ja kehittämiseen. Emme koskaan myy Sisältöäsi ilman lupaasi.</p></section>
+<section id="s04"><h2><span class="n">04</span>Ennakoiva sisällönvalvonta ja laiton sisältö</h2><p>Käytämme automaattisia työkaluja ja inhimillistä valvontaa kielletyn sisällön havaitsemiseen ja poistamiseen. ZChat priorisoi terroristisisällön, lasten seksuaalisen hyväksikäytön ja väärinkäytön (CSEA) sekä muun laittoman materiaalin pikaisen poistamisen.</p></section>
+<section id="s05"><h2><span class="n">05</span>Löydä-syöte ja suosittelujärjestelmät</h2><p>ZChat käyttää suosittelualgoritmia Löydä-syötteeseen ja tiliehdotuksiin. Voit kieltäytyä tästä Asetuksista. Kolmannen osapuolen syötteet käyttävät omia suosittelujärjestelmiään, joita ZChat ei hallinnoi.</p></section>
+<section id="s06"><h2><span class="n">06</span>Valitukset ja muutoksenhaku</h2><div class="sum">Ilmoita rikkomuksista sovelluksen sisäisillä työkaluilla. Valitukset on tehtävä kahden viikon kuluessa. EU/ETA-käyttäjillä on DSA:n mukaisia lisäoikeuksia.</div><p>Ilmoita rikkomuksista sovelluksen sisäisillä raportointityökaluilla tai osoitteeseen <a href="mailto:contact@bapu.app">contact@bapu.app</a>. Jos tilisi suljetaan tai sitä rajoitetaan, voit hakea muutosta sähköpostitse osoitteeseen <a href="mailto:contact@bapu.app">contact@bapu.app</a> kahden viikon kuluessa. EU/ETA-käyttäjät voivat myös kääntyä sertifioitujen DSA-riidanratkaisuelinten puoleen tai hakea oikeussuojaa kotimaassaan.</p></section>
+<section id="s07"><h2><span class="n">07</span>Sopimuksen päättäminen</h2><div class="sum">Voit poistaa tilisi milloin tahansa Asetuksista. Voimme sulkea sääntöjä rikkovat tilit tai lakisääteisistä syistä.</div><p>Voit poistaa tilisi milloin tahansa Asetuksista. Voimme sulkea, rajoittaa tai irtisanoa tilisi, jos rikot näitä Ehtoja, lakisääteisistä syistä tai jos jatkuva käyttöoikeutesi aiheuttaa riskin ZChatille tai sen käyttäjille. Tietyt Ehtojen määräykset pysyvät voimassa sopimuksen päättymisen jälkeen.</p></section>
+<section id="s08"><h2><span class="n">08</span>Kolmansien osapuolien palvelut</h2><p>ZChat voi tarjota pääsyä kolmansien osapuolien verkkosivustoille tai palveluihin. Emme hallinnoi, tarkista tai ota vastuuta kolmannen osapuolen sisällöstä tai käytännöistä. Käytät kolmannen osapuolen palveluita omalla vastuullasi.</p></section>
+<section id="s09"><h2><span class="n">09</span>Avoimen lähdekoodin ohjelmisto</h2><p>Tietyt ZChatin osat on lisensoitu avoimen lähdekoodin ehtojen, mukaan lukien MIT- ja Apache-lisenssien, nojalla. Olet vastuussa asiaankuuluvien lisenssien ehtojen tarkistamisesta ja noudattamisesta.</p></section>
+<section id="s10"><h2><span class="n">10</span>Takuuvastuun poissulkeminen</h2><div class="sum">ZChat tarjotaan sellaisenaan. Emme anna takuita käytettävyydestä, tarkkuudesta tai soveltuvuudesta.</div><p>ZChat ja kaikki palvelut tarjotaan "sellaisenaan" ja "saatavuuden mukaan" ilman minkäänlaisia takuita. Lain sallimassa laajimmassa määrin kiistämme nimenomaisesti kaikki takuut, mukaan lukien hiljainen takuu kaupallisesta kelpoisuudesta, sopivuudesta tiettyyn tarkoitukseen ja loukkaamattomuudesta.</p></section>
+<section id="s11"><h2><span class="n">11</span>Vahingonkorvausvelvollisuus</h2><p>Sitoudut pitämään ZChatin, sen tytäryhtiöt, hallituksen jäsenet, työntekijät ja edustajat vahingoittumattomina kaikista vaatimuksista, vastuista, vahingoista ja kuluista (mukaan lukien kohtuulliset asianajajankustannukset), jotka johtuvat ZChatin käytöstäsi, Sisällöstäsi tai näiden Ehtojen rikkomisesta.</p></section>
+<section id="s12"><h2><span class="n">12</span>Vastuunrajoitus</h2><div class="sum">ZChatin kokonaisvastuu on rajoitettu 100 dollariin, lukuun ottamatta petosta, törkeää huolimattomuutta tai luopumattomia lakisääteisiä oikeuksia.</div><p>Lain sallimassa laajimmassa määrin ZChat ei ole vastuussa epäsuorista, erityisistä, satunnaisista, rangaistusluonteisista tai välillisistä vahingoista. Petosta, törkeää huolimattomuutta, tahallista väärinkäyttöä tai luopumattomia lakisääteisiä oikeuksia koskevien vaatimusten lisäksi ZChatin kumulatiivinen kokonaisvastuu on rajoitettu sataan Yhdysvaltain dollariin (100 USD).</p></section>
+<section id="s13"><h2><span class="n">13</span>Sovellettava laki, toimivalta, riidanratkaisu ja välimiesmenettely</h2><div class="sum">Ota meihin ensin yhteyttä sähköpostitse — 60 päivää epävirallista ratkaisuaikaa. Useimmat riidat ratkaistaan sitovassa välimiesmenettelyssä. Ei ryhmäkanteita ilman ZChatin suostumusta. Delawaren laki soveltuu. Turvallisuusvaatimukset (kuolema/henkilövahinko) voidaan viedä tuomioistuimeen.</div><p>Sovellettava laki. Näihin Ehtoihin sovelletaan liittovaltion välimiesmenettelyn lakia, sovellettavaa liittovaltion välimieslainsäädäntöä ja Delawaren osavaltion lakeja ilman viittausta sen lainvalintasäännöksiin.</p><p>Toimivalta ja paikka. Kaikki oikeudelliset toimenpiteet, jotka eivät ole välimiesmenettelyssä, on pantava vireille yksinomaan Delawaren osavaltio- tai liittovaltion tuomioistuimissa. Sinä ja ZChat hyväksytte henkilökohtaisen toimivallan ja oikeuspaikan näissä tuomioistuimissa.</p><p>Pakollinen poikkeus paikalliselle laille. Jos asut lainkäyttöalueella, joka edellyttää omien paikallisten lakien soveltamista ei-välimiesmenettelyasioissa — kuten Brasilia — nämä pakolliset säännökset soveltuvat sovellettavan lain edellyttämässä laajuudessa.</p><p>Epävirallinen ratkaisu. Useimmat riidat voidaan ratkaista epävirallisesti. Sitoudut ottamaan meihin yhteyttä osoitteeseen <a href="mailto:contact@bapu.app">contact@bapu.app</a> ja antamaan meille vähintään 60 päivää riidan ratkaisemiseen ennen välimiesmenettelyn aloittamista. Pyyntösi on sisällettävä: nimesi, sähköpostiosoitteesi, tilisi käyttäjätunnus, asuinpaikkasi, vaadittu vahingonkorvaus ja muu korvaus sekä kaikki tukevat todisteet. Sitoudut osallistumaan hyvässä uskossa puhelin- tai videokokoukseen. Vanhentumisajat ja hakupalkkujen määräajat keskeytyvät epävirallisen prosessin aikana.</p><p>Pakollinen välimiesmenettely. Jos epävirallinen ratkaisu epäonnistuu, sitoudut ratkaisemaan riidan lopullisessa ja sitovassa välimiesmenettelyssä AAA:n (USA) tai ICDR:n (Iso-Britannia/EU) kautta, sijoituspaikkana kotikaupunkisi, ellei muuta sovita. Kumpikin osapuoli valitsee yhden välimiehen; nämä kaksi nimeävät kolmannen. AAA:n säännöt ovat saatavilla osoitteessa www.adr.org. Jos voitamme välimiesmenettelyssä, emme vaadi sinulta asianajajankustannuksia palauttamista, ellei välimies totea vaatimuksiasi perusteettomiksi. Jos voitat, sinulla on oikeus asianajajankustannuksiin ja kuluihin sovellettavan lain sallimassa laajuudessa.</p><p>Poikkeus turvallisuusvaatimuksille. Välimiesmenettely ei koske vaatimuksia, jotka liittyvät ZChatin petoksesta, rikollisesta menettelystä tai törkeästä huolimattomuudesta aiheutuneeseen kuolemaan tai henkilövahinkoon. Nämä asiat voidaan viedä tuomioistuimeen tai välimiesmenettelyyn vaatimuksen esittäjän valinnan mukaan.</p><p>Ryhmäkanteiden luopuminen. SOVELLETTAVAN LAIN SALLIMASSA LAAJUUDESSA SINÄ JA ZCHAT SITOUDUTTE ESITTÄMÄÄN VAATIMUKSET YKSINOMAAN YKSILÖLLISESSÄ OMINAISUUDESSA, EI RYHMÄKANTEEN KANTAJANA, LUOKKAJÄSENENÄ TAI EDUSTAJANA. Jos tämä luopuminen todetaan täytäntöönpanokelvottomaksi, koko jakso 13 katsotaan mitättömäksi kokonaisuudessaan.</p><p>Pienvaateet ja julkinen turvaamistoimenpide. Tämä lauseke ei rajoita oikeuttasi nostaa kanteita pienvaadetuomioistuimessa. Se ei myöskään vie sinulta kotimaiseen lakiin perustuvia lakisääteisiä oikeuksiasi.</p><p>Voimassaolo. Tämä jakso pysyy voimassa tilin irtisanomisen jälkeen.</p></section>
+<section id="s14"><h2><span class="n">14</span>Ehtojen päivitykset</h2><p>Saatamme päivittää näitä Ehtoja säännöllisesti. Julkaisemme aina tarkistetun version täällä ja ilmoitamme sinulle sovelluksen, verkkosivuston tai muun viestintäkanavan kautta olennaisista muutoksista.</p><p>Sinun vastuullasi on tarkistaa Ehdot säännöllisesti. Jatkamalla ZChatin käyttöä päivityksen jälkeen hyväksyt tarkistetut Ehdot. Jos et hyväksy muutoksia, sinun on lopetettava ZChatin käyttö.</p></section>
+<section id="s15"><h2><span class="n">15</span>Immateriaalioikeudet</h2><div class="sum">ZChat omistaa nimensä, suunnittelunsa, koodinsa ja muut luomuksensa. ZChatin käyttäminen ei anna sinulle omistusoikeutta luomuksiimme.</div><p>Pidätämme kaikki oikeudet, joita ei nimenomaisesti myönnetä sinulle näissä Ehdoissa. ZChat on suojattu tavaramerkki-, tekijänoikeus-, patentti- ja muun lainsäädännön nojalla Yhdysvalloissa ja muissa maissa.</p><p>Avoimen lähdekoodin ehtojen nojalla lisensoituja ZChatin osia lukuun ottamatta omistamme kaikki ZChatiin liittyvät oikeudet, nimikkeet ja intressit sekä kaikki siihen sisältyvät immateriaalioikeudet. "Immateriaalioikeuksilla" tarkoitetaan kaikkia patentti-, tekijänoikeus-, tavaramerkki-, liikesalaisuus- ja muita immateriaalioikeuksia. ZChatin käyttösi ei anna sinulle oikeuksia immateriaalioikeuksiimme.</p></section>
 <section id="s16"><h2><span class="n">16</span>Erotettavuuslauseke</h2><div class="sev"><p>Jos jokin määräys todetaan pätemättömäksi tai täytäntöönpanokelvottomaksi, sitä muutetaan vähimmäismäärällä tai erotetaan. Muut määräykset pysyvät voimassa.</p></div></section>
-<section id="s17"><h2><span class="n">17</span>Contact Us</h2><p>If you have any questions about these Terms or ZChat, please contact us at <a href="mailto:contact@bapu.app">contact@bapu.app</a>.</p></section>
-<section id="s18"><h2><span class="n">18</span>Apple App Store and Google Play Required Terms</h2><p>If you download or access ZChat through the Apple App Store or Google Play (each, an "App Provider"), the following additional terms apply:</p><p>These Terms are between you and ZChat — not the App Provider. The App Provider has no responsibility for ZChat or its content.</p><p>ZChat is solely responsible for the App, including any warranty claims. If the App does not conform to a warranty, you may notify the App Provider, but to the maximum extent permitted by law, the App Provider will have no further warranty obligations.</p><p>The App Provider is not obligated to provide maintenance or support services for the App, and is not responsible for addressing any claims you or third parties may have in connection with the App, including product liability, legal compliance, or intellectual property infringement.</p><p>If a third party claims your use of the App infringes their intellectual property rights, ZChat — not the App Provider — is solely responsible for handling that claim.</p><p>The App Provider and its affiliates are third-party beneficiaries of these Terms and may enforce them accordingly. You must comply with all applicable third-party terms of service when using the ZChat App.</p></section>
-</div>
-<footer>© 2026 Aureus Z, Inc. · <a href="mailto:legal@bapu.app">legal@bapu.app</a> · bapu.app
-    <div class="cloudflare-badge" style="display: flex; justify-content: center; margin-top: 20px;">
+<section id="s17"><h2><span class="n">17</span>Ota yhteyttä</h2><p>Jos sinulla on kysyttävää näistä Ehdoista tai ZChatista, ota yhteyttä osoitteeseen <a href="mailto:contact@bapu.app">contact@bapu.app</a>.</p></section>
+<section id="s18"><h2><span class="n">18</span>App Store -ehdot (Apple / Google)</h2><p>Jos lataat tai käytät ZChatiä Apple App Storen tai Google Playn kautta (kumpikin "Sovellustarjoaja"), seuraavat lisäehdot soveltuvat:</p><p>Nämä Ehdot ovat sinun ja ZChatin välisiä — ei Sovellustarjoajan kanssa. Sovellustarjoajalla ei ole vastuuta ZChatista tai sen sisällöstä.</p><p>ZChat on yksin vastuussa sovelluksesta, mukaan lukien takuuvelvoitteiden rikkomiseen liittyvät vaatimukset. Sovellustarjoaja ei ole velvollinen tarjoamaan ylläpito- tai tukipalveluita sovellukselle eikä ole vastuussa sinulla tai kolmansilla osapuolilla olevista vaatimuksista sovellukseen liittyen.</p><p>Jos kolmas osapuoli väittää, että sovelluksen käyttösi loukkaa heidän immateriaalioikeuksiaan, ZChat — ei Sovellustarjoaja — on yksin vastuussa vaatimuksen käsittelystä.</p><p>Sovellustarjoaja ja sen tytäryhtiöt ovat näiden Ehtojen kolmansien osapuolten edunsaajia ja voivat panna ne täytäntöön. Sinun on noudatettava kaikkia sovellettavia kolmansien osapuolten käyttöehtoja käyttäessäsi ZChat-sovellusta.</p></section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p>© 2026 Aureus Z, Inc.</p>
+    <p>
+      <a href="/">Home</a>
+      <a href="/handles.html">Handles</a>
+      <a href="/signup.html">Signup</a>
+      <a href="https://zchat.bapu.app" target="_blank">ZChat</a>
+      <a href="/feedback.html">Feedback</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/legal.html">Legal</a>
+      <a href="/sitemap.html">Sitemap</a> <a href="mailto:contact@bapu.app">Contact</a>
+    </p>
+    <div class="cloudflare-badge">
       <a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer">
-        <img src="/cloudflare-badge.png" alt="Protected by Cloudflare" style="height: 40px; width: auto;" />
+        <img src="/cloudflare-badge.png" alt="Protected by Cloudflare" />
       </a>
     </div>
+  </div>
 </footer>
+
 <script src="/js/lang.js" defer></script>
-</body></html>
+</body>
+</html>
