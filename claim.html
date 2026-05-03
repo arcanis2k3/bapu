@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAPU - Claim Your Handle</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #151515;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            margin-top: 40px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 0;
+            color: #fff;
+        }
+        p {
+            color: #ccc;
+            line-height: 1.5;
+        }
+        .step { display: none; }
+        .step.active { display: block; }
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #ddd;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            background: #222;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.2s;
+        }
+        button:hover { background: #0056b3; }
+        button:disabled { background: #555; cursor: not-allowed; }
+        .error {
+            color: #ff4d4d;
+            background: rgba(255, 77, 77, 0.1);
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ff4d4d;
+            margin-top: 15px;
+            display: none;
+        }
+        .instructions {
+            background: #222;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #007bff;
+            margin-top: 20px;
+        }
+        .instructions ol { margin: 10px 0 0 0; padding-left: 20px; }
+        .instructions li { margin-bottom: 10px; }
+        .timeout-notice {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .handle-preview {
+            font-family: monospace;
+            background: #000;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 15px 0;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Claim Handle</h1>
+        
+        <div id="error-box" class="error"></div>
+
+        <!-- Step 1: Identify current handle -->
+        <div id="step-1" class="step active">
+            <p>To start, please enter your current Bluesky handle.</p>
+            <label for="current-handle">Current Bluesky Handle</label>
+            <input type="text" id="current-handle" placeholder="e.g. alice.bsky.social">
+            <button id="btn-step-1" onclick="resolveHandle()">Continue</button>
+        </div>
+
+        <!-- Step 2: Choose new handle -->
+        <div id="step-2" class="step">
+            <p>Welcome! Now choose your new custom handle.</p>
+            <label for="desired-handle">Desired Handle</label>
+            <input type="text" id="desired-handle" placeholder="e.g. alice">
+            
+            <label for="domain">Domain</label>
+            <select id="domain"></select>
+
+            <button id="btn-step-2" onclick="initClaim()">Claim Handle</button>
+        </div>
+
+        <!-- Step 3: Instructions -->
+        <div id="step-3" class="step">
+            <h2>Almost there!</h2>
+            <p>We've provisioned the DNS records for your new handle.</p>
+            
+            <div class="handle-preview" id="final-handle"></div>
+
+            <div class="instructions">
+                <strong>Next Steps:</strong>
+                <ol>
+                    <li>Open your <strong>Bluesky Settings</strong>.</li>
+                    <li>Go to <strong>Advanced</strong> &rarr; <strong>Change Handle</strong>.</li>
+                    <li>Select <strong>I have my own domain</strong>.</li>
+                    <li>Enter your new handle exactly as shown above.</li>
+                    <li>Tap <strong>Verify DNS Record</strong> and save.</li>
+                </ol>
+            </div>
+
+            <p class="timeout-notice">
+                ⏳ You have <strong>48 hours</strong> to complete this step in Bluesky. If not confirmed, the handle will be released for others to claim.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Configure this if you are hosting this HTML on a different domain/server than the backend
+        const API_BASE = ''; // e.g., 'https://api.bapu.app'
+        
+        let currentUserDid = null;
+
+        function showError(msg) {
+            const box = document.getElementById('error-box');
+            box.innerText = msg;
+            box.style.display = 'block';
+        }
+
+        function hideError() {
+            document.getElementById('error-box').style.display = 'none';
+        }
+
+        async function fetchDomains() {
+            try {
+                const res = await fetch(`${API_BASE}/api/domains`);
+                const data = await res.json();
+                const select = document.getElementById('domain');
+                if (data.domains && data.domains.length > 0) {
+                    select.innerHTML = data.domains.map(d => `<option value="${d}">${d}</option>`).join('');
+                } else {
+                    showError("No domains available at the moment.");
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        async function resolveHandle() {
+            hideError();
+            const handle = document.getElementById('current-handle').value.trim();
+            if (!handle) {
+                showError("Please enter your current handle.");
+                return;
+            }
+
+            const btn = document.getElementById('btn-step-1');
+            btn.disabled = true;
+            btn.innerText = "Resolving...";
+
+            try {
+                const res = await fetch(`${API_BASE}/api/resolve-handle?handle=${encodeURIComponent(handle)}`);
+                const data = await res.json();
+                
+                if (!res.ok) {
+                    throw new Error(data.error || "Failed to resolve handle.");
+                }
+
+                currentUserDid = data.did;
+                document.getElementById('step-1').classList.remove('active');
+                document.getElementById('step-2').classList.add('active');
+                fetchDomains();
+            } catch (err) {
+                showError(err.message);
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Continue";
+            }
+        }
+
+        async function initClaim() {
+            hideError();
+            const currentHandle = document.getElementById('current-handle').value.trim();
+            const desiredHandle = document.getElementById('desired-handle').value.trim();
+            const domain = document.getElementById('domain').value;
+
+            if (!desiredHandle) {
+                showError("Please enter a desired handle.");
+                return;
+            }
+
+            const btn = document.getElementById('btn-step-2');
+            btn.disabled = true;
+            btn.innerText = "Provisioning...";
+
+            try {
+                const res = await fetch(`${API_BASE}/api/claim/init`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ currentHandle, desiredHandle, domain })
+                });
+                
+                const data = await res.json();
+
+                if (!res.ok) {
+                    throw new Error(data.error || "Failed to claim handle.");
+                }
+
+                document.getElementById('final-handle').innerText = `@${data.newHandle || (desiredHandle + '.' + domain)}`;
+                document.getElementById('step-2').classList.remove('active');
+                document.getElementById('step-3').classList.add('active');
+
+            } catch (err) {
+                showError(err.message);
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Claim Handle";
+            }
+        }
+    </script>
+</body>
+                                     </html>
+  
