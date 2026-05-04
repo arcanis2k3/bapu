@@ -184,7 +184,7 @@
 
     <script>
         // Configure this if you are hosting this HTML on a different domain/server than the backend
-        const API_BASE = ''; // e.g., 'https://api.bapu.app'
+        const API_BASE = 'https://api.bapu.app'; // e.g., 'https://api.bapu.app'
         
         let currentUserDid = null;
 
@@ -198,10 +198,19 @@
             document.getElementById('error-box').style.display = 'none';
         }
 
+        async function parseJsonResponse(res) {
+            const contentType = res.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                return await res.json();
+            } else {
+                throw new Error("Server returned an unexpected response format. Is API_BASE correctly configured?");
+            }
+        }
+
         async function fetchDomains() {
             try {
                 const res = await fetch(`${API_BASE}/api/domains`);
-                const data = await res.json();
+                const data = await parseJsonResponse(res);
                 const select = document.getElementById('domain');
                 if (data.domains && data.domains.length > 0) {
                     select.innerHTML = data.domains.map(d => `<option value="${d}">${d}</option>`).join('');
@@ -215,10 +224,15 @@
 
         async function resolveHandle() {
             hideError();
-            const handle = document.getElementById('current-handle').value.trim();
+            let handle = document.getElementById('current-handle').value.trim();
             if (!handle) {
                 showError("Please enter your current handle.");
                 return;
+            }
+            
+            // Clean up if user typed an '@' symbol
+            if (handle.startsWith('@')) {
+                handle = handle.substring(1);
             }
 
             const btn = document.getElementById('btn-step-1');
@@ -227,7 +241,7 @@
 
             try {
                 const res = await fetch(`${API_BASE}/api/resolve-handle?handle=${encodeURIComponent(handle)}`);
-                const data = await res.json();
+                const data = await parseJsonResponse(res);
                 
                 if (!res.ok) {
                     throw new Error(data.error || "Failed to resolve handle.");
@@ -247,13 +261,17 @@
 
         async function initClaim() {
             hideError();
-            const currentHandle = document.getElementById('current-handle').value.trim();
+            let currentHandle = document.getElementById('current-handle').value.trim();
             const desiredHandle = document.getElementById('desired-handle').value.trim();
             const domain = document.getElementById('domain').value;
 
             if (!desiredHandle) {
                 showError("Please enter a desired handle.");
                 return;
+            }
+
+            if (currentHandle.startsWith('@')) {
+                currentHandle = currentHandle.substring(1);
             }
 
             const btn = document.getElementById('btn-step-2');
@@ -267,7 +285,7 @@
                     body: JSON.stringify({ currentHandle, desiredHandle, domain })
                 });
                 
-                const data = await res.json();
+                const data = await parseJsonResponse(res);
 
                 if (!res.ok) {
                     throw new Error(data.error || "Failed to claim handle.");
