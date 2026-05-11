@@ -86,27 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     },
-    {
-      name: 'zchat.bapu.app',
-      check: async () => {
-        // Frontends signup is not working
-        return { status: 'yellow', version: '' };
-      }
-    },
-    {
-      name: 'web.bapu.app',
-      check: async () => {
-        // Frontends signup is not working
-        return { status: 'yellow', version: '' };
-      }
-    },
-    {
-      name: 'encryption.bapu.app',
-      check: async () => {
-        // Frontends signup is not working
-        return { status: 'yellow', version: '' };
-      }
-    }
   ];
 
   const statusIcons = {

@@ -10,10 +10,10 @@
         .container {
             width: 100%;
             max-width: 500px;
-            background: #151515;
+            background: var(--color-surface, #fff);
             padding: 30px;
             border-radius: 12px;
-            border: 1px solid #333;
+            border: 1px solid var(--color-border, #E0DCD8);
             box-shadow: 0 4px 12px rgba(0,0,0,0.5);
             margin-top: 40px;
         }
@@ -21,10 +21,10 @@
             text-align: center;
             font-size: 2rem;
             margin-top: 0;
-            color: #fff;
+            color: var(--color-text, #3A3532);
         }
         p {
-            color: #ccc;
+            color: var(--color-text-muted, #736E6A);
             line-height: 1.5;
         }
         .step { display: none; }
@@ -34,27 +34,27 @@
             margin-top: 15px;
             margin-bottom: 5px;
             font-weight: bold;
-            color: #ddd;
+            color: var(--color-text, #3A3532);
         }
         input, select {
             width: 100%;
             padding: 12px;
-            background: #222;
-            border: 1px solid #444;
-            color: #fff;
+            background: var(--color-bg, #F7F5F3);
+            border: 1px solid var(--color-border, #E0DCD8);
+            color: var(--color-text, #3A3532);
             border-radius: 6px;
             box-sizing: border-box;
             font-size: 1rem;
         }
         input:focus, select:focus {
             outline: none;
-            border-color: #007bff;
+            border-color: var(--color-primary, #E07B54);
         }
         button {
             width: 100%;
             padding: 14px;
-            background: #007bff;
-            color: #fff;
+            background: var(--color-primary, #E07B54);
+            color: var(--color-text, #3A3532);
             border: none;
             border-radius: 6px;
             font-size: 1.1rem;
@@ -63,8 +63,8 @@
             margin-top: 20px;
             transition: background 0.2s;
         }
-        button:hover { background: #0056b3; }
-        button:disabled { background: #555; cursor: not-allowed; }
+        button:hover { background: #C86946; }
+        button:disabled { background: var(--color-text-muted, #736E6A); cursor: not-allowed; opacity: 0.7; }
         .error {
             color: #ff4d4d;
             background: rgba(255, 77, 77, 0.1);
@@ -75,29 +75,29 @@
             display: none;
         }
         .instructions {
-            background: #222;
+            background: var(--color-bg, #F7F5F3);
             padding: 15px;
             border-radius: 6px;
-            border-left: 4px solid #007bff;
+            border-left: 4px solid var(--color-primary, #E07B54);
             margin-top: 20px;
         }
         .instructions ol { margin: 10px 0 0 0; padding-left: 20px; }
         .instructions li { margin-bottom: 10px; }
         .timeout-notice {
             font-size: 0.9rem;
-            color: #aaa;
+            color: var(--color-text-muted, #736E6A);
             margin-top: 20px;
             text-align: center;
         }
         .handle-preview {
             font-family: monospace;
-            background: #000;
+            background: var(--color-surface, #fff);
             padding: 10px;
             border-radius: 6px;
             text-align: center;
             font-size: 1.2rem;
             margin: 15px 0;
-            border: 1px solid #333;
+            border: 1px solid var(--color-border, #E0DCD8);
         }
     </style>
 </head>
@@ -108,7 +108,6 @@
     <a href="/" class="brand">BAPU</a>
     <div>
       <a href="/" class="nav-link">Home</a>
-      <a href="/handles.html" class="nav-link">Handles</a>
     </div>
   </nav>
 </header>
@@ -134,7 +133,6 @@
             <input type="text" id="desired-handle" placeholder="e.g. alice">
             
             <label for="domain">Domain</label>
-            <p style="font-size: 0.9em; color: #8892b0;">Looking for a verified handle? Check out <a href="https://idroot.org" target="_blank" style="color: #9fb4ff;">idroot.org</a></p>
             <select id="domain"></select>
 
             <button id="btn-step-2" onclick="initClaim()">Claim Handle</button>
@@ -150,7 +148,7 @@
             <div class="instructions">
                 <strong>Next Steps:</strong>
                 <ol>
-                    <li>Open your <a href="https://bsky.app/settings/account" target="_blank"><strong>Bluesky Settings</strong></a>.</li>
+                    <li>Open your <a href="https://bsky.app/settings/account" target="_blank"><strong>account settings in Bluesky</strong></a>.</li>
                     <li>Go to <strong>Advanced</strong> &rarr; <strong>Change Handle</strong>.</li>
                     <li>Select <strong>I have my own domain</strong>.</li>
                     <li>Enter your new handle exactly as shown above.</li>
@@ -170,7 +168,6 @@
     <p>© 2026 Aureus Z, Inc.</p>
     <p>
       <a href="/">Home</a>
-      <a href="/handles.html">Handles</a>
       <a href="/signup.html">Signup</a>
       <a href="https://zchat.bapu.app" target="_blank">ZChat</a>
       <a href="/feedback.html">Feedback</a>
