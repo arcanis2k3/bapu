@@ -134,6 +134,7 @@
             <input type="text" id="desired-handle" placeholder="e.g. alice">
             
             <label for="domain">Domain</label>
+            <p style="font-size: 0.9em; color: #8892b0;">Looking for a verified handle? Check out <a href="https://idroot.org" target="_blank" style="color: #9fb4ff;">idroot.org</a></p>
             <select id="domain"></select>
 
             <button id="btn-step-2" onclick="initClaim()">Claim Handle</button>
@@ -149,7 +150,7 @@
             <div class="instructions">
                 <strong>Next Steps:</strong>
                 <ol>
-                    <li>Open your <strong>Bluesky Settings</strong>.</li>
+                    <li>Open your <a href="https://bsky.app/settings/account" target="_blank"><strong>Bluesky Settings</strong></a>.</li>
                     <li>Go to <strong>Advanced</strong> &rarr; <strong>Change Handle</strong>.</li>
                     <li>Select <strong>I have my own domain</strong>.</li>
                     <li>Enter your new handle exactly as shown above.</li>
@@ -213,7 +214,7 @@
                 const data = await parseJsonResponse(res);
                 const select = document.getElementById('domain');
                 if (data.domains && data.domains.length > 0) {
-                    select.innerHTML = data.domains.map(d => `<option value="${d}">${d}</option>`).join('');
+                    select.innerHTML = data.domains.map(d => `<option value="${d}">${d}</option>`).join('') + `<option value="custom" disabled>Custom (available soon)</option>`;
                 } else {
                     showError("No domains available at the moment.");
                 }

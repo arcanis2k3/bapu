@@ -1,13 +1,13 @@
 :root {
-  --bg-gradient: radial-gradient(1200px 800px at 20% 10%, #121a33, #07090f 60%);
-  --bg-color: #07090f;
-  --text-color: #e6eaf2;
-  --muted-text: #8892b0;
-  --lead-text: #cdd6f4;
-  --link-color: #9fb4ff;
-  --header-bg: rgba(10, 14, 26, 0.85);
-  --border-color: #1f2a44;
-  --card-bg: rgba(18, 25, 48, 0.9);
+  --bg-gradient: linear-gradient(135deg, #F7F5F3, #eae5e0);
+  --bg-color: #F7F5F3;
+  --text-color: #2c2927;
+  --muted-text: #6b645c;
+  --lead-text: #4a4540;
+  --link-color: #E07B54;
+  --header-bg: rgba(247, 245, 243, 0.9);
+  --border-color: #d1c8c0;
+  --card-bg: #ffffff;
   --max-width: 980px;
 }
 
@@ -68,12 +68,14 @@ h1 {
   font-size: 3.2rem;
   margin-bottom: 18px;
   letter-spacing: -0.03em;
+  color: var(--link-color);
 }
 
 h2 {
   margin-top: 60px;
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 8px;
+  color: var(--text-color);
 }
 
 .lead {
@@ -94,11 +96,13 @@ h2 {
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .card h3 {
   margin-top: 0;
   margin-bottom: 10px;
+  color: var(--link-color);
 }
 
 .card a {
@@ -137,17 +141,18 @@ footer a:hover {
 .mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.9rem;
-  background: #0b1020;
+  background: #eae5e0;
   border: 1px solid var(--border-color);
   padding: 12px;
   border-radius: 8px;
   overflow-x: auto;
+  color: var(--text-color);
 }
 
 /* Specific to handles.html highlights */
 .highlight {
-  background: linear-gradient(90deg, #1b3cff22, #00d4ff22);
-  border: 1px solid #1b3cff55;
+  background: rgba(224, 123, 84, 0.1);
+  border: 1px solid rgba(224, 123, 84, 0.3);
 }
 
 /* Specific to legal pages (privacy/terms) */
@@ -158,7 +163,7 @@ footer a:hover {
 }
 
 .notice {
-  background: rgba(159, 180, 255, 0.1);
+  background: rgba(224, 123, 84, 0.1);
   border-left: 4px solid var(--link-color);
   padding: 18px;
   margin: 24px 0;
@@ -182,7 +187,7 @@ footer a:hover {
 .feedback-container textarea {
   width: 100%;
   padding: 12px;
-  background: #0b1020;
+  background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   color: var(--text-color);
@@ -196,12 +201,12 @@ footer a:hover {
 .feedback-container textarea:focus {
   outline: none;
   border-color: var(--link-color);
-  box-shadow: 0 0 0 2px rgba(159, 180, 255, 0.2);
+  box-shadow: 0 0 0 2px rgba(224, 123, 84, 0.2);
 }
 
 .feedback-container button {
   background: var(--link-color);
-  color: #07090f;
+  color: #ffffff;
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
@@ -216,7 +221,8 @@ footer a:hover {
 }
 
 .feedback-container button:disabled {
-  background: var(--muted-text);
+  background: var(--border-color);
+  color: var(--muted-text);
   cursor: not-allowed;
 }
 
@@ -262,7 +268,7 @@ footer a:hover {
 .announcement-banner {
   margin-top: 16px;
   padding: 12px;
-  background: rgba(159, 180, 255, 0.05);
+  background: rgba(224, 123, 84, 0.05);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   font-size: 0.9rem;
