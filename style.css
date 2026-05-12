@@ -279,3 +279,11 @@ footer a:hover {
 .announcement-banner:empty {
   display: none;
 }
+
+.copyright {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  padding: 1rem 0 2rem 0;
+  background-color: var(--color-bg);
+}
