@@ -205,14 +205,9 @@
 
         async function fetchDomains() {
             try {
-                const res = await fetch(`${API_BASE}/api/domains`);
-                const data = await parseJsonResponse(res);
+                // Hardcode domain to bapu.app as requested, ignoring API response
                 const select = document.getElementById('domain');
-                if (data.domains && data.domains.length > 0) {
-                    select.innerHTML = data.domains.map(d => `<option value="${d}">${d}</option>`).join('') + `<option value="custom" disabled>Custom (available soon)</option>`;
-                } else {
-                    showError("No domains available at the moment.");
-                }
+                select.innerHTML = `<option value="bapu.app">bapu.app</option><option value="custom" disabled>Custom (available soon)</option>`;
             } catch (err) {
                 console.error(err);
             }
