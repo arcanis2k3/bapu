@@ -1,17 +1,12 @@
 services:
-  bapu-handle-backend:
-    build:
-      context: ./backend
-    container_name: bapu-handle-backend
-    restart: unless-stopped
-    network_mode: host
-    environment:
-      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
-      - BSKY_SERVICE=${BSKY_SERVICE:-https://bsky.social}
-      - PORT=3001
-      - DATA_DIR=/app/data
+  bapu-website:
+    image: nginx:alpine
+    container_name: bapu-website
+    ports:
+      - "8080:80"
     volumes:
-      - ./backend_data:/app/data
+      - ./:/usr/share/nginx/html:ro
+    restart: unless-stopped
     logging:
       driver: "json-file"
       options:

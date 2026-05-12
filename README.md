@@ -1,70 +1,50 @@
-# BAPU Handle Management System
+# BAPU Website & Documentation
 
-This repository contains the automated system for managing AT Protocol (Bluesky) handles under BAPU domains.
+This repository contains the static website, frontend HTML templates, and CSS stylesheets for the main BAPU web presence.
+
+*Note: This repository was previously a monorepo containing backend services and mobile applications. Those components have been separated and are now managed in their respective dedicated repositories.*
 
 ## Components
 
-### 1. Backend (`/backend`)
-A Node.js Express server that interacts with Cloudflare and AT Protocol.
+### 1. Frontend Web App (Root & `/zchat`)
+The static HTML files providing information about BAPU, sovereign identity, decentralized social infrastructure, and ZChat documentation.
 
-**Setup:**
-1. `cd backend`
-2. `npm install`
-3. Copy `.env.example` to `.env` and fill in your `CLOUDFLARE_API_TOKEN`.
-4. `node server.js`
+**Key Pages:**
+- `index.html`: The landing page outlining core principles.
+- `handles.html`: Details on the handle ecosystem and early access.
+- `/zchat/terms.html` & `/zchat/privacy.html`: Legal documentation for the ZChat client.
+- `/status.js`: A dynamic script injected into the footer to monitor the live operational status of BAPU's Backend, PDS, and Frontend applications.
 
-**API Endpoints:**
-- `GET /api/domains`: Lists active zones from Cloudflare.
-- `GET /api/check-handle`: Checks if a handle is available in DNS and reservations.
-- `POST /api/automate-all`: Handles the entire flow: verifies availability, sets DNS, and updates the user's Bluesky handle.
+**Styling & Assets:**
+- `style.css`: The central stylesheet enforcing the BAPU dark theme and responsive grid layouts.
+- `favicon.png`: Site icon.
 
-### 2. Mobile App (`/mobile_app`)
-A Flutter-based Android application for users.
+## Deployment
 
-**CI/CD:**
-This project uses GitHub Actions to automatically build the APK. You can download the latest build from the "Actions" tab of the repository under "Artifacts".
-
-**Setup:**
-1. `cd mobile_app`
-2. Ensure Flutter is installed.
-3. Update `baseUrl` in `lib/main.dart` to point to your deployed backend (e.g., `https://handles.bapu.app/api`). **Note:** `10.0.2.2` only works for the Android Emulator.
-4. `flutter pub get`
-5. `flutter run` (or `flutter build apk`)
-
-**Features:**
-- Login with Bluesky Handle + App Password.
-- Real-time availability check.
-- Automated handle switching.
-- History of reserved handles.
-
-## Technical Infrastructure Requirements
-- **Cloudflare Account**: To manage the domains.
-- **Node.js Hosting**: To run the backend (or Docker).
-- **SQLite**: Used for persistence (stored in `backend_data/handles.db` when using Docker).
-
-## Deployment with Docker & Caddy
+The website consists of static HTML, CSS, and vanilla JavaScript. It can be deployed to any static web host, CDN, or reverse proxy.
 
 ### Docker Compose
-You can run the backend using Docker Compose. Create a `.env` file in the root directory with your `CLOUDFLARE_API_TOKEN` and then run:
+A `docker-compose.yml` file is provided to quickly serve the static website locally using an NGINX container.
+
 ```bash
 docker-compose up -d
 ```
+The site will be accessible on port `8080`.
 
 ### Caddy Integration
-If you are running a PDS with Caddy using a wildcard like `*.bapu.app`, you can add a specific block for the handle backend. Caddy will prioritize the more specific match:
+If you are deploying this behind Caddy alongside other BAPU services, you can serve the static files directly:
 
 ```caddy
-handles.bapu.app {
-    reverse_proxy localhost:3001
-}
-
-# Your existing PDS block
-*.bapu.app, bapu.app {
-    tls {
-        on_demand
-    }
-    reverse_proxy localhost:3000
+bapu.app {
+    root * /path/to/this/repo
+    file_server
 }
 ```
 
-This setup works smoothly alongside a PDS on port 3000. Ensure that the `BSKY_SERVICE` environment variable in `docker-compose.yml` points to your PDS URL (e.g., `http://localhost:3000`) if you want to use it for local account verification, though the default `https://bsky.social` is usually preferred for broader compatibility.
+## Developer Notes
+
+### Backend Integrations
+While the backend code is managed elsewhere, the frontend expects specific APIs to be available at `api.bapu.app`. Please see the `BACKEND_API_GUIDE.md` for details on how to implement the required `GET /health`, `GET /announcement`, and `POST /feedback` endpoints.
+
+### Modifying the Live Status Indicator
+The footer status indicator is driven by `/status.js`. If new frontend domains or backend services are introduced, they must be added to the `services` array within that file.
