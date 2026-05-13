@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BAPU — Press & Brand Assets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Download official BAPU logos, banners, and brand assets.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .press-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 28px 60px;
+    }
+
+    .press-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .press-header h1 {
+      font-size: 2.5rem;
+      color: var(--lead-text);
+      margin-bottom: 16px;
+    }
+
+    .asset-section {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 32px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .asset-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      color: var(--lead-text);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 12px;
+    }
+
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .asset-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .asset-preview {
+      background: #F7F5F3;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      min-height: 200px;
+    }
+
+    .asset-preview.dark-bg {
+      background: #2c2927;
+      border-color: #4a4540;
+    }
+
+    .asset-preview img {
+      max-width: 100%;
+      height: auto;
+      max-height: 250px;
+      border-radius: 4px;
+    }
+
+    .asset-info {
+      text-align: center;
+    }
+
+    .asset-title {
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--text-color);
+    }
+
+    .download-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn-download {
+      background: var(--link-color);
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+
+    .btn-download:hover {
+      opacity: 0.9;
+      color: white;
+      text-decoration: none;
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 24px;
+    }
+
+    .color-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .color-swatch {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .color-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .color-hex {
+      font-family: monospace;
+      color: var(--muted-text);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="brand">BAPU</a>
+    <div>
+      <a href="/" class="nav-link">Home</a>
+    </div>
+  </nav>
+</header>
+
+<main class="press-container">
+  <div class="press-header">
+    <br><br>
+    <h1>Press & Brand Assets</h1>
+    <p class="lead">Official logos, banners, and brand guidelines for BAPU.</p>
+  </div>
+
+  <section class="asset-section">
+    <h2>Logos & Icons</h2>
+    <div class="asset-grid">
+
+      <div class="asset-item">
+        <div class="asset-preview">
+          <img src="/assets/press/icon-light.svg" alt="BAPU Icon (Light)">
+        </div>
+        <div class="asset-info">
+          <div class="asset-title">App Icon (Light)</div>
+          <div class="download-buttons">
+            <a href="/assets/press/icon-light.svg" download class="btn-download">SVG</a>
+            <a href="/assets/press/icon-light.png" download class="btn-download">PNG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-item">
+        <div class="asset-preview dark-bg">
+          <img src="/assets/press/icon-dark.svg" alt="BAPU Icon (Dark)">
+        </div>
+        <div class="asset-info">
+          <div class="asset-title">App Icon (Dark)</div>
+          <div class="download-buttons">
+            <a href="/assets/press/icon-dark.svg" download class="btn-download">SVG</a>
+            <a href="/assets/press/icon-dark.png" download class="btn-download">PNG</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="asset-section">
+    <h2>Banners & Social Headers</h2>
+    <div class="asset-grid" style="grid-template-columns: 1fr;">
+
+      <div class="asset-item">
+        <div class="asset-preview">
+          <img src="/assets/press/og-image.svg" alt="BAPU Open Graph Image">
+        </div>
+        <div class="asset-info">
+          <div class="asset-title">Open Graph / Preview Image (1200x630)</div>
+          <div class="download-buttons">
+            <a href="/assets/press/og-image.svg" download class="btn-download">SVG</a>
+            <a href="/assets/press/og-image.png" download class="btn-download">PNG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="asset-item">
+        <div class="asset-preview">
+          <img src="/assets/press/twitter-header.svg" alt="BAPU Twitter Header">
+        </div>
+        <div class="asset-info">
+          <div class="asset-title">Twitter / X Header (1500x500)</div>
+          <div class="download-buttons">
+            <a href="/assets/press/twitter-header.svg" download class="btn-download">SVG</a>
+            <a href="/assets/press/twitter-header.png" download class="btn-download">PNG</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="asset-section">
+    <h2>Color Palette</h2>
+    <p style="margin-bottom: 32px; color: var(--muted-text);">Our official brand colors, aligned with the website theme.</p>
+
+    <div class="palette-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background-color: #E07B54;"></div>
+        <div class="color-name">Terracotta</div>
+        <div class="color-hex">#E07B54</div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background-color: #F0A882;"></div>
+        <div class="color-name">Light Terracotta</div>
+        <div class="color-hex">#F0A882</div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background-color: #C4603A;"></div>
+        <div class="color-name">Deep Terracotta</div>
+        <div class="color-hex">#C4603A</div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background-color: #F7F5F3;"></div>
+        <div class="color-name">Linen Background</div>
+        <div class="color-hex">#F7F5F3</div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background-color: #D4B896;"></div>
+        <div class="color-name">Sand</div>
+        <div class="color-hex">#D4B896</div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background-color: #2c2927;"></div>
+        <div class="color-name">Espresso Text</div>
+        <div class="color-hex">#2c2927</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p>© <span id="year">2026</span> Aureus Z, Inc.</p>
+    <div class="footer-links">
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/sitemap.html">Sitemap</a>
+      <a href="https://zchat.bapu.app" target="_blank">ZChat</a>
+    </div>
+  </div>
+</footer>
+<script src="/status.js" defer></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

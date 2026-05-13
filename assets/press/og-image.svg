@@ -1,0 +1,141 @@
+<svg width="900" height="472" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" style="display:block; max-width:100%;">
+      <defs>
+        <radialGradient id="ban-bg" cx="22%" cy="30%" r="80%">
+          <stop offset="0%" stop-color="#C4603A"/>
+          <stop offset="60%" stop-color="#2c2927"/>
+          <stop offset="100%" stop-color="#150D06"/>
+        </radialGradient>
+        <radialGradient id="ban-glow1" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#E07B54" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#E07B54" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="ban-glow2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#F0A882" stop-opacity="0.18"/>
+          <stop offset="100%" stop-color="#F0A882" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="blur-med">
+          <feGaussianBlur stdDeviation="28"/>
+        </filter>
+        <filter id="blur-big">
+          <feGaussianBlur stdDeviation="55"/>
+        </filter>
+        <filter id="text-glow">
+          <feGaussianBlur stdDeviation="6" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+        <clipPath id="banner-clip">
+          <rect width="1200" height="630" rx="0"/>
+        </clipPath>
+      </defs>
+
+      <!-- Background -->
+      <rect width="1200" height="630" fill="url(#ban-bg)"/>
+
+      <!-- Atmospheric glows -->
+      <ellipse cx="220" cy="200" rx="340" ry="300" fill="url(#ban-glow1)" filter="url(#blur-big)"/>
+      <ellipse cx="950" cy="480" rx="280" ry="220" fill="url(#ban-glow2)" filter="url(#blur-med)"/>
+
+      <!-- Geometric grid lines — subtle -->
+      <g opacity="0.055" stroke="#E07B54" stroke-width="1" fill="none">
+        <!-- Horizontal -->
+        <line x1="0" y1="105" x2="1200" y2="105"/>
+        <line x1="0" y1="210" x2="1200" y2="210"/>
+        <line x1="0" y1="315" x2="1200" y2="315"/>
+        <line x1="0" y1="420" x2="1200" y2="420"/>
+        <line x1="0" y1="525" x2="1200" y2="525"/>
+        <!-- Vertical -->
+        <line x1="200" y1="0" x2="200" y2="630"/>
+        <line x1="400" y1="0" x2="400" y2="630"/>
+        <line x1="600" y1="0" x2="600" y2="630"/>
+        <line x1="800" y1="0" x2="800" y2="630"/>
+        <line x1="1000" y1="0" x2="1000" y2="630"/>
+      </g>
+
+      <!-- Diagonal accent line -->
+      <line x1="0" y1="630" x2="420" y2="0" stroke="#E07B54" stroke-width="1" opacity="0.12"/>
+      <line x1="60" y1="630" x2="480" y2="0" stroke="#E07B54" stroke-width="0.5" opacity="0.07"/>
+
+      <!-- Large icon in banner — left side -->
+      <g transform="translate(72, 148) scale(0.65)">
+        <defs>
+          <radialGradient id="ico-bg-b" cx="38%" cy="32%" r="72%">
+            <stop offset="0%" stop-color="#F0A882"/>
+            <stop offset="55%" stop-color="#E07B54"/>
+            <stop offset="100%" stop-color="#8C3A1A"/>
+          </radialGradient>
+        </defs>
+        <rect width="512" height="512" rx="96" fill="url(#ico-bg-b)" opacity="0.95"/>
+        <rect x="148" y="128" width="52" height="256" rx="8" fill="#F7F5F3"/>
+        <path d="M200 128 Q320 128 320 200 Q320 256 200 256 L200 128Z" fill="#F7F5F3"/>
+        <path d="M200 256 Q340 256 340 328 Q340 384 200 384 L200 256Z" fill="#F7F5F3"/>
+        <path d="M207 148 Q295 148 295 200 Q295 236 207 236Z" fill="#E07B54"/>
+        <path d="M207 276 Q315 276 315 328 Q315 364 207 364Z" fill="#E07B54"/>
+        <circle cx="356" cy="148" r="30" fill="#F7F5F3" opacity="0.9"/>
+        <circle cx="356" cy="148" r="18" fill="#E07B54"/>
+      </g>
+
+      <!-- Wordmark -->
+      <text
+        x="424" y="308"
+        font-family="'Syne', 'Georgia', serif"
+        font-weight="800"
+        font-size="188"
+        letter-spacing="-6"
+        fill="#F7F5F3"
+        opacity="0.97"
+      >bapu</text>
+
+      <!-- TLD accent -->
+      <text
+        x="424" y="370"
+        font-family="'Syne', 'Georgia', serif"
+        font-weight="400"
+        font-size="42"
+        letter-spacing="8"
+        fill="#E07B54"
+        opacity="0.9"
+      >bapu.app</text>
+
+      <!-- Tagline -->
+      <text
+        x="427" y="430"
+        font-family="'Instrument Serif', 'Georgia', serif"
+        font-style="italic"
+        font-size="30"
+        fill="#D4B896"
+        opacity="0.75"
+        letter-spacing="1"
+      >open · social · yours</text>
+
+      <!-- AT Protocol badge — right edge -->
+      <g transform="translate(980, 52)">
+        <rect width="172" height="40" rx="20" fill="none" stroke="#E07B54" stroke-width="1" opacity="0.4"/>
+        <text x="86" y="26" text-anchor="middle"
+          font-family="'Syne', sans-serif"
+          font-size="13"
+          letter-spacing="3"
+          fill="#F0A882"
+          opacity="0.7"
+        >AT PROTOCOL</text>
+      </g>
+
+      <!-- Decentralized nodes decoration — right -->
+      <g opacity="0.2" stroke="#E07B54" stroke-width="1.5" fill="none">
+        <circle cx="1060" cy="340" r="6" fill="#E07B54" opacity="0.5"/>
+        <circle cx="1120" cy="290" r="4" fill="#E07B54" opacity="0.4"/>
+        <circle cx="1140" cy="390" r="5" fill="#E07B54" opacity="0.35"/>
+        <circle cx="1080" cy="430" r="3.5" fill="#E07B54" opacity="0.3"/>
+        <circle cx="1010" cy="400" r="4.5" fill="#E07B54" opacity="0.4"/>
+        <line x1="1060" y1="340" x2="1120" y2="290"/>
+        <line x1="1060" y1="340" x2="1140" y2="390"/>
+        <line x1="1060" y1="340" x2="1080" y2="430"/>
+        <line x1="1060" y1="340" x2="1010" y2="400"/>
+        <line x1="1120" y1="290" x2="1140" y2="390"/>
+        <line x1="1140" y1="390" x2="1080" y2="430"/>
+        <line x1="1080" y1="430" x2="1010" y2="400"/>
+      </g>
+
+      <!-- Bottom bar line -->
+      <line x1="72" y1="580" x2="540" y2="580" stroke="#E07B54" stroke-width="1" opacity="0.25"/>
+
+    </svg>

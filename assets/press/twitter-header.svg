@@ -1,0 +1,90 @@
+<svg width="900" height="300" viewBox="0 0 1500 500" xmlns="http://www.w3.org/2000/svg" style="display:block; max-width:100%;">
+      <defs>
+        <linearGradient id="twit-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1A0C05"/>
+          <stop offset="40%" stop-color="#2c2927"/>
+          <stop offset="100%" stop-color="#3D1F0A"/>
+        </linearGradient>
+        <radialGradient id="twit-glow" cx="15%" cy="50%" r="55%">
+          <stop offset="0%" stop-color="#C4603A" stop-opacity="0.45"/>
+          <stop offset="100%" stop-color="#C4603A" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="tw-blur">
+          <feGaussianBlur stdDeviation="40"/>
+        </filter>
+      </defs>
+
+      <rect width="1500" height="500" fill="url(#twit-bg)"/>
+      <ellipse cx="180" cy="250" rx="380" ry="300" fill="url(#twit-glow)" filter="url(#tw-blur)"/>
+
+      <!-- Horizontal rule motifs -->
+      <g opacity="0.07" stroke="#E07B54" stroke-width="1">
+        <line x1="0" y1="100" x2="1500" y2="100"/>
+        <line x1="0" y1="200" x2="1500" y2="200"/>
+        <line x1="0" y1="300" x2="1500" y2="300"/>
+        <line x1="0" y1="400" x2="1500" y2="400"/>
+        <line x1="300" y1="0" x2="300" y2="500"/>
+        <line x1="600" y1="0" x2="600" y2="500"/>
+        <line x1="900" y1="0" x2="900" y2="500"/>
+        <line x1="1200" y1="0" x2="1200" y2="500"/>
+      </g>
+
+      <!-- Small icon -->
+      <g transform="translate(68, 110) scale(0.54)">
+        <rect width="512" height="512" rx="96" fill="#E07B54" opacity="0.9"/>
+        <rect x="148" y="128" width="52" height="256" rx="8" fill="#F7F5F3"/>
+        <path d="M200 128 Q320 128 320 200 Q320 256 200 256 L200 128Z" fill="#F7F5F3"/>
+        <path d="M200 256 Q340 256 340 328 Q340 384 200 384 L200 256Z" fill="#F7F5F3"/>
+        <path d="M207 148 Q295 148 295 200 Q295 236 207 236Z" fill="#E07B54"/>
+        <path d="M207 276 Q315 276 315 328 Q315 364 207 364Z" fill="#E07B54"/>
+        <circle cx="356" cy="148" r="30" fill="#F7F5F3" opacity="0.9"/>
+        <circle cx="356" cy="148" r="18" fill="#E07B54"/>
+      </g>
+
+      <!-- Wordmark -->
+      <text x="360" y="310"
+        font-family="'Syne', 'Georgia', serif"
+        font-weight="800"
+        font-size="220"
+        letter-spacing="-8"
+        fill="#F7F5F3"
+        opacity="0.96"
+      >bapu</text>
+
+      <!-- Tagline right -->
+      <text x="1020" y="240"
+        font-family="'Instrument Serif', serif"
+        font-style="italic"
+        font-size="36"
+        fill="#D4B896"
+        opacity="0.65"
+        letter-spacing="1"
+      >open · social · yours</text>
+
+      <text x="1020" y="295"
+        font-family="'Syne', sans-serif"
+        font-size="18"
+        letter-spacing="5"
+        fill="#E07B54"
+        opacity="0.55"
+      >AT PROTOCOL</text>
+
+      <!-- Network dots right -->
+      <g opacity="0.22" stroke="#E07B54" stroke-width="1.5" fill="none">
+        <circle cx="1330" cy="230" r="7" fill="#E07B54" opacity="0.5"/>
+        <circle cx="1400" cy="170" r="5" fill="#E07B54" opacity="0.4"/>
+        <circle cx="1420" cy="300" r="6" fill="#E07B54" opacity="0.35"/>
+        <circle cx="1350" cy="350" r="4.5" fill="#E07B54" opacity="0.3"/>
+        <circle cx="1270" cy="310" r="5.5" fill="#E07B54" opacity="0.4"/>
+        <line x1="1330" y1="230" x2="1400" y2="170"/>
+        <line x1="1330" y1="230" x2="1420" y2="300"/>
+        <line x1="1330" y1="230" x2="1350" y2="350"/>
+        <line x1="1330" y1="230" x2="1270" y2="310"/>
+        <line x1="1400" y1="170" x2="1420" y2="300"/>
+        <line x1="1420" y1="300" x2="1350" y2="350"/>
+        <line x1="1350" y1="350" x2="1270" y2="310"/>
+      </g>
+
+      <line x1="68" y1="450" x2="500" y2="450" stroke="#E07B54" stroke-width="1" opacity="0.2"/>
+
+    </svg>
