@@ -72,9 +72,11 @@
     }
 
     .asset-preview img {
-      max-width: 100%;
-      height: auto;
-      max-height: 250px;
+      width: 100%;
+      height: 100%;
+      max-width: 200px;
+      max-height: 200px;
+      object-fit: contain;
       border-radius: 4px;
     }
 
@@ -105,11 +107,32 @@
       transition: opacity 0.2s;
     }
 
+
     .btn-download:hover {
       opacity: 0.9;
       color: white;
       text-decoration: none;
     }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .btn-small {
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      background: var(--border-color);
+      color: var(--text-color);
+    }
+    .btn-small:hover {
+      background: var(--muted-text);
+      color: white;
+    }
+
 
     .palette-grid {
       display: grid;
@@ -174,9 +197,17 @@
         </div>
         <div class="asset-info">
           <div class="asset-title">App Icon (Light)</div>
-          <div class="download-buttons">
-            <a href="/assets/press/icon-light.svg" download class="btn-download">SVG</a>
-            <a href="/assets/press/icon-light.png" download class="btn-download">PNG</a>
+          <div class="download-buttons" style="flex-direction: column; gap: 4px;">
+            <div class="btn-group">
+              <a href="/assets/press/icon-light.svg" download class="btn-download">Download SVG</a>
+            </div>
+            <div style="font-size: 0.85rem; color: var(--muted-text); margin-top: 8px;">PNG Versions:</div>
+            <div class="btn-group">
+              <a href="/assets/press/icon-light-128.png" download class="btn-download btn-small">128px</a>
+              <a href="/assets/press/icon-light-256.png" download class="btn-download btn-small">256px</a>
+              <a href="/assets/press/icon-light-512.png" download class="btn-download btn-small">512px</a>
+              <a href="/assets/press/icon-light-1024.png" download class="btn-download btn-small">1024px</a>
+            </div>
           </div>
         </div>
       </div>
@@ -187,9 +218,17 @@
         </div>
         <div class="asset-info">
           <div class="asset-title">App Icon (Dark)</div>
-          <div class="download-buttons">
-            <a href="/assets/press/icon-dark.svg" download class="btn-download">SVG</a>
-            <a href="/assets/press/icon-dark.png" download class="btn-download">PNG</a>
+          <div class="download-buttons" style="flex-direction: column; gap: 4px;">
+            <div class="btn-group">
+              <a href="/assets/press/icon-dark.svg" download class="btn-download">Download SVG</a>
+            </div>
+            <div style="font-size: 0.85rem; color: var(--muted-text); margin-top: 8px;">PNG Versions:</div>
+            <div class="btn-group">
+              <a href="/assets/press/icon-dark-128.png" download class="btn-download btn-small">128px</a>
+              <a href="/assets/press/icon-dark-256.png" download class="btn-download btn-small">256px</a>
+              <a href="/assets/press/icon-dark-512.png" download class="btn-download btn-small">512px</a>
+              <a href="/assets/press/icon-dark-1024.png" download class="btn-download btn-small">1024px</a>
+            </div>
           </div>
         </div>
       </div>
