@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bapu.app — Brand Assets</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+
+  :root {
+    --terracotta: #E07B54;
+    --terracotta-deep: #C4603A;
+    --terracotta-light: #F0A882;
+    --linen: #F5EDE3;
+    --linen-warm: #EDE0D0;
+    --espresso: #2C1A0E;
+    --espresso-mid: #5C3D24;
+    --sand: #D4B896;
+    --sand-light: #E8D5C0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1008;
+    font-family: 'Syne', sans-serif;
+    color: var(--linen);
+    min-height: 100vh;
+    padding: 48px 32px;
+  }
+
+  h2 {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sand);
+    margin-bottom: 20px;
+    opacity: 0.7;
+  }
+
+  .section {
+    margin-bottom: 64px;
+  }
+
+  /* ─── ICON ─────────────────────────────────────────── */
+  .icon-grid {
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .icon-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .icon-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sand);
+    opacity: 0.6;
+  }
+
+  /* ─── BANNER ────────────────────────────────────────── */
+  .banner-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  /* ─── DOWNLOAD BUTTONS ──────────────────────────────── */
+  .dl-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(224,123,84,0.35);
+    background: rgba(224,123,84,0.08);
+    color: var(--terracotta-light);
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .dl-btn:hover {
+    background: rgba(224,123,84,0.18);
+    border-color: var(--terracotta);
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     ICON
+══════════════════════════════════════════════════ -->
+<div class="section">
+  <h2>App Icon</h2>
+  <div class="icon-grid">
+
+    <!-- 512×512 -->
+    <div class="icon-wrap">
+      <svg id="icon-512" width="120" height="120" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bg-grad" cx="38%" cy="32%" r="72%">
+            <stop offset="0%" stop-color="#F0A882"/>
+            <stop offset="55%" stop-color="#E07B54"/>
+            <stop offset="100%" stop-color="#8C3A1A"/>
+          </radialGradient>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFF5EE" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="#FFF5EE" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="soft-shadow">
+            <feDropShadow dx="0" dy="8" stdDeviation="18" flood-color="#2C1A0E" flood-opacity="0.45"/>
+          </filter>
+        </defs>
+
+        <!-- Background pill -->
+        <rect width="512" height="512" rx="112" fill="url(#bg-grad)"/>
+        <!-- Glow overlay -->
+        <rect width="512" height="512" rx="112" fill="url(#glow)"/>
+        <!-- Subtle grain texture lines -->
+        <rect width="512" height="512" rx="112" fill="none" stroke="#FFF5EE" stroke-width="0.5" opacity="0.06"/>
+
+        <!-- Letter B — custom geometric -->
+        <!-- Vertical stem -->
+        <rect x="148" y="128" width="52" height="256" rx="8" fill="#F5EDE3" filter="url(#soft-shadow)"/>
+        <!-- Top bowl -->
+        <path d="M200 128 Q320 128 320 200 Q320 256 200 256 L200 128Z" fill="#F5EDE3"/>
+        <!-- Bottom bowl (wider) -->
+        <path d="M200 256 Q340 256 340 328 Q340 384 200 384 L200 256Z" fill="#F5EDE3"/>
+        <!-- Inner cutouts for B counter -->
+        <path d="M207 148 Q295 148 295 200 Q295 236 207 236Z" fill="#E07B54"/>
+        <path d="M207 276 Q315 276 315 328 Q315 364 207 364Z" fill="#E07B54"/>
+
+        <!-- Dot accent – decentralized/social nod -->
+        <circle cx="356" cy="148" r="30" fill="#F5EDE3" opacity="0.9"/>
+        <circle cx="356" cy="148" r="18" fill="#E07B54"/>
+      </svg>
+      <span class="icon-label">512 px</span>
+    </div>
+
+    <!-- 192×192 -->
+    <div class="icon-wrap">
+      <svg width="80" height="80" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <use href="#icon-512" xlink:href="#icon-512"/>
+        <defs>
+          <radialGradient id="bg-grad2" cx="38%" cy="32%" r="72%">
+            <stop offset="0%" stop-color="#F0A882"/>
+            <stop offset="55%" stop-color="#E07B54"/>
+            <stop offset="100%" stop-color="#8C3A1A"/>
+          </radialGradient>
+        </defs>
+        <rect width="512" height="512" rx="112" fill="url(#bg-grad2)"/>
+        <rect x="148" y="128" width="52" height="256" rx="8" fill="#F5EDE3"/>
+        <path d="M200 128 Q320 128 320 200 Q320 256 200 256 L200 128Z" fill="#F5EDE3"/>
+        <path d="M200 256 Q340 256 340 328 Q340 384 200 384 L200 256Z" fill="#F5EDE3"/>
+        <path d="M207 148 Q295 148 295 200 Q295 236 207 236Z" fill="#E07B54"/>
+        <path d="M207 276 Q315 276 315 328 Q315 364 207 364Z" fill="#E07B54"/>
+        <circle cx="356" cy="148" r="30" fill="#F5EDE3" opacity="0.9"/>
+        <circle cx="356" cy="148" r="18" fill="#E07B54"/>
+      </svg>
+      <span class="icon-label">192 px</span>
+    </div>
+
+    <!-- 64×64 -->
+    <div class="icon-wrap">
+      <svg width="48" height="48" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bg-grad3" cx="38%" cy="32%" r="72%">
+            <stop offset="0%" stop-color="#F0A882"/>
+            <stop offset="55%" stop-color="#E07B54"/>
+            <stop offset="100%" stop-color="#8C3A1A"/>
+          </radialGradient>
+        </defs>
+        <rect width="512" height="512" rx="112" fill="url(#bg-grad3)"/>
+        <rect x="148" y="128" width="52" height="256" rx="8" fill="#F5EDE3"/>
+        <path d="M200 128 Q320 128 320 200 Q320 256 200 256 L200 128Z" fill="#F5EDE3"/>
+        <path d="M200 256 Q340 256 340 328 Q340 384 200 384 L200 256Z" fill="#F5EDE3"/>
+        <path d="M207 148 Q295 148 295 200 Q295 236 207 236Z" fill="#E07B54"/>
+        <path d="M207 276 Q315 276 315 328 Q315 364 207 364Z" fill="#E07B54"/>
+        <circle cx="356" cy="148" r="30" fill="#F5EDE3" opacity="0.9"/>
+        <circle cx="356" cy="148" r="18" fill="#E07B54"/>
+      </svg>
+      <span class="icon-label">64 px</span>
+    </div>
+
+    <!-- Dark bg variant -->
+    <div class="icon-wrap">
+      <svg width="80" height="80" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <rect width="512" height="512" rx="112" fill="#2C1A0E"/>
+        <rect x="148" y="128" width="52" height="256" rx="8" fill="#E07B54"/>
+        <path d="M200 128 Q320 128 320 200 Q320 256 200 256 L200 128Z" fill="#E07B54"/>
+        <path d="M200 256 Q340 256 340 328 Q340 384 200 384 L200 256Z" fill="#E07B54"/>
+        <path d="M207 148 Q295 148 295 200 Q295 236 207 236Z" fill="#2C1A0E"/>
+        <path d="M207 276 Q315 276 315 328 Q315 364 207 364Z" fill="#2C1A0E"/>
+        <circle cx="356" cy="148" r="30" fill="#E07B54" opacity="0.9"/>
+        <circle cx="356" cy="148" r="18" fill="#2C1A0E"/>
+      </svg>
+      <span class="icon-label">Dark variant</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     BANNER — Social / OpenGraph  1200×630
+══════════════════════════════════════════════════ -->
+<div class="section">
+  <h2>Social Banner — 1200 × 630</h2>
+  <div class="banner-wrap">
+    <svg width="900" height="472" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" style="display:block; max-width:100%;">
+      <defs>
+        <radialGradient id="ban-bg" cx="22%" cy="30%" r="80%">
+          <stop offset="0%" stop-color="#C4603A"/>
+          <stop offset="60%" stop-color="#2C1A0E"/>
+          <stop offset="100%" stop-color="#150D06"/>
+        </radialGradient>
+        <radialGradient id="ban-glow1" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#E07B54" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#E07B54" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="ban-glow2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#F0A882" stop-opacity="0.18"/>
+          <stop offset="100%" stop-color="#F0A882" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="blur-med">
+          <feGaussianBlur stdDeviation="28"/>
+        </filter>
+        <filter id="blur-big">
+          <feGaussianBlur stdDeviation="55"/>
+        </filter>
+        <filter id="text-glow">
+          <feGaussianBlur stdDeviation="6" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+        <clipPath id="banner-clip">
+          <rect width="1200" height="630" rx="0"/>
+        </clipPath>
+      </defs>
+
+      <!-- Background -->
+      <rect width="1200" height="630" fill="url(#ban-bg)"/>
+
+      <!-- Atmospheric glows -->
+      <ellipse cx="220" cy="200" rx="340" ry="300" fill="url(#ban-glow1)" filter="url(#blur-big)"/>
+      <ellipse cx="950" cy="480" rx="280" ry="220" fill="url(#ban-glow2)" filter="url(#blur-med)"/>
+
+      <!-- Geometric grid lines — subtle -->
+      <g opacity="0.055" stroke="#E07B54" stroke-width="1" fill="none">
+        <!-- Horizontal -->
+        <line x1="0" y1="105" x2="1200" y2="105"/>
+        <line x1="0" y1="210" x2="1200" y2="210"/>
+        <line x1="0" y1="315" x2="1200" y2="315"/>
+        <line x1="0" y1="420" x2="1200" y2="420"/>
+        <line x1="0" y1="525" x2="1200" y2="525"/>
+        <!-- Vertical -->
+        <line x1="200" y1="0" x2="200" y2="630"/>
+        <line x1="400" y1="0" x2="400" y2="630"/>
+        <line x1="600" y1="0" x2="600" y2="630"/>
+        <line x1="800" y1="0" x2="800" y2="630"/>
+        <line x1="1000" y1="0" x2="1000" y2="630"/>
+      </g>
+
+      <!-- Diagonal accent line -->
+      <line x1="0" y1="630" x2="420" y2="0" stroke="#E07B54" stroke-width="1" opacity="0.12"/>
+      <line x1="60" y1="630" x2="480" y2="0" stroke="#E07B54" stroke-width="0.5" opacity="0.07"/>
+
+      <!-- Large icon in banner — left side -->
+      <g transform="translate(72, 148) scale(0.65)">
+        <defs>
+          <radialGradient id="ico-bg-b" cx="38%" cy="32%" r="72%">
+            <stop offset="0%" stop-color="#F0A882"/>
+            <stop offset="55%" stop-color="#E07B54"/>
+            <stop offset="100%" stop-color="#8C3A1A"/>
+          </radialGradient>
+        </defs>
+        <rect width="512" height="512" rx="96" fill="url(#ico-bg-b)" opacity="0.95"/>
+        <rect x="148" y="128" width="52" height="256" rx="8" fill="#F5EDE3"/>
+        <path d="M200 128 Q320 128 320 200 Q320 256 200 256 L200 128Z" fill="#F5EDE3"/>
+        <path d="M200 256 Q340 256 340 328 Q340 384 200 384 L200 256Z" fill="#F5EDE3"/>
+        <path d="M207 148 Q295 148 295 200 Q295 236 207 236Z" fill="#E07B54"/>
+        <path d="M207 276 Q315 276 315 328 Q315 364 207 364Z" fill="#E07B54"/>
+        <circle cx="356" cy="148" r="30" fill="#F5EDE3" opacity="0.9"/>
+        <circle cx="356" cy="148" r="18" fill="#E07B54"/>
+      </g>
+
+      <!-- Wordmark -->
+      <text
+        x="424" y="308"
+        font-family="'Syne', 'Georgia', serif"
+        font-weight="800"
+        font-size="188"
+        letter-spacing="-6"
+        fill="#F5EDE3"
+        opacity="0.97"
+      >bapu</text>
+
+      <!-- TLD accent -->
+      <text
+        x="424" y="370"
+        font-family="'Syne', 'Georgia', serif"
+        font-weight="400"
+        font-size="42"
+        letter-spacing="8"
+        fill="#E07B54"
+        opacity="0.9"
+      >bapu.app</text>
+
+      <!-- Tagline -->
+      <text
+        x="427" y="430"
+        font-family="'Instrument Serif', 'Georgia', serif"
+        font-style="italic"
+        font-size="30"
+        fill="#D4B896"
+        opacity="0.75"
+        letter-spacing="1"
+      >open · social · yours</text>
+
+      <!-- AT Protocol badge — right edge -->
+      <g transform="translate(980, 52)">
+        <rect width="172" height="40" rx="20" fill="none" stroke="#E07B54" stroke-width="1" opacity="0.4"/>
+        <text x="86" y="26" text-anchor="middle"
+          font-family="'Syne', sans-serif"
+          font-size="13"
+          letter-spacing="3"
+          fill="#F0A882"
+          opacity="0.7"
+        >AT PROTOCOL</text>
+      </g>
+
+      <!-- Decentralized nodes decoration — right -->
+      <g opacity="0.2" stroke="#E07B54" stroke-width="1.5" fill="none">
+        <circle cx="1060" cy="340" r="6" fill="#E07B54" opacity="0.5"/>
+        <circle cx="1120" cy="290" r="4" fill="#E07B54" opacity="0.4"/>
+        <circle cx="1140" cy="390" r="5" fill="#E07B54" opacity="0.35"/>
+        <circle cx="1080" cy="430" r="3.5" fill="#E07B54" opacity="0.3"/>
+        <circle cx="1010" cy="400" r="4.5" fill="#E07B54" opacity="0.4"/>
+        <line x1="1060" y1="340" x2="1120" y2="290"/>
+        <line x1="1060" y1="340" x2="1140" y2="390"/>
+        <line x1="1060" y1="340" x2="1080" y2="430"/>
+        <line x1="1060" y1="340" x2="1010" y2="400"/>
+        <line x1="1120" y1="290" x2="1140" y2="390"/>
+        <line x1="1140" y1="390" x2="1080" y2="430"/>
+        <line x1="1080" y1="430" x2="1010" y2="400"/>
+      </g>
+
+      <!-- Bottom bar line -->
+      <line x1="72" y1="580" x2="540" y2="580" stroke="#E07B54" stroke-width="1" opacity="0.25"/>
+
+    </svg>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     BANNER — Wide / Twitter Header  1500×500
+══════════════════════════════════════════════════ -->
+<div class="section">
+  <h2>Twitter / X Header — 1500 × 500</h2>
+  <div class="banner-wrap">
+    <svg width="900" height="300" viewBox="0 0 1500 500" xmlns="http://www.w3.org/2000/svg" style="display:block; max-width:100%;">
+      <defs>
+        <linearGradient id="twit-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1A0C05"/>
+          <stop offset="40%" stop-color="#2C1A0E"/>
+          <stop offset="100%" stop-color="#3D1F0A"/>
+        </linearGradient>
+        <radialGradient id="twit-glow" cx="15%" cy="50%" r="55%">
+          <stop offset="0%" stop-color="#C4603A" stop-opacity="0.45"/>
+          <stop offset="100%" stop-color="#C4603A" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="tw-blur">
+          <feGaussianBlur stdDeviation="40"/>
+        </filter>
+      </defs>
+
+      <rect width="1500" height="500" fill="url(#twit-bg)"/>
+      <ellipse cx="180" cy="250" rx="380" ry="300" fill="url(#twit-glow)" filter="url(#tw-blur)"/>
+
+      <!-- Horizontal rule motifs -->
+      <g opacity="0.07" stroke="#E07B54" stroke-width="1">
+        <line x1="0" y1="100" x2="1500" y2="100"/>
+        <line x1="0" y1="200" x2="1500" y2="200"/>
+        <line x1="0" y1="300" x2="1500" y2="300"/>
+        <line x1="0" y1="400" x2="1500" y2="400"/>
+        <line x1="300" y1="0" x2="300" y2="500"/>
+        <line x1="600" y1="0" x2="600" y2="500"/>
+        <line x1="900" y1="0" x2="900" y2="500"/>
+        <line x1="1200" y1="0" x2="1200" y2="500"/>
+      </g>
+
+      <!-- Small icon -->
+      <g transform="translate(68, 110) scale(0.54)">
+        <rect width="512" height="512" rx="96" fill="#E07B54" opacity="0.9"/>
+        <rect x="148" y="128" width="52" height="256" rx="8" fill="#F5EDE3"/>
+        <path d="M200 128 Q320 128 320 200 Q320 256 200 256 L200 128Z" fill="#F5EDE3"/>
+        <path d="M200 256 Q340 256 340 328 Q340 384 200 384 L200 256Z" fill="#F5EDE3"/>
+        <path d="M207 148 Q295 148 295 200 Q295 236 207 236Z" fill="#E07B54"/>
+        <path d="M207 276 Q315 276 315 328 Q315 364 207 364Z" fill="#E07B54"/>
+        <circle cx="356" cy="148" r="30" fill="#F5EDE3" opacity="0.9"/>
+        <circle cx="356" cy="148" r="18" fill="#E07B54"/>
+      </g>
+
+      <!-- Wordmark -->
+      <text x="360" y="310"
+        font-family="'Syne', 'Georgia', serif"
+        font-weight="800"
+        font-size="220"
+        letter-spacing="-8"
+        fill="#F5EDE3"
+        opacity="0.96"
+      >bapu</text>
+
+      <!-- Tagline right -->
+      <text x="1020" y="240"
+        font-family="'Instrument Serif', serif"
+        font-style="italic"
+        font-size="36"
+        fill="#D4B896"
+        opacity="0.65"
+        letter-spacing="1"
+      >open · social · yours</text>
+
+      <text x="1020" y="295"
+        font-family="'Syne', sans-serif"
+        font-size="18"
+        letter-spacing="5"
+        fill="#E07B54"
+        opacity="0.55"
+      >AT PROTOCOL</text>
+
+      <!-- Network dots right -->
+      <g opacity="0.22" stroke="#E07B54" stroke-width="1.5" fill="none">
+        <circle cx="1330" cy="230" r="7" fill="#E07B54" opacity="0.5"/>
+        <circle cx="1400" cy="170" r="5" fill="#E07B54" opacity="0.4"/>
+        <circle cx="1420" cy="300" r="6" fill="#E07B54" opacity="0.35"/>
+        <circle cx="1350" cy="350" r="4.5" fill="#E07B54" opacity="0.3"/>
+        <circle cx="1270" cy="310" r="5.5" fill="#E07B54" opacity="0.4"/>
+        <line x1="1330" y1="230" x2="1400" y2="170"/>
+        <line x1="1330" y1="230" x2="1420" y2="300"/>
+        <line x1="1330" y1="230" x2="1350" y2="350"/>
+        <line x1="1330" y1="230" x2="1270" y2="310"/>
+        <line x1="1400" y1="170" x2="1420" y2="300"/>
+        <line x1="1420" y1="300" x2="1350" y2="350"/>
+        <line x1="1350" y1="350" x2="1270" y2="310"/>
+      </g>
+
+      <line x1="68" y1="450" x2="500" y2="450" stroke="#E07B54" stroke-width="1" opacity="0.2"/>
+
+    </svg>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     STANDALONE SVG ICON for export
+══════════════════════════════════════════════════ -->
+<div class="section">
+  <h2>Standalone Icon SVG</h2>
+  <p style="font-size:12px; color:#a08060; margin-bottom:16px; letter-spacing:0.05em;">Right-click → Save image as… or copy the SVG below</p>
+
+  <div style="background:#F5EDE3; display:inline-flex; padding:24px; border-radius:16px; gap:16px;">
+    <!-- Light bg -->
+    <svg width="96" height="96" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="fin-bg" cx="38%" cy="32%" r="72%">
+          <stop offset="0%" stop-color="#F0A882"/>
+          <stop offset="55%" stop-color="#E07B54"/>
+          <stop offset="100%" stop-color="#8C3A1A"/>
+        </radialGradient>
+      </defs>
+      <rect width="512" height="512" rx="112" fill="url(#fin-bg)"/>
+      <rect x="148" y="128" width="52" height="256" rx="8" fill="#F5EDE3"/>
+      <path d="M200 128 Q320 128 320 200 Q320 256 200 256 L200 128Z" fill="#F5EDE3"/>
+      <path d="M200 256 Q340 256 340 328 Q340 384 200 384 L200 256Z" fill="#F5EDE3"/>
+      <path d="M207 148 Q295 148 295 200 Q295 236 207 236Z" fill="#E07B54"/>
+      <path d="M207 276 Q315 276 315 328 Q315 364 207 364Z" fill="#E07B54"/>
+      <circle cx="356" cy="148" r="30" fill="#F5EDE3" opacity="0.9"/>
+      <circle cx="356" cy="148" r="18" fill="#E07B54"/>
+    </svg>
+  </div>
+
+  <div style="background:#2C1A0E; display:inline-flex; padding:24px; border-radius:16px; gap:16px; margin-left:12px;">
+    <!-- Dark bg -->
+    <svg width="96" height="96" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <rect width="512" height="512" rx="112" fill="#2C1A0E"/>
+      <rect width="512" height="512" rx="112" fill="none" stroke="#E07B54" stroke-width="20"/>
+      <rect x="148" y="128" width="52" height="256" rx="8" fill="#E07B54"/>
+      <path d="M200 128 Q320 128 320 200 Q320 256 200 256 L200 128Z" fill="#E07B54"/>
+      <path d="M200 256 Q340 256 340 328 Q340 384 200 384 L200 256Z" fill="#E07B54"/>
+      <path d="M207 148 Q295 148 295 200 Q295 236 207 236Z" fill="#2C1A0E"/>
+      <path d="M207 276 Q315 276 315 328 Q315 364 207 364Z" fill="#2C1A0E"/>
+      <circle cx="356" cy="148" r="30" fill="#E07B54" opacity="0.9"/>
+      <circle cx="356" cy="148" r="18" fill="#2C1A0E"/>
+    </svg>
+  </div>
+
+</div>
+
+<!-- Color palette reference -->
+<div class="section">
+  <h2>Palette Reference</h2>
+  <div style="display:flex; gap:12px; flex-wrap:wrap;">
+    <div style="text-align:center;">
+      <div style="width:56px;height:56px;border-radius:8px;background:#E07B54;"></div>
+      <div style="font-size:10px;color:#a08060;margin-top:6px;">#E07B54</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:56px;height:56px;border-radius:8px;background:#F0A882;"></div>
+      <div style="font-size:10px;color:#a08060;margin-top:6px;">#F0A882</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:56px;height:56px;border-radius:8px;background:#C4603A;"></div>
+      <div style="font-size:10px;color:#a08060;margin-top:6px;">#C4603A</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:56px;height:56px;border-radius:8px;background:#F5EDE3;"></div>
+      <div style="font-size:10px;color:#a08060;margin-top:6px;">#F5EDE3</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:56px;height:56px;border-radius:8px;background:#D4B896;"></div>
+      <div style="font-size:10px;color:#a08060;margin-top:6px;">#D4B896</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:56px;height:56px;border-radius:8px;background:#2C1A0E;"></div>
+      <div style="font-size:10px;color:#a08060;margin-top:6px;">#2C1A0E</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
