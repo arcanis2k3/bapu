@@ -181,6 +181,34 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.discontinuation-banner {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-left: 6px solid #dc3545;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 32px;
+  font-size: 1rem;
+}
+
+.discontinuation-banner .banner-title {
+  color: #842029;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.discontinuation-banner strong {
+  color: #842029;
+}
+
+.discontinuation-banner p {
+  margin: 0;
+  line-height: 1.5;
+}
+
 .feedback-container input[type="text"],
 .feedback-container input[type="email"],
 .feedback-container select,
